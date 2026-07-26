@@ -41,7 +41,9 @@ I help solopreneurs doing under $1M a year generate more revenue and get their t
 **The #1 CTA — use this on nearly every post:**
 > **Comment "AI"**
 
-Variations allowed: "Comment AI and I'll send you the details," "Want this in your business? Comment AI." Do NOT invent other trigger words. Do not use link-in-bio CTAs as the primary ask — the comment is the CTA.
+**HARD RULE: the trigger word AI always gets quotes.** Write `Comment "AI"` — never `Comment AI`. Example: *Comment "AI" to learn more.*
+
+Variations allowed: "Comment \"AI\" and I'll send you the details," "Want this in your business? Comment \"AI\"." Do NOT invent other trigger words. Do not use link-in-bio CTAs as the primary ask — the comment is the CTA.
 
 ---
 
@@ -149,7 +151,8 @@ No CRM. Nowhere to host courses or resources. No onboarding.
 - **CTA:** "Comment AI" — but VERIFY the comment automation is wired to Threads before relying on it; if it isn't, use "Comment AI and I'll get you the details" and handle replies manually, or point to Instagram ("DM me 'AI' on IG")
 
 ### Cross-platform rules
-- One idea per post. One CTA per post. Always "Comment AI."
+- One idea per post. One CTA per post. Always Comment "AI" — trigger word in quotes, every time.
+- Every post proposal must include a written caption for EACH platform it's going to, shown for approval before anything is scheduled
 - Every post maps to a pillar (Section 8) and, where possible, a real story (Section 7)
 - Never invent client results — three true stories, infinite angles
 
