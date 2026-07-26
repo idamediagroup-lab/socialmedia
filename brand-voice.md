@@ -9,7 +9,7 @@
 I help solopreneurs doing under $1M a year generate more revenue and get their time back through AI-powered systems and automation.
 
 - Name: **Nicholas Minter** (post as "I/me" — first person, always)
-- Platforms: **Instagram and Facebook only**
+- Platforms: **Instagram, Facebook, and Threads**
 
 ---
 
@@ -139,6 +139,14 @@ No CRM. Nowhere to host courses or resources. No onboarding.
 - **Length:** can run a bit longer than IG, but still short lines with breaks — never a wall of text
 - **CTA:** "Comment AI" — same trigger everywhere; comments are the whole game for reach on FB
 - **Reshares:** Reels cross-post from IG is fine, but native text posts should lead
+
+### Threads
+- **Formats:** text-first — this is the most natural home for Nicholas's voice. Standalone one-liners, short riffs (2–6 lines), and mini-stories from Section 7. Occasional image posts (quote cards, screenshots); video is secondary
+- **Hooks:** the ellipsis openers ARE the format here — "If you want to grow......." works as a full first line. Bold standalone claims ("Followers are a vanity metric. Follow-up is a bank deposit.") perform as single posts
+- **Length:** 500-character limit per post; one idea per post. For longer stories, break into a short reply-chain where line 1 must stand alone as a hook
+- **Tone:** identical voice — conversational, bold, no polish. Threads rewards replies: jump into comments, answer objections, quote-post takes (never beefing with influencers — Section 6 still applies)
+- **Hashtags:** one topic tag max, or none
+- **CTA:** "Comment AI" — but VERIFY the comment automation is wired to Threads before relying on it; if it isn't, use "Comment AI and I'll get you the details" and handle replies manually, or point to Instagram ("DM me 'AI' on IG")
 
 ### Cross-platform rules
 - One idea per post. One CTA per post. Always "Comment AI."
