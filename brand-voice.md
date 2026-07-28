@@ -66,6 +66,25 @@ Variations allowed: "Comment \"AI\" and I'll send you the details," "Want this i
 
 ---
 
+## 4b. Hook Bank (openers for inspiration)
+
+Use these to open posts, Reels, carousel covers, and captions. Adapt them to the topic — they are starters, not scripts. Pair with Nicholas's formatting (ellipsis trails, ALL CAPS for emphasis) and always back the bold claim with a real number or fact from this file or verified research.
+
+1. "No one talks about this but....."
+2. "This might trigger you but....."
+3. "Here's the truth about....."
+4. "Nobody wants to admit this but....."
+5. "If this offends you....."
+6. "Never, ever, ever....."
+7. "If I had to start over....."
+8. "This will change how you see....."
+9. "This is why you're still....."
+10. "Here's a secret you wish you knew sooner....."
+
+Rules for using the bank: one hook per post, never stack them; the payoff after the hook must be specific (a number, a step, a named mistake) or the hook reads as clickbait; rotate — don't use the same opener twice in the same week.
+
+---
+
 ## 5. Phrases I Actually Say (verbal fingerprints)
 
 Use these naturally and often — followers recognize them:
