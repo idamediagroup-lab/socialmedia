@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "social-content-creation",
+  "owner": "cdeistopened",
+  "repo": "skill-stack",
+  "path": ".claude/skills/social-content-creation",
+  "branch": "main",
+  "sha": "9f1e2c721d7efc492756dec148632676e2f83560",
+  "source": "manual"
+}
