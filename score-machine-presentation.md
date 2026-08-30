@@ -1,170 +1,173 @@
-# The Score Machine — Presentation Framework
+# The Score Machine — Super Sunday Presentation Framework
 
-> **What this file is:** the structural blueprint for the Score Machine presentation (masterclass / webinar deck). It governs *what goes on each slide and why*. Copy is written from `brand-voice.md` — voice always wins on wording. `carousel-design-rules.md` governs the repurposed carousel, not the deck itself.
->
-> **Source note:** the supplied Keynote export (`index.html`) is a player shell only — no slide data was included, so nothing here was extracted from an existing deck.
->
-> **Interpretation of "Score":** the score is the audience member's *business* score — a 0–100 number measuring how much of their revenue engine runs without them. If The Score Machine is instead a credit-score offer, the five gears in Section 4 get re-skinned; the five-act spine and the slide map hold either way.
+> **Event:** Super Sunday — free live training, tonight, limited seats.
+> **Funnel promise:** *"Denied Again? The Bank Didn't Turn You Down For The Reason You Think."*
+> **Scope:** credit and business funding only. This deck carries no material from any other business — no marketing/automation offer, no agency framework, no social-media CTA.
 
 ---
 
-## 1. The Deck's One Job
+## 0. The Governing Rule
 
-Make a solopreneur score their own business live, watch the number come out low, and understand that the gap between their number and 100 is a system — not more hustle, more followers, or more hours.
+**The deck's job is to pay off the landing page, in the landing page's order.**
 
-**Not** the job of this deck: teach the tech stack. The stack is proof, not the promise. Sell revenue + time back.
+Everyone in the room registered against four specific promises. Deliver them in sequence and the room stays. Reorder them and you spend the whole session re-earning attention.
 
-**Success metric:** comments of `"AI"` during and after the presentation → discovery calls booked.
-
----
-
-## 2. Rules Inherited From Brand Voice (non-negotiable on every slide)
-
-| Rule | Applied to slides |
-|---|---|
-| Bold dial = 1 (MAXIMUM BOLD) | Every headline is a claim or a callout. No "this might help." |
-| Casual dial = 2 (texting style) | One idea per slide. Short lines. Fragments fine. Never a paragraph on screen. |
-| ALL CAPS for signature lines | `REGULATE, AUTOMATE, DELEGATE` always all caps. |
-| Ellipsis trail openers | `If you want to grow.......` — use on section-break slides. |
-| Real numbers only | Only the three true client stories (Section 7 of brand-voice.md). Never invent a client, a number, or a case study for a slide. |
-| Trigger word in quotes | `Comment "AI"` — never `Comment AI`. Applies on screen and out loud. |
-| Hard guardrails | No religion, no crypto, no influencer beef, no competitor named. "Agencies charging $3k/mo for a $297 system" is fair; naming one is not. |
-| Every section maps to a pillar | Pillar 1 (AI & automation), Pillar 2 (time freedom / R.A.D.), Pillar 3 (legitimacy & compliance). |
+| The funnel said | The deck must deliver | Act |
+|---|---|---|
+| "The bank didn't turn you down for the reason you think" | The actual reason | 2 |
+| "Let's see if I'm describing your situation" | Their exact situation, named back to them | 1 |
+| "Here's what another year of this actually costs you" | The dollar cost of waiting | 1 |
+| **#1 — THE APPROVAL GAP** | Why a "fine" score still gets denied | 2 |
+| **#2 — THE 90-DAY REBUILD** | What to fix, in what order, in 90 days | 3 |
+| **#3 — THE STACK** | The tiered order approvals actually come in | 4 |
+| "Let me be straight with you about what this is" | An honest frame, early | 1 |
 
 ---
 
-## 3. The Spine — Five Acts
+## 1. The Central Claim
 
-| Act | Slides | Time | Job | Emotional beat |
-|---|---|---|---|---|
-| 1. Cold Open | 1–5 | 0–5 min | Stop the scroll in a room. Set the rule: they will score themselves. | Tension |
-| 2. The Diagnosis | 6–13 | 5–15 min | Name their exact 11pm pain and price it in dollars. | Recognition → discomfort |
-| 3. The Machine | 14–26 | 15–32 min | Teach the five gears. They score each one as it's taught. | Clarity |
-| 4. Proof & Path | 27–32 | 32–40 min | R.A.D. as the route from their score to 100. Three real builds. Kill objections. | Belief |
-| 5. The Close | 33–38 | 40–45 min | One offer, one ask, one keyword. | Decision |
+**A score is not an approval. The score is one input. The approval is a machine.**
 
-Q&A after slide 38, with the offer slide left on screen.
+That is the whole thesis and the reason the event is called The Score Machine. The audience believes: *higher score → approval*. They will leave believing: *complete profile → approval*, and the score is one gear of five.
+
+Everything on stage tonight either proves that sentence or shows them how to build it.
 
 ---
 
-## 4. The Core Model — The Score Machine
+## 2. The Model — Five Gears
 
-Five gears. Each scored **0–20**. Total **0–100**. A gear only earns points for what runs *without the owner touching it*.
+Each gear scored **0–20**. Total **0–100**. Score only what is *true today* — not what they intend to fix.
 
-| # | Gear | The question the audience scores | What a 0 looks like | Pillar |
-|---|---|---|---|---|
-| 1 | **CAPTURE** | Does every lead land in one place automatically? | Leads live in DMs, a notes app, and their head | 1 |
-| 2 | **SPEED** | How fast does lead #1 get a first response? | Hours or days — the lead already bought elsewhere | 1 |
-| 3 | **FOLLOW-UP** | Does the follow-up keep running on day 3, 10, 30 without them? | One text, then silence. "The fortune is in the follow up....." | 1 |
-| 4 | **FILTER** | Does the system qualify AND disqualify before it hits their calendar? | Every tire-kicker gets a free hour of their life | 2 |
-| 5 | **DELIVER** | Onboarding, resources, and fulfillment — hosted and automatic? | Manual onboarding, nowhere to put the course, clients churn quietly | 2 / 3 |
+| # | Gear | The question they score | What a 0 looks like |
+|---|---|---|---|
+| 1 | **PROFILE** | Is the personal credit profile accurate and ready? | Errors never disputed, no idea what's actually on the report |
+| 2 | **STRUCTURE** | Is the business legally and legitimately fundable? | Mismatched name/address/phone across records, no business bank account, no real entity setup |
+| 3 | **REPORTING** | Does the business have a credit identity that lenders can see? | No business credit file at all — the business is invisible to underwriting |
+| 4 | **THE STACK** | Are accounts being opened in the right tier, in the right order? | Applying straight for the big cash line, skipping every tier under it |
+| 5 | **BEHAVIOR** | Utilization, timing, and inquiries under control? | Maxed cards, applications sprayed everywhere, no seasoning |
 
-**Score bands (slide 27):**
+**Bands — the punchline of the whole night:**
 
-- **0–40 — YOU ARE THE MACHINE.** The business stops when you sleep. Growth here costs hours, not systems.
-- **41–70 — DUCT TAPE.** Some automation, no connection between the pieces. Leads leak between platforms.
-- **71–100 — THE MACHINE RUNS.** You work on the offer. The system works the leads.
+- **0–40 — INVISIBLE.** Not "bad credit." No profile for a lender to approve.
+- **41–70 — THE APPROVAL GAP.** Exactly where the denials come from: score looks fine, the machine is incomplete. *This is where most of the room will land — and it is the name of promise #1.*
+- **71–100 — FUNDABLE.** Approvals become predictable rather than lucky.
 
-The band is the transition into the offer: **the $297/month build is the shortest distance between their band and the next one.**
+> The gap band is the emotional center of the event. It reframes every denial they've ever gotten from *"I'm not good enough"* to *"three gears were missing."* Land it hard.
 
 ---
 
-## 5. Slide-by-Slide Map
+## 3. Act Structure (75 minutes, three presenters)
 
-### ACT 1 — THE COLD OPEN (1–5)
+| Act | Time | Owner | Job |
+|---|---|---|---|
+| **1. The Open** | 0–12 | Host | Mirror the funnel, name the pain, set the frame, introduce all three teachers |
+| **2. The Approval Gap** | 12–30 | Presenter A | Prove score ≠ approval. Score gears 1–2. |
+| **3. The 90-Day Rebuild** | 30–48 | Presenter B | The fix, in order, with a timeline. Score gear 3. |
+| **4. The Stack** | 48–63 | Presenter C | The tiers, in sequence. Score gears 4–5. |
+| **5. The Close** | 63–75 | Host + all | Tally, band, next step, Q&A |
+
+**Three-presenter rules (this is where multi-host webinars break):**
+- One person owns the scorecard and returns to it between every act — the through-line, not three separate talks
+- Each handoff is a *scored slide*: the outgoing presenter says the gear number and the score, the incoming presenter picks it up from that number
+- No one re-introduces themselves mid-deck; all three are introduced once, on slides 5–7
+- No one teaches another presenter's gear, even briefly
+
+---
+
+## 4. Slide-by-Slide Map
+
+### ACT 1 — THE OPEN (1–12)
 
 | # | Slide | Direction |
 |---|---|---|
-| 1 | **Title** | `THE SCORE MACHINE` in oversized condensed caps, one accent word in the pink→orange gradient. Subhead: the outcome, not the topic. Handle in the header bar. |
-| 2 | **The hook** | One stakes-forward line from the hook bank, said out loud in the first 5 seconds. Nothing else on the slide. Example energy: *"No one talks about this but..... your business already has a score. You've just never seen it."* |
-| 3 | **The promise** | Three bullets max — what they leave with: their number, the five gears, and the exact fix for their lowest gear. |
-| 4 | **Who I am** | One sentence (Section 1 of brand-voice.md) + three result numbers ($10K/30 days · 6 figures + $10K MRR · $1M/yr). No résumé, no bio slide. |
-| 5 | **The rule of the room** | "Pen out. You're scoring yourself, gear by gear. Lie on this and you waste the next 40 minutes." Sets participation and makes the low score *theirs*, not an accusation. |
+| 1 | **Title** | `THE SCORE MACHINE` — Super Sunday. Live. |
+| 2 | **The headline, restated** | The funnel's exact line: the bank didn't turn you down for the reason you think. Say it, then pause. |
+| 3 | **"Let's see if I'm describing your situation"** | The funnel's qualifier bullets, verbatim — denied with a "fine" score, stuck at a $500 limit and calling it progress, cards but no vendor accounts, no business credit. Verbatim matters: they recognize their own words and lean in. |
+| 4 | **"If you just nodded at even one of these"** | One line: Super Sunday was built for you. |
+| 5–7 | **Who's teaching this** | One slide per presenter. Credential + the specific gear they own tonight. No life stories — the credential must be relevant to the gear they teach. |
+| 8 | **"Let me be straight with you about what this is"** | Honest frame, early, and it buys credibility for the next 60 minutes. What this is; what it is not; no guaranteed numbers, no overnight promises. |
+| 9 | **"Here's what another year of this actually costs you"** | The cost-of-inaction slide. Not abstract — the specific thing they can't do without funding: the truck, the inventory, the crew, the contract they had to turn down. |
+| 10 | **The reframe** | `A SCORE IS NOT AN APPROVAL.` Deck pivots here. |
+| 11 | **The machine** | All five gears on one slide. Show it whole once, then take it apart. Design this as the screenshot slide. |
+| 12 | **How scoring works** | 5 gears × 20 = 100. Rule: score what's true today, not what you plan to fix. Pen and paper out. |
 
-### ACT 2 — THE DIAGNOSIS (6–13)
-
-| # | Slide | Direction |
-|---|---|---|
-| 6 | **11pm** | The single most important empathy slide. One image, one line: they're still answering DMs at 11pm, knowing leads went cold today. |
-| 7 | **The four symptoms** | No CRM · slow follow-up · everything manual · scattered across platforms. Four short lines, no explanation yet. |
-| 8 | **The reframe** | `YOU DON'T HAVE A TRAFFIC PROBLEM.` Beat. Next line: you have a *response* problem. This is the deck's pivot. |
-| 9 | **The speed slide** | The cost of slow follow-up. ⚠️ Requires a **verified, cited** statistic — verify the source before it goes on screen, or cut the slide and carry the point with Story 1 instead. Never estimate a number here. |
-| 10 | **The math** | Their own numbers, live: leads/month × close rate × ticket = the revenue that walked out this year. Let the room do the arithmetic. |
-| 11 | **Story 1 — the tax preparer** | Real following, no CRM, no offer, everything manual. Challenge funnel + SMS/DM/email automation. **$10,000 in 30 days.** |
-| 12 | **The turn** | `An audience without a system is just expensive entertainment.` The following was already there — the system turned it into money. Quote-card slide. |
-| 13 | **Section break** | `If you want to grow.......` → and then the model. |
-
-### ACT 3 — THE MACHINE (14–26) — the teaching core
+### ACT 2 — THE APPROVAL GAP (13–20) — *funnel promise #1*
 
 | # | Slide | Direction |
 |---|---|---|
-| 14 | **The full diagram** | All five gears on one slide. Show it once whole, then break it apart. This is the screenshot slide — design it to be saved. |
-| 15 | **How scoring works** | 5 gears × 20 points = 100. Rule: a gear scores only for what runs *without you*. |
-| 16–17 | **Gear 1 — CAPTURE** | 16: what it is + what it looks like broken. 17: `SCORE YOURSELF 0–20` with three honest checkpoints. |
-| 18–19 | **Gear 2 — SPEED** | Same two-slide pattern. Land `The fortune is in the follow up.....` here as the section quote. |
-| 20–21 | **Gear 3 — FOLLOW-UP** | Same pattern. **Story 3 lands here:** credit repair + funding coach, no CRM, nowhere to host, no onboarding → AI agents + full onboarding → **$1M a year "sending text messages."** |
-| 22–23 | **Gear 4 — FILTER** | Same pattern. **Story 2 lands here:** the disqualification angle — the system filtering bad leads is a feature, not a loss. |
-| 24–25 | **Gear 5 — DELIVER** | Same pattern. This is where Pillar 3 (running a real business, not a risky hustle) gets its moment. |
-| 26 | **Tally** | "Add it up. Out loud in the chat." Full 0–100 scale on screen. |
+| 13 | **The gap, defined** | Score qualifies you to be *considered*. The rest of the machine gets you *approved*. |
+| 14 | **The denial autopsy** | A real denial walked through line by line — what the applicant assumed vs. what underwriting actually saw. Most memorable slide in Act 2. |
+| 15–16 | **Gear 1 — PROFILE** | Teach, then `SCORE YOURSELF 0–20`. |
+| 17–18 | **Gear 2 — STRUCTURE** | Teach, then score. The mismatch checklist (name, address, phone, entity, bank account) belongs here — it's concrete and every person in the room fails part of it. |
+| 19 | **Why 700 gets denied** | The payoff of the funnel headline. Same score, two applicants, opposite outcomes — the difference is gears 2–5. |
+| 20 | **Handoff** | "That's gears 1 and 2. Write your number down. [Presenter B] has gear 3." |
 
-### ACT 4 — PROOF & PATH (27–32)
+### ACT 3 — THE 90-DAY REBUILD (21–29) — *funnel promise #2*
 
 | # | Slide | Direction |
 |---|---|---|
-| 27 | **The bands** | 0–40 / 41–70 / 71–100 with what each band means for their next 12 months. |
-| 28 | **REGULATE, AUTOMATE, DELEGATE** | The signature framework as the route between bands. All caps, one slide, no sub-bullets. Regulate = fix the process. Automate = hand it to the system. Delegate = hand what's left to a human. |
-| 29 | **Story 2 in full** | Coach + car rental. Weekly webinar funnel, SMS/email/DM automation, AI bot capturing leads, intake funnel that qualifies and disqualifies. **Six figures annually + $10K/month recurring.** |
-| 30 | **Before/after scorecards** | The three real clients rendered as Score Machine cards — where each gear sat before the build and after. Most persuasive slide in the deck: it makes the abstract score concrete. |
-| 31 | **What it actually is** | The stack, once, briefly: CRM + funnel + AI bots + chat widget + SMS + email + automation, built in GoHighLevel. Demystify — don't dazzle. |
-| 32 | **Objection block** | Three lines, three answers: *"I'm not techy"* (you don't build it — it's done-for-you) · *"I don't have time"* (that's the symptom, not the objection) · *"I'll do it myself"* (you've had the same score for how long?). |
+| 21 | **What "rebuild" actually means** | Not repair. Building a profile that didn't exist. |
+| 22–23 | **Gear 3 — REPORTING** | Business credit identity: the bureaus, the file, why the business is currently invisible. Then score. |
+| 24 | **Days 1–30** | One screen, few items, ordered. |
+| 25 | **Days 31–60** | Same layout. The repetition is the teaching. |
+| 26 | **Days 61–90** | Same layout, ending on what becomes possible at day 90. |
+| 27 | **The order matters slide** | The same actions in the wrong order produce denials — this is the single most useful idea in the act. |
+| 28 | **What most people do instead** | The shortcut everyone tries and why it costs them 6 months. |
+| 29 | **Handoff** | Gear 3 scored. "[Presenter C] — the stack." |
 
-### ACT 5 — THE CLOSE (33–38)
+### ACT 4 — THE STACK (30–37) — *funnel promise #3*
 
 | # | Slide | Direction |
 |---|---|---|
-| 33 | **Two roads** | Same score 12 months from now, or the machine running. No third option on the slide. |
-| 34 | **The offer** | **$297/month — Done-For-You System**, itemized against the five gears so every line item maps to a number they just scored. |
-| 35 | **The price frame** | What agencies charge for this same build vs $297. Practices, never names. Say the price confidently and out loud. |
-| 36 | **The ask** | `COMMENT "AI"` — the largest type in the entire deck. Trigger word in quotes. One ask, nothing competing on the slide. |
-| 37 | **What happens next** | Comment `"AI"` → details in DM → discovery call. Three steps, numbered, so the path is obvious. |
-| 38 | **Close** | `The fortune is in the follow up.....` Quote card, handle, and the `"AI"` keyword still visible for Q&A. |
+| 30 | **The stack, whole** | The tiers as a single visual, bottom to top. The other screenshot slide of the night. |
+| 31 | **Tier by tier** | One slide per tier: what it is, what it takes to qualify, what it unlocks above it. |
+| 32–33 | **Gear 4 — THE STACK** | Teach, then score. |
+| 34 | **The skipped-tier denial** | Why applying at the top first gets denied *and* damages the next attempt. |
+| 35–36 | **Gear 5 — BEHAVIOR** | Utilization, timing, inquiries, seasoning. Then score. |
+| 37 | **The $500 limit slide** | Direct callback to the funnel bullet: stuck at $500 and calling it progress. Show what actually moves the limit. |
+
+### ACT 5 — THE CLOSE (38–44)
+
+| # | Slide | Direction |
+|---|---|---|
+| 38 | **Tally** | Full 0–100 scale. "Add all five. Put your number in the chat." Live participation spike here. |
+| 39 | **The bands** | 0–40 / 41–70 / 71–100 and what the next 12 months look like in each. |
+| 40 | **The gap, named** | Most of the room is 41–70. "That's not a credit problem. That's the approval gap — and it has an address." |
+| 41 | **The two roads** | Same score next Super Sunday, or the machine built. |
+| 42 | **The next step** | ⚠️ **The offer slide — I don't know what's being offered tonight.** Structure to fill: what it is → what it includes, mapped gear by gear to the five they just scored → who it's for and who it isn't → price, said plainly → the single action to take right now. |
+| 43 | **How to take it** | One action, stated three times, on screen while Q&A runs. |
+| 44 | **Q&A holding slide** | The scorecard stays on screen the entire Q&A so late arrivals can score themselves live. |
 
 ---
 
-## 6. Design System for the Deck
+## 5. Compliance Guardrails (non-negotiable on a credit stage)
 
-Slide canvas is **1920 × 1080 (16:9)** — the 1080 × 1440 carousel spec does **not** apply here; it applies to the repurposed carousel in Section 7.
-
-- Headlines: ultra-bold condensed sans, **≥60pt**, white on deep blue/near-black covers, black on white inner slides
-- Body: **≥28pt**, max ~12 words per slide
-- One accent word per headline in the pink→orange gradient — the single most loaded word, never two
-- Consistent header bar on every slide: `AI Systems & Automation | @nicholasminter`
-- Inner slides: clean white, rounded-corner outline cards, generous whitespace
-- Gear slides share one repeating layout so the pattern itself teaches the model
-- Scorecard slides use the same card component as the client before/after slides on 30
+- **No guaranteed outcomes.** No promised score increases, approval amounts, or timelines stated as certainties. "Results vary" is not a disclaimer to bury — the honest frame on slide 8 is stronger content than a promise anyway.
+- **Every number verified.** No statistic goes on a slide without a source. No invented case studies, no rounded-up client results, no borrowed wins.
+- **Client stories:** real, permissioned, accurate. If a story can't survive being repeated back by an attendee, it doesn't go on a slide.
+- **Nothing that reads as advice to misrepresent anything** to a lender or a bureau — not in a slide, not in an aside, not in Q&A.
+- Slide 8 is where the legal frame lives, said in plain language rather than read as fine print.
 
 ---
 
-## 7. Repurposing Map (deck → feed)
+## 6. Deck Design
 
-| Source | Becomes | Notes |
-|---|---|---|
-| Act 3 (slides 14–26) | 10-slide carousel, 1080 × 1440 | Map to A.I.D.A. per `carousel-design-rules.md`: slide 14 diagram = the hook, one gear per tease slide, band chart = the climax, `COMMENT "AI"` = the action |
-| Slide 8 (`YOU DON'T HAVE A TRAFFIC PROBLEM`) | Reel | Hook spoken in the first 2 seconds, on screen as text |
-| Slide 28 (R.A.D.) | Threads one-liners | One idea per post, 500-char limit, ellipsis opener |
-| Slide 30 (before/after scorecards) | Facebook text posts | The workhorse format: client story in 4–8 short lines |
-| The scorecard itself | Lead magnet | Self-scoring PDF delivered by the `"AI"` comment automation |
-
-Every repurposed post gets its own written caption per platform, shown for approval before scheduling.
+- 1920 × 1080 (16:9), dark ground with a single high-contrast accent to match the funnel
+- Headlines ≥60pt, body ≥28pt, ~12 words per slide, one idea per slide
+- The five gears use one repeating layout so the pattern itself teaches the model
+- Every `SCORE YOURSELF` slide is visually identical — the audience should recognize it instantly by slide 20
+- The gear diagram (11) and the stack diagram (30) are the two designed-to-be-screenshotted slides
+- Countdown/urgency visuals stay on the funnel; they don't belong inside the teaching deck
 
 ---
 
-## 8. Pre-Present Checklist
+## 7. Pre-Show Checklist
 
-1. Does slide 2 have stakes or an ellipsis opener?
-2. Is every headline a claim, a callout, or a number — never a hedge?
-3. Is any statistic on slide 9 verified and sourced, or cut?
-4. Are all client numbers exactly as written in `brand-voice.md` Section 7 — nothing added, nothing rounded?
-5. No religion, crypto, influencer beef, or named competitor anywhere in the deck?
-6. Is `"AI"` in quotes on every slide it appears on — and said in quotes out loud?
-7. Does every slide carry one idea, and could a stranger read the smallest text from the back of the room?
+1. Does every funnel promise have a slide that pays it off, in funnel order?
+2. Are the qualifier bullets on slide 3 verbatim from the landing page?
+3. Does each presenter own their gears and only their gears?
+4. Is every handoff a scored slide with a number spoken out loud?
+5. Is every statistic sourced and every client story real and permissioned?
+6. Are there zero guaranteed outcomes anywhere in the deck?
+7. Does the scorecard appear at least six times so the through-line never drops?
+8. Is the next step one action, stated plainly, and still on screen during Q&A?
