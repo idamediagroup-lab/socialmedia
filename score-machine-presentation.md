@@ -159,12 +159,13 @@ Present it as *the Score Machine underwriting model* — conservative on purpose
 |---|---|---|
 | 47 | **The two files** | Slide 23's file and slide 46's file, together. Which one are you? |
 | 48 | **What it takes to go from one to the other** | Transition into the stack. Not willpower — a tool. |
-| 49 | **The value stack** | Section 6. Build it line by line on screen, price appearing beside each. |
-| 50 | **The total** | `$997` |
-| 51 | **The ladder** | The strike-throughs, one reveal at a time. |
-| 52 | **The $1 trial** | `$1 FOR 7 DAYS` — biggest type in the deck. Then $97/month. |
-| 53 | **What happens in those 7 days** | Concrete: upload your report tonight, run the Blueprint, see your ten lines, know your eligibility before you apply to anything. The trial has to have a *job*, not just a price. |
-| 54 | **Q&A holding slide** | Blueprint and the offer both on screen for the whole Q&A. |
+| 49 | **The value stack** | Section 6. Build it line by line, price appearing beside each as you say it. |
+| 50 | **The total** | `$997`. Let it sit. This is the number they're comparing everything against. |
+| 51 | **~~$997~~ → $497** | New slide, same layout. $997 struck through, $497 beneath it. |
+| 52 | **~~$497~~ → $247** | Same layout again. The repetition is the mechanism — each slide is visibly less than the last. |
+| 53 | **~~$247~~ → $1 TO GET STARTED** | The hero. `$1 TO GET STARTED` in the biggest type in the entire deck. `7 days, then $97/month` beneath it, deliberately smaller — present, legible, said out loud, but not competing with the $1. |
+| 54 | **What happens in those 7 days** | Concrete: upload your report tonight, run the Blueprint, see your ten lines, know your eligibility before you apply to anything. The trial needs a *job*, not just a price. |
+| 55 | **Q&A holding slide** | Blueprint and the offer both on screen for the whole Q&A. |
 
 ---
 
@@ -185,13 +186,23 @@ Present it as *the Score Machine underwriting model* — conservative on purpose
 
 Every line is something they watched work earlier in the deck. Nothing in the stack should be new information at slide 49 — that's what makes the number feel earned instead of asserted.
 
-### The ladder
+### The ladder — one price per slide, descending
 
-Reveal one at a time, each striking through the last:
+Not one slide with four numbers. **Four slides**, each one crossing out the price from the slide before it, so the audience physically watches the price fall:
 
-> ~~$997~~ → ~~$497~~ → ~~$247~~ → **$1 for 7 days** → then **$97/month**
+| Slide | On screen |
+|---|---|
+| 50 | **$997** |
+| 51 | ~~$997~~  →  **$497** |
+| 52 | ~~$497~~  →  **$247** |
+| 53 | ~~$247~~  →  **$1 TO GET STARTED** · *7 days, then $97/month* |
 
-⚠️ **Confirm the third rung.** It was given verbally as "twenty four ninety seven," which could be $247 or $24.97. $247 keeps the ladder descending cleanly into the $1 trial; $24.97 sits oddly below the $97/month it precedes. **Locked before this goes on a slide.**
+**Typographic hierarchy on slide 53 is the whole close:**
+- `$1 TO GET STARTED` — hero. Largest type anywhere in the deck, by a wide margin.
+- `7 days, then $97/month` — noticeably smaller, directly beneath, in a readable weight. Not grey, not tucked in a corner, not a footnote. Smaller is a hierarchy decision, not a concealment one.
+- Nothing else on the slide. No bullets, no logo wall, no competing CTA.
+
+Keep the same slide layout for 50–53 so the only thing changing between them is the number. That's what makes the descent feel like a countdown instead of four separate offers.
 
 ### Offer rules
 
@@ -230,7 +241,6 @@ This matters more with a personal-credit audience in the room than it did with a
 
 ## 9. Must-Verify Before Stage
 
-- ⚠️ The third rung of the price ladder — $247 or $24.97
 - ⚠️ Checkout charges $1, runs 7 days, rebills at $97/month — tested logged-out
 - ⚠️ Blueprint line 5 direction
 - ⚠️ Current bank and product counts
