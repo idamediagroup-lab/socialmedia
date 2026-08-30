@@ -607,6 +607,217 @@ slide("S65 — Q&A holding slide", DARK, "qa",
             "find the link.")
 
 
+
+# ─────────────────────────────────────────────────────────────
+# Visual upgrades + added slides
+# ─────────────────────────────────────────────────────────────
+
+def find(label_prefix):
+    for i, sl in enumerate(S):
+        if sl["label"].startswith(label_prefix):
+            return i
+    raise KeyError(label_prefix)
+
+
+def mutate(label_prefix, **kw):
+    S[find(label_prefix)].update(kw)
+
+
+def insert_after(label_prefix, sl):
+    S.insert(find(label_prefix) + 1, sl)
+
+
+# -- financial iconography on the story slides --
+mutate("S3 ", layout="iconlines", icons=["house"])
+mutate("S4 ", layout="iconlines", icons=["car"])
+mutate("S5 ", layout="iconlines", icons=["contract"])
+mutate("S19 ", layout="iconlines", icons=["arrowdown"])
+mutate("S26 ", layout="iconlines", icons=["report"])
+mutate("S58 ", layout="iconlines", icons=["calendar"])
+
+# -- the six use cases each get an icon --
+for lbl, ic in [("S38 ", "report"), ("S39 ", "envelope"), ("S40 ", "bank"),
+                ("S43 ", "people"), ("S44 ", "briefcase"), ("S45 ", "link")]:
+    mutate(lbl, icon=ic)
+
+# -- three bureaus as cards --
+mutate("S16 ", layout="bureaus", names=["Experian", "Equifax", "TransUnion"],
+       lines=["You don't have a credit score.", "You have three files.",
+              "Different data. Different scores."])
+
+# -- credit decay: 14 marks is the count the script already states --
+mutate("S20 ", layout="decay", kicker="Real file. 14 inquiries.",
+       marks=14, marks_label="Fourteen inquiries on one credit file",
+       stat="Approval odds: −$5,000")
+
+# -- the approved file, charted from the figures the script already gives --
+mutate("S34 ", layout="statgrid", kicker="A real approved file:",
+       tiles=[("1", "inquiry"), ("0", "collections"), ("2%", "utilization")],
+       chips=10, chips_label="All ten Blueprint lines green",
+       foot="Every line green")
+
+# -- how to start as a flow --
+mutate("S61 ", layout="flow",
+       steps=["Click the link", "Create your account — $1", "Upload your report tonight"])
+
+# -- host bio --
+insert_after("S10 ", dict(
+    label="S10a — Bio", bg=LIGHT, layout="bio",
+    name="[Your name]",
+    paras=[
+        "A serial entrepreneur and Founder of Get AI Leads Now LLC, builds AI-driven "
+        "automation and marketing systems that help business owners scale revenue on autopilot.",
+        "He has helped thousands achieve financial freedom through funding, credit, "
+        "automation, and high-converting funnels.",
+        "A Rochester native and former sound mixer on major shows like Cobra Kai and "
+        "American Idol, he brings elite systems thinking, operational mastery, and proven "
+        "growth strategies to entrepreneurs worldwide.",
+    ],
+    notes="Host bio, supplied verbatim. Drop your headshot into the framed slot on the left.\n\n"
+          "⚠️ Two things to check before stage. First, this bio is third person while slides 10-12 "
+          "are first person — read it in your own voice rather than reading it off the slide. "
+          "Second, “helped thousands achieve financial freedom” is a results claim, and slide 13 "
+          "promises the room no approval and no number. Decide which one you want the room to hear."))
+
+# -- social proof block, placed after the bundle ask and before the value stack --
+insert_after("Q15 ", dict(
+    label="T2 — Social proof (results)", bg=DARK, layout="testimonial",
+    kicker="WHAT PEOPLE ARE SAYING",
+    cards=[
+        dict(slot="TESTIMONIAL 3",
+             quote="Still a work in progress but we getting RESULTS. All personal info updated "
+                   "with the bureaus. And 13 inquires removed with 2 credit builders added to "
+                   "the profile..it's UP from here",
+             who="Ricardo Bey"),
+        dict(slot="TESTIMONIAL 4",
+             quote="A credit report showing prior inquiries returned as Deleted.",
+             who="Client credit report"),
+    ],
+    notes="Social proof, results. Drop the two screenshots into the framed slots.\n\n"
+          "⚠️ BEFORE STAGE — this slide carries the most risk in the deck. (1) The credit-report "
+          "screenshot also shows a public bankruptcy record with a court reference number; redact "
+          "it or use a different image. (2) Both images are another person's data — get written "
+          "permission to show them. (3) “13 inquiries removed” is a specific results claim, which "
+          "sits against slide 13 and against the deck's own no-earnings-claims guardrail. If you "
+          "keep it, say plainly that it is one person's result and not typical."))
+
+insert_after("Q15 ", dict(
+    label="T1 — Social proof (words)", bg=DARK, layout="testimonial",
+    kicker="WHAT PEOPLE ARE SAYING",
+    cards=[
+        dict(slot="TESTIMONIAL 1",
+             quote="I love myself!!! Discovering you has made a life changing couple of events "
+                   "for me, it won't be overnight but over life!!!! Thanks for a better n clearer "
+                   "understanding!!!",
+             who="Gerren Hansley"),
+        dict(slot="TESTIMONIAL 2",
+             quote="It was great. A lot of good options for people who are new to credit or "
+                   "needing to fix their credit. I think it's fantastic. Thank for sharing it with me.",
+             who="Rochelle Johnson"),
+    ],
+    notes="Social proof, words. Drop the two message screenshots into the framed slots. The pull "
+          "quotes are there so the room can read them even if the screenshots are small on stream.\n\n"
+          "⚠️ These are private message threads with named people. Get their permission before "
+          "showing them, or blur the names and avatars."))
+
+# ─────────────────────────────────────────────────────────────
+# Original vector iconography (no stock art, no third-party assets)
+# ─────────────────────────────────────────────────────────────
+
+ICONS = {
+ "house": '<path d="M12 56 L48 24 L84 56 V88 H60 V66 H36 V88 H12 Z"/>',
+ "car": '<path d="M14 62 L22 40 H74 L82 62 V78 H70 V70 H26 V78 H14 Z"/>'
+        '<circle cx="32" cy="76" r="8"/><circle cx="64" cy="76" r="8"/>',
+ "contract": '<path d="M24 12 H62 L76 26 V88 H24 Z"/>'
+             '<path d="M36 40 H64 M36 54 H64 M36 68 H54" stroke-width="5" fill="none"/>',
+ "card": '<rect x="10" y="26" width="76" height="48" rx="6"/>'
+         '<path d="M10 42 H86" stroke-width="8" fill="none"/>',
+ "bank": '<path d="M48 14 L86 34 H10 Z"/><rect x="20" y="42" width="9" height="30"/>'
+         '<rect x="43" y="42" width="9" height="30"/><rect x="66" y="42" width="9" height="30"/>'
+         '<rect x="12" y="78" width="72" height="9"/>',
+ "envelope": '<rect x="10" y="26" width="76" height="48" rx="5"/>'
+             '<path d="M10 30 L48 56 L86 30" stroke-width="6" fill="none"/>',
+ "report": '<rect x="20" y="12" width="56" height="76" rx="5"/>'
+           '<rect x="32" y="56" width="8" height="18"/><rect x="44" y="44" width="8" height="30"/>'
+           '<rect x="56" y="32" width="8" height="42"/>',
+ "gauge": '<path d="M14 68 A34 34 0 0 1 82 68" stroke-width="9" fill="none"/>'
+          '<path d="M48 68 L70 44" stroke-width="7" fill="none"/><circle cx="48" cy="68" r="7"/>',
+ "arrowup": '<path d="M16 74 L38 50 L54 62 L82 28"  stroke-width="8" fill="none"/>'
+            '<path d="M62 28 H82 V48"  stroke-width="8" fill="none"/>',
+ "arrowdown": '<path d="M16 28 L38 52 L54 40 L82 74" stroke-width="8" fill="none"/>'
+              '<path d="M62 74 H82 V54" stroke-width="8" fill="none"/>',
+ "briefcase": '<rect x="12" y="32" width="72" height="50" rx="6"/>'
+              '<path d="M36 32 V22 H60 V32" stroke-width="6" fill="none"/>',
+ "people": '<circle cx="34" cy="34" r="13"/><circle cx="66" cy="38" r="10"/>'
+           '<path d="M12 78 a22 22 0 0 1 44 0 Z"/><path d="M56 78 a16 16 0 0 1 32 0 Z"/>',
+ "check": '<circle cx="48" cy="50" r="34"/>',
+ "link": '<path d="M40 34 H30 a18 18 0 0 0 0 36 h10 M56 34 h10 a18 18 0 0 1 0 36 H56"'
+         ' stroke-width="8" fill="none"/><path d="M34 52 H62" stroke-width="8" fill="none"/>',
+ "calendar": '<rect x="12" y="24" width="72" height="62" rx="6"/>'
+             '<path d="M12 42 H84" stroke-width="6" fill="none"/>'
+             '<rect x="28" y="12" width="7" height="20" rx="3"/>'
+             '<rect x="61" y="12" width="7" height="20" rx="3"/>',
+}
+
+
+def icon(name, cls="ic"):
+    return (f'<svg class="{cls}" viewBox="0 0 96 100" aria-hidden="true">'
+            f'<g>{ICONS[name]}</g></svg>')
+
+
+def icon_row(names):
+    return '<div class="icrow">' + "".join(icon(n) for n in names) + '</div>'
+
+
+def stat_tiles(tiles):
+    out = ['<div class="tiles">']
+    for val, lab in tiles:
+        out.append(f'<div class="tile"><div class="tval">{esc(val)}</div>'
+                   f'<div class="tlab">{esc(lab)}</div></div>')
+    out.append('</div>')
+    return "".join(out)
+
+
+def tally_marks(n, label):
+    """n discrete marks - a count already stated in the script, drawn not invented."""
+    w, gap, h = 22, 12, 74
+    total = n * w + (n - 1) * gap
+    out = [f'<svg class="tally" viewBox="0 0 {total} {h}" role="img" '
+           f'aria-label="{esc(label)}">']
+    for i in range(n):
+        out.append(f'<rect x="{i*(w+gap)}" y="0" width="{w}" height="{h}" rx="4"/>')
+    out.append('</svg>')
+    return "".join(out)
+
+
+def chip_row(n, label):
+    out = [f'<div class="chiprow" role="img" aria-label="{esc(label)}">']
+    for _ in range(n):
+        out.append('<span class="gchip"></span>')
+    out.append('</div>')
+    return "".join(out)
+
+
+def flow_steps(steps):
+    out = ['<div class="flow">']
+    for i, st in enumerate(steps):
+        if i:
+            out.append('<span class="farrow">&#9654;</span>')
+        out.append(f'<div class="fstep"><span class="fnum">{i+1}</span>'
+                   f'<span class="ftxt">{esc(st)}</span></div>')
+    out.append('</div>')
+    return "".join(out)
+
+
+def bureau_cards(names):
+    out = ['<div class="bureaus">']
+    for n in names:
+        out.append(f'<div class="bcard">{icon("report","ic bic")}'
+                   f'<div class="bname">{esc(n)}</div></div>')
+    out.append('</div>')
+    return "".join(out)
+
+
 # ─────────────────────────────────────────────────────────────
 # Rendering
 # ─────────────────────────────────────────────────────────────
@@ -693,6 +904,8 @@ def render(s):
                      + "".join(f'<li>{esc(i)}</li>' for i in items) + '</ul></div>')
         b.append('</div>')
     elif L == "usecase":
+        if s.get("icon"):
+            b.append(icon_row([s["icon"]]))
         b.append(f'<h2 class="t-uc">{esc(s["num"])}</h2>')
         if s.get("sub"):
             b.append(f'<p class="t-ucsub">{esc(s["sub"])}</p>')
@@ -723,6 +936,50 @@ def render(s):
                 b.append(f'<p class="t-closeline">{esc(part)}</p>')
         b.append(f'<p class="t-big close">{esc(s["big"])}</p>')
         b.append(f'<p class="t-pricesub">{esc(s["sub"])}</p>')
+    elif L == "iconlines":
+        b.append(icon_row(s["icons"]))
+        for ln in s["lines"]:
+            for part in wrap_text(ln, 46):
+                b.append(f'<p class="t-line">{esc(part)}</p>')
+    elif L == "statgrid":
+        if s.get("kicker"):
+            b.append(f'<p class="t-kicker">{esc(s["kicker"])}</p>')
+        b.append(stat_tiles(s["tiles"]))
+        if s.get("chips"):
+            b.append(chip_row(s["chips"], s.get("chips_label", "")))
+        if s.get("foot"):
+            b.append(f'<p class="t-footer">{esc(s["foot"])}</p>')
+    elif L == "decay":
+        b.append(f'<p class="t-kicker">{esc(s["kicker"])}</p>')
+        b.append(tally_marks(s["marks"], s["marks_label"]))
+        b.append(f'<p class="t-stat">{esc(s["stat"])}</p>')
+    elif L == "flow":
+        b.append(flow_steps(s["steps"]))
+    elif L == "bureaus":
+        for ln in s["lines"]:
+            if ln:
+                b.append(f'<p class="t-line">{ln}</p>')
+        b.append(bureau_cards(s["names"]))
+    elif L == "bio":
+        b.append('<div class="bio">')
+        b.append('<div class="biophoto" data-slot="headshot">'
+                 '<span>[ HEADSHOT ]</span></div>')
+        b.append('<div class="biotext">')
+        b.append(f'<h2 class="bioname">{esc(s["name"])}</h2>')
+        for para in s["paras"]:
+            b.append(f'<p class="biopara">{esc(para)}</p>')
+        b.append('</div></div>')
+    elif L == "testimonial":
+        b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
+        b.append('<div class="tgrid">')
+        for card in s["cards"]:
+            b.append('<div class="tcard">')
+            b.append(f'<div class="tshot" data-slot="{esc(card["slot"])}">'
+                     f'<span>[ {esc(card["slot"])} ]</span></div>')
+            b.append(f'<p class="tquote">{esc(card["quote"])}</p>')
+            b.append(f'<p class="twho">{esc(card["who"])}</p>')
+            b.append('</div>')
+        b.append('</div>')
     elif L == "question":
         b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
         for ln in wrap_text(s["text"], 34):
@@ -735,6 +992,62 @@ def render(s):
 
 
 CSS = """
+
+/* Readability scrim: the brand backgrounds are busy at the edges, so every
+   text block sits on a soft panel that guarantees contrast without hiding art. */
+.scrim{position:absolute;z-index:1;left:150px;top:110px;width:1620px;height:840px;
+  border-radius:28px}
+.page.light .scrim{background:rgba(255,255,255,.80)}
+.page.dark  .scrim{background:rgba(6,7,9,.66)}
+
+.ic{width:96px;height:100px;flex:none}
+.page.light .ic{fill:#16181C;stroke:#16181C}
+.page.dark  .ic{fill:#FFFFFF;stroke:#FFFFFF}
+.icrow{display:flex;gap:64px;justify-content:center;margin-bottom:40px}
+.tiles{display:flex;gap:40px;justify-content:center;margin:14px 0 26px}
+.tile{width:400px;padding:30px 20px;border-radius:18px;
+  background:rgba(0,0,0,.05);border:3px solid rgba(0,0,0,.14)}
+.page.dark .tile{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.20)}
+.tval{font-family:'Archivo Black',Arial,sans-serif;font-size:76px;line-height:1.05}
+.tlab{font-size:30px;font-weight:600;margin-top:10px;opacity:.85}
+.tally{width:1000px;height:74px;margin:8px 0 26px}
+.page.light .tally rect{fill:#ED1C24}
+.page.dark  .tally rect{fill:#ED1C24}
+.chiprow{display:flex;gap:16px;justify-content:center;margin-top:8px}
+.gchip{width:56px;height:56px;border-radius:50%;background:#00A03C;
+  border:4px solid rgba(0,0,0,.30)}
+.flow{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;width:1400px}
+.fstep{display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:14px;
+  background:rgba(0,0,0,.06);border:3px solid rgba(0,0,0,.14);max-width:640px}
+.page.dark .fstep{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+.fnum{font-family:'Archivo Black',Arial,sans-serif;font-size:30px;color:#ED1C24;flex:none}
+.ftxt{font-size:28px;font-weight:600;text-align:left;line-height:1.3}
+.farrow{font-size:26px;opacity:.5}
+.bureaus{display:flex;gap:56px;justify-content:center;margin-top:38px}
+.bcard{width:380px;padding:30px 18px;border-radius:18px;background:rgba(0,0,0,.05);
+  border:3px solid rgba(0,0,0,.14)}
+.page.dark .bcard{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.20)}
+.bic{width:70px;height:74px}
+.bname{font-family:'Archivo Black',Arial,sans-serif;font-size:36px;margin-top:12px}
+.bio{display:flex;gap:64px;align-items:center;width:1400px;text-align:left}
+.biophoto{width:400px;height:520px;flex:none;border-radius:20px;
+  border:5px dashed rgba(0,0,0,.30);display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:700;color:#8A8A8A;background:rgba(0,0,0,.05)}
+.page.dark .biophoto{border-color:rgba(255,255,255,.4);color:#B9B9B9;
+  background:rgba(255,255,255,.07)}
+.biotext{flex:1}
+.bioname{font-size:56px;margin-bottom:22px}
+.biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
+.tgrid{display:flex;gap:56px;justify-content:center;width:1400px}
+.tcard{flex:1;display:flex;flex-direction:column;align-items:center}
+.tshot{width:100%;height:300px;border-radius:16px;border:5px dashed rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;
+  color:#B9B9B9;background:rgba(255,255,255,.07);margin-bottom:22px}
+.page.light .tshot{border-color:rgba(0,0,0,.30);color:#8A8A8A;background:rgba(0,0,0,.05)}
+.tquote{font-size:28px;line-height:1.42;font-weight:600;margin-bottom:14px}
+.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:26px;color:#FFB81C}
+.page.light .twho{color:#B07A00}
+
 :root{
   --ink:#0B0B0B; --ink-2:#3A3A3A; --paper:#FFFFFF;
   --red:#ED1C24; --gold:#FFB81C; --green:#00C637; --bar:#16181C;
@@ -809,6 +1122,7 @@ def main():
             f'           data-label="{esc(s["label"])}"\n'
             f'           data-speaker-notes="{esc(s["notes"])}">\n'
             f'    <img class="bg" src="{BG_BASE}/{bgfile}" alt="">\n'
+            f'    <div class="scrim"></div>\n'
             f'    <div class="safe">\n      {render(s)}\n    </div>\n'
             f'  </section>'
         )
