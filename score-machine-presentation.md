@@ -1,6 +1,7 @@
 # The Score Machine — Super Sunday Presentation Framework
 
-> **Product:** The Score Machine — credit + funding underwriting software built by Ali (business partner: Dre / DeAndre Ruffin). Pulls a credit report, runs it through five AIs, and tells you in red/yellow/green whether a file is fundable, what's blocking it, and what to fix.
+> **Product:** The Score Machine (thescoremachine.com) — AI credit analysis software, publicly positioned for **loan officers, credit pros, funding consultants and financial service providers**. Built by Ali (business partner: Dre / DeAndre Ruffin). Pulls a credit report, runs it through five AIs, and returns a red/yellow/green read on whether a file is fundable, what's blocking it, and what to fix.
+> **Public feature names — use these on slides:** Full AI Credit File Analysis · **Underwriting Blueprint** · Progress Report + Score Timeline · Client Summary PDF · Credit Readiness.
 > **Event:** Super Sunday — free live training. Funnel headline: *"Denied Again? The Bank Didn't Turn You Down For The Reason You Think."*
 > **Scope:** credit and funding only. No material from any other business.
 
@@ -31,7 +32,9 @@ The funnel makes four promises. Each has one mechanism from the software that pa
 
 ---
 
-## 2. The Codex — the real scoring model
+## 2. The Underwriting Blueprint — the real scoring model
+
+Publicly this is the **Underwriting Blueprint**. Use that name on every slide so what the room sees on stage matches what they see when they sign up; "the codex" is Ali's internal shorthand and works fine spoken.
 
 Read exactly as Ali runs it. **Red = stop. Yellow = proceed with caution. Green = go.**
 
@@ -85,7 +88,7 @@ Present this as *the Score Machine underwriting model* — not as a published ba
 
 | # | Slide | Direction |
 |---|---|---|
-| 11 | **The codex, whole** | All ten lines on one screen, red/yellow/green legend. Design this to be screenshotted. |
+| 11 | **The Underwriting Blueprint, whole** | All ten lines on one screen, red/yellow/green legend. Design this to be screenshotted. |
 | 12 | **"Red means stop. Yellow means caution. Green means go."** | The car metaphor, exactly as Ali says it. It's why the codex lands with people who have never read a report. |
 | 13–17 | **Read the file live** | The centerpiece. Pull a volunteer, hand them the codex, read the ten lines against a real (anonymized) report on screen. One line at a time. Let *them* answer. |
 | 18 | **"Is this person fundable?"** | Ask the room. Let the answer come from the floor. |
@@ -126,51 +129,62 @@ Present this as *the Score Machine underwriting model* — not as a published ba
 | 38 | **The two files** | Slide 13's file and slide 37's file, side by side. Same ten questions. Different life. |
 | 39 | **Which one are you** | The room self-sorts. No shame framing — the whole point of Act 3 is that the gap is closeable for $8 a week and some removals. |
 | 40 | **The two roads** | Same denial next year, or the file built. |
-| 41–43 | **The offer** | ⚠️ **Fork — see Section 5. Fill from the confirmed audience and confirmed live pricing.** Structure: what it is → what it includes → who it's for and who it isn't → price said plainly → one action. |
+| 41 | **What the tool is** | Named features, in the product's own language: Full AI Credit File Analysis, Underwriting Blueprint, Credit Readiness, Progress Report + Score Timeline, Client Summary PDF. Each one maps to something they just watched happen. |
+| 42 | **The ask — free account, no card** | The strongest cold-room CTA available: create a free account and run a file tonight. No credit card, limited report visibility, upgrade any time. Ask for the account, not the subscription — the Blueprint sells the paid plan once they've run their own file. |
+| 43 | **The price, plainly** | ⚠️ Confirmed live pricing only (Section 6). Per-pull or unlimited, said out loud, with the ROI frame the operators respond to: one funded client at 10% covers it many times over. Route anyone who only wants their own file fixed to the service side here. |
 | 44 | **Q&A holding slide** | The codex stays on screen through all of Q&A. Late arrivals can still score a file. |
 
 ---
 
-## 5. The Fork You Have To Settle Before Building Act 5
+## 5. The Audience Question — mostly settled
 
-The funnel copy is written to a **consumer** — someone who got denied, whose limit is stuck at $500. The Zoom training was run for **operators** — credit repair businesses, funding companies, people training VAs, people charging clients 10–20% of funded amounts.
+The product markets itself to **operators**: "AI Credit Analysis Software for Loan Officers & Credit Pros," built for credit consultants and funding teams. That is the buyer.
 
-Those are two different closes:
+But the Super Sunday funnel is written in **consumer** voice — *you* got denied, *your* limit is stuck at $500. Both can be true, and it's a coherent play: hook on the pain they feel personally, teach the Blueprint on a real file, then show that the same tool that diagnoses their file is what the pros charge 10–20% to run. Consumer pain in, operator offer out.
 
-- **Consumer room** → the offer is done-for-you: get their file fixed and funded. The codex is the diagnosis they came for; the close is service.
-- **Operator room** → the offer is the software (plus the affiliate program, the Friday and Wednesday classes, the school inside the platform). The codex is the skill; the close is the tool and the business behind it.
+What that means for the deck:
 
-**Acts 1–4 work unchanged for both.** Only Act 5 forks — which is why it's the last thing to build and the one thing that has to be right. If the room is genuinely mixed, run the consumer close and let operators self-identify in Q&A rather than splitting the close and landing neither.
+- **Acts 1–4 need no fork.** The Blueprint read works identically whether the file on screen is theirs or a client's.
+- **Act 5 leads with the operator offer** — the tool, the classes, the affiliate program — because that's what the product sells and what the panel can support.
+- **Give the personal-file path a real answer anyway.** Someone in that room only wants their own denial fixed. One slide routing them to the service side keeps them from feeling sold past.
 
----
+Confirm the intended split with the panel before building Act 5. If the registrant list is overwhelmingly consumer, the honest move is to lead service and let operators self-identify in Q&A.
 
 ## 6. Product Facts — Locked vs. Must-Verify
 
-**Locked (stated directly on the training, safe to put on a slide):**
-- Five AIs read and categorize the report after the pull
-- Adding a client requires no manual data entry — the report populates the file
-- Dashboard: pull calendar with reminders and task list, quick actions, recent activity, monthly performance (reports pulled, clients funded, invoices paid, clients added), fundability visible at a glance
-- Report views: personals, inquiries, public records, accounts with per-bureau utilization; toggle between funding view and credit repair view
-- Work area: full analysis, progress report, underwriting codex, forensic line-by-line-by-bureau view
-- Paydown calculator with daily/weekly/monthly/yearly targets
-- Credit decay analysis with approval odds
-- Region- and bureau-matched banks; ~980 banks, ~2,000 products, added daily
+**Confirmed on the public site (safe for slides, and use this wording):**
+- **Full AI Credit File Analysis** — five AIs read and categorize the report after the pull
+- **Underwriting Blueprint** — the red/yellow/green fundability read
+- **Credit Readiness** insights — organized credit factors and readiness indicators, viewable instantly
+- **Progress Report + Score Timeline** — visualize how key data points move over time
+- **Client Summary PDF** — one click, clean professional summary to hand a client
+- Reports pull automatically from **MyFreeScoreNow** via secure integration
+- **Free account, no credit card**, limited report visibility for a short window; full report access requires a paid plan
+- Plans upgrade or downgrade any time — immediate, prorated
+- Pricing comes in **per-pull or unlimited** shapes
+- Affiliate program is live with custom referral slugs (`ref.thescoremachine.com/<your-slug>`)
+
+**Confirmed on the platform training (safe, but not on the public site):**
+- No manual data entry — the report populates the client file
+- Dashboard: pull calendar with reminders and task list, quick actions, recent activity, monthly performance (reports pulled, clients funded, invoices paid, clients added)
+- Report views: personals, inquiries, public records, accounts with per-bureau utilization; toggle between funding and credit repair views
+- Forensic line-by-line, bureau-by-bureau view
+- **Paydown calculator** — daily/weekly/monthly/yearly to a target utilization
+- **Credit decay** analysis with approval odds in dollars
+- Region- and bureau-matched banks; ~980 banks and ~2,000 products, added daily
 - Configurable admin fee (10/15/20%) with automatic commission math
 - In-software invoicing; free client portal; unlimited users and employees
-- Affiliate dashboard with a customizable referral link for every pro purchaser
-- Credit repair routing via a settable URL — points to whatever repair platform you use
-- Integrations: My Free Score Now live; Identity IQ and My Score IQ were being mapped; Smart Credit unavailable
-- Support by text 9–6 M–F, moving to 24/7; classes Friday 3pm ET and Wednesday; school built into the platform
+- Credit repair routing via a settable URL to whatever repair platform you use
+- Support by text 9–6 M–F moving to 24/7; classes Friday 3pm ET and Wednesday; school built into the platform
 
 **Must verify before it goes on a slide:**
-- ⚠️ **Pricing.** The training quoted $147/mo and $1,470/yr, rising to $470/mo — and $14,700/yr, which doesn't cohere with a 3.2× monthly increase and is very likely a misstatement. **Confirm today's real numbers with Ali.** Never put an unverified price on a stage slide.
-- ⚠️ **That training ran on a Black Friday / Cyber Monday deadline.** Any urgency framing has to be rebuilt around a real current deadline, not a recycled one.
-- ⚠️ **Integration status** — My Score IQ and Identity IQ were "by Friday" then. Confirm what's live now.
-- ⚠️ **The $25/mo credit repair add-on** was slated for Q3 with AI-written custom letters. If it has shipped, it's a strong Act 5 element. If not, do not promise it from stage.
-- ⚠️ **The AI credit coach** — do not put a date on it publicly.
-- ⚠️ **Codex line 5** — settle the direction (Section 2).
-
----
+- ⚠️ **Exact prices.** The pricing page renders dynamically and could not be read. The training's $147/mo unlimited predates the current per-pull/unlimited structure, and its "$470/mo, $14,700/yr" urgency was Black Friday framing that never cohered. **Get today's real numbers and today's real deadline from Ali. Nothing carried over.**
+- ⚠️ **Free-account terms** — length of access and exactly what "limited report visibility" excludes. This is the Act 5 ask, so the fine print has to be right.
+- ⚠️ **Integrations beyond MyFreeScoreNow** — Identity IQ and My Score IQ were mid-mapping on the training. Confirm what's live.
+- ⚠️ **The $25/mo credit repair add-on** with AI-written custom letters. If it shipped, it's a strong Act 5 element. If not, don't promise it from stage.
+- ⚠️ **The AI credit coach** — no public date, ever.
+- ⚠️ **Blueprint line 5** — settle the direction (Section 2).
+- ⚠️ **Bank and product counts** — ~980 and ~2,000 were "as of this morning" on a call months ago and grow daily. Get current figures or say "nearly a thousand."
 
 ## 7. Live Demo Runbook
 
@@ -204,6 +218,7 @@ The training was derailed repeatedly by live pulls: wrong passwords, unpaid thir
 4. Both demo files pre-pulled, loaded, and anonymized — and screenshotted as backup?
 5. Purchase link clicked and confirmed within the last hour, from a logged-out device?
 6. Pricing and deadline confirmed with Ali today — nothing carried over from a previous event?
-7. Act 5 built for the confirmed audience, not both?
-8. Zero guaranteed outcomes anywhere in the deck?
-9. Codex on screen for the entire Q&A?
+7. Affiliate referral link created and tested, so the CTA link is trackable?
+8. Free-account terms confirmed, and the account — not the subscription — is the ask?
+9. Zero guaranteed outcomes anywhere in the deck?
+10. The Underwriting Blueprint on screen for the entire Q&A?
