@@ -611,6 +611,22 @@ slide("S65 — Q&A holding slide", DARK, "qa",
 # Rendering
 # ─────────────────────────────────────────────────────────────
 
+def wrap_text(text, max_chars):
+    """Break on word boundaries into lines of at most max_chars."""
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        cand = w if not cur else cur + " " + w
+        if len(cand) <= max_chars:
+            cur = cand
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
 def esc(t):
     return html.escape(t, quote=True)
 
@@ -645,7 +661,8 @@ def render(s):
         b.append(f'<h1 class="t-title">{esc(s["title"])}</h1>')
         b.append(f'<p class="t-sub">{esc(s["sub"])}</p>')
     elif L == "statement":
-        b.append(f'<h1 class="t-state">{esc(s["text"])}</h1>')
+        for ln in wrap_text(s["text"], 26):
+            b.append(f'<h1 class="t-state">{esc(ln)}</h1>')
         if s.get("sub"):
             b.append(f'<p class="t-statsub">{s["sub"]}</p>')
     elif L == "heading":
@@ -654,8 +671,13 @@ def render(s):
             b.append(f'<p class="t-statsub">{s["sub"]}</p>')
     elif L == "lines":
         for ln in s["lines"]:
-            b.append('<p class="t-line spacer">&nbsp;</p>' if ln == ""
-                     else f'<p class="t-line">{ln}</p>')
+            if ln == "":
+                b.append('<p class="t-line spacer">&nbsp;</p>')
+            elif "<" in ln or len(ln) <= 46:
+                b.append(f'<p class="t-line">{ln}</p>')
+            else:
+                for part in wrap_text(ln, 46):
+                    b.append(f'<p class="t-line">{esc(part)}</p>')
     elif L == "bullets":
         b.append('<ul class="t-ul">' + "".join(f'<li>{esc(x)}</li>' for x in s["bullets"]) + '</ul>')
     elif L == "numbered":
@@ -697,12 +719,14 @@ def render(s):
         b.append(f'<p class="t-pricesub">{esc(s["sub"]) if s["sub"] else "&nbsp;"}</p>')
     elif L == "close":
         for ln in s["lines"]:
-            b.append(f'<p class="t-closeline">{esc(ln)}</p>')
+            for part in wrap_text(ln, 44):
+                b.append(f'<p class="t-closeline">{esc(part)}</p>')
         b.append(f'<p class="t-big close">{esc(s["big"])}</p>')
         b.append(f'<p class="t-pricesub">{esc(s["sub"])}</p>')
     elif L == "question":
         b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
-        b.append(f'<p class="q-text">{esc(s["text"])}</p>')
+        for ln in wrap_text(s["text"], 34):
+            b.append(f'<p class="q-text">{esc(ln)}</p>')
     elif L == "qa":
         b.append(f'<h1 class="t-state qa">{esc(s["text"])}</h1>')
         b.append('<ol class="qa-bp">' + "".join(f'<li>{esc(x)}</li>' for x in s["blueprint"]) + '</ol>')
@@ -726,18 +750,18 @@ body{background:#20232A;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
 h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:900;
   letter-spacing:-.5px;line-height:1.04}
 
-.t-title{width:1440px;font-size:118px;text-transform:uppercase}
+.t-title{width:1400px;font-size:104px;text-transform:uppercase}
 .t-sub{width:1440px;font-size:42px;margin-top:30px;color:#EDEDED;font-weight:600}
-.t-state{width:1440px;font-size:92px}
+.t-state{width:1400px;font-size:76px;margin:2px 0}
 .t-state.qa{width:1440px;font-size:76px;margin-bottom:26px}
-.t-statsub{width:1440px;font-size:44px;line-height:1.35;margin-top:28px;font-weight:600}
-.t-head{width:1440px;font-size:76px;text-transform:uppercase}
-.t-line{width:1440px;font-size:50px;line-height:1.45;font-weight:600}
+.t-statsub{width:1400px;font-size:40px;line-height:1.35;margin-top:28px;font-weight:600}
+.t-head{width:1400px;font-size:64px;text-transform:uppercase}
+.t-line{width:1400px;font-size:44px;line-height:1.45;font-weight:600}
 .t-line.spacer{height:24px}
 .t-ul{width:1240px;text-align:left;padding-left:58px;list-style:disc}
-.t-ul li{font-size:44px;line-height:1.4;margin:20px 0;font-weight:600}
+.t-ul li{font-size:40px;line-height:1.4;margin:20px 0;font-weight:600}
 .t-ol{width:1240px;text-align:left;padding-left:66px;list-style:decimal}
-.t-ol li{font-size:42px;line-height:1.35;margin:18px 0;font-weight:600}
+.t-ol li{font-size:38px;line-height:1.35;margin:18px 0;font-weight:600}
 .t-ten{width:1300px;text-align:left;padding-left:66px;list-style:decimal}
 .t-ten li{font-size:40px;line-height:1.3;margin:12px 0;font-weight:600}
 .t-footer{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:54px;margin-top:32px}
@@ -746,14 +770,14 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
 .t-col h3{font-size:42px;margin-bottom:24px}
 .t-col ul{padding-left:46px;list-style:disc}
 .t-col li{font-size:34px;line-height:1.35;margin:16px 0;font-weight:600}
-.t-uc{width:1440px;font-size:66px;text-transform:uppercase}
+.t-uc{width:1400px;font-size:56px;text-transform:uppercase}
 .t-ucsub{width:1440px;font-size:44px;margin:20px 0 32px;font-weight:700;color:var(--ink-2)}
 .t-legend{width:1180px;display:flex;flex-direction:column;gap:42px}
 .t-legrow{display:flex;align-items:center;gap:38px}
 .chip{width:72px;height:72px;border-radius:50%;flex:none;border:4px solid rgba(0,0,0,.85)}
-.t-leglab{font-family:'Archivo Black',Arial,sans-serif;font-size:54px}
+.t-leglab{font-family:'Archivo Black',Arial,sans-serif;font-size:46px}
 .t-kicker{width:1440px;font-size:46px;font-weight:700;margin-bottom:36px}
-.t-stat{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:110px;color:var(--red)}
+.t-stat{width:1400px;font-family:'Archivo Black',Arial,sans-serif;font-size:94px;color:var(--red)}
 .t-ph{width:1240px;font-size:42px;font-weight:700;color:#8A8A8A;
   border:4px dashed #B9B9B9;border-radius:14px;padding:52px 64px}
 .chart{width:1440px;height:660px}
@@ -762,14 +786,14 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
 .c-val{font-family:'Archivo Black',Arial,sans-serif;font-size:32px;fill:#0B0B0B}
 .t-strike{width:1440px;font-size:62px;font-weight:700;text-decoration:line-through;
   color:#9BA0A8;min-height:76px}
-.t-big{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:170px;
+.t-big{width:1400px;font-family:'Archivo Black',Arial,sans-serif;font-size:146px;
   line-height:1.02;margin:16px 0}
 .t-big.close{font-size:110px;margin-top:46px}
 .t-pricesub{width:1440px;font-size:44px;font-weight:600;color:#E4E4E4;min-height:56px}
-.t-closeline{width:1440px;font-size:52px;line-height:1.4;font-weight:600}
+.t-closeline{width:1400px;font-size:46px;line-height:1.4;font-weight:600}
 .q-kicker{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:38px;
   letter-spacing:6px;color:var(--gold);margin-bottom:48px}
-.q-text{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:70px;line-height:1.2}
+.q-text{width:1400px;font-family:'Archivo Black',Arial,sans-serif;font-size:58px;line-height:1.22;margin:3px 0}
 .qa-bp{width:1100px;text-align:left;padding-left:62px;list-style:decimal;margin-bottom:30px}
 .qa-bp li{font-size:26px;line-height:1.4;margin:7px 0;font-weight:600}
 .qa-offer{width:1440px;font-family:'Archivo Black',Arial,sans-serif;font-size:38px;color:var(--gold)}
