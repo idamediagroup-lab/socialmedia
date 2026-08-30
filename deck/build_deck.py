@@ -1,0 +1,821 @@
+#!/usr/bin/env python3
+"""
+Build the Score Machine webinar deck as annotated HTML for Canva import.
+
+All on-screen copy is taken verbatim from ScoreMachineslidescript.md.
+Speaker notes carry the Say:/Why:/warning prose from the same file.
+
+Emits 16:9 (1920x1080) pages annotated with data-document-role="page"
+so Canva's importer maps each one to a slide.
+"""
+
+import html
+import sys
+
+# Raw base for background images. Pinned to a commit SHA at build time.
+BG_BASE = sys.argv[1] if len(sys.argv) > 1 else "ASSET_BASE_PLACEHOLDER"
+
+LIGHT = "light"
+DARK = "dark"
+
+S = []  # slide list
+
+
+def slide(label, bg, layout, notes="", **kw):
+    S.append(dict(label=label, bg=bg, layout=layout, notes=notes, **kw))
+
+
+def ask(label, kicker, text, notes=""):
+    """A dedicated TYPE IN THE CHAT question slide."""
+    S.append(dict(label=label, bg=DARK, layout="question",
+                  kicker=kicker, text=text, notes=notes))
+
+
+# ─────────────────────────────────────────────────────────────
+# ACT 1 — WHAT THIS IS REALLY ABOUT
+# ─────────────────────────────────────────────────────────────
+
+slide("S1 — Title", DARK, "title",
+      title="THE SCORE MACHINE",
+      sub="Why you got denied — and what to do about it",
+      notes="Say: Ninety minutes. By the end of tonight you're going to know exactly why your "
+            "last denial happened, and exactly what your file needs before you apply to anything again.")
+
+ask("Q1 — Ask 1 (after S1)", "TYPE IN THE CHAT",
+    "Before we start — type YES in the chat if you can see my screen and hear me clearly.",
+    "Why: The first ask must be trivially easy and it must succeed. It teaches the room that typing "
+    "in the chat is what we do here. If the chat stays quiet, stop and fix it now — every later ask "
+    "depends on this one landing.")
+
+slide("S2 — The hook", LIGHT, "statement",
+      text="You didn't get turned down for the reason you think.",
+      notes="Say: Nothing. Three full seconds of silence. Let it sit before you move.")
+
+slide("S3 — The house", LIGHT, "lines",
+      lines=["You found the house.", "You got pre-approved.", "Then you weren't."],
+      notes="Say: Some of you know exactly what that phone call sounds like.")
+
+slide("S4 — The car", LIGHT, "lines",
+      lines=["You need the car to get to work.",
+             "The job is what feeds your family.",
+             "The denial costs you both."],
+      notes="Say: Slow down here. This is the slide people feel. Nobody applies for a car loan because "
+            "they want a car loan — they want to stop asking for rides, stop losing shifts, get home "
+            "before their kids are asleep. Do not rush this slide.\n\n"
+            "PACING: One of only two slow slides in Act 1. Never cut this slide.")
+
+ask("Q2 — Ask 2 (after S4)", "TYPE IN THE CHAT",
+    "Type YES if a denial has ever cost you something that mattered more than the money.",
+    "Why: First emotional yes. Wait for it. Read two or three names out loud — that's what teaches "
+    "the room that answering gets acknowledged.")
+
+slide("S5 — The contract", LIGHT, "lines",
+      lines=["The contract was yours.",
+             "You didn't have the capital to staff it.",
+             "So you watched someone else take it."],
+      notes="Say: And for the business owners in here — same feeling, different shape. You weren't "
+            "short on skill. You were short on cash for ninety days.")
+
+slide("S6 — The reframe", LIGHT, "statement",
+      text="NOBODY WANTS A CREDIT SCORE.",
+      sub="They want what it unlocks.",
+      notes="Say: Nobody has ever laid in bed at night wishing their score was higher for its own sake. "
+            "You want the house. You want the truck. You want the line of credit. The score is just the door.")
+
+slide("S7 — What this class actually is", LIGHT, "lines",
+      lines=["This isn't a class about credit.", "It's a class about approvals."],
+      notes="PACING: Cuttable if running long.")
+
+slide("S8 — Let's see if I'm describing your situation", LIGHT, "bullets",
+      bullets=["Denied — and the letter never really told you why",
+               "Your score is “fine.” 640. 700. Still denied.",
+               "Solid card, still stuck at a $500 limit, calling it progress",
+               "You have cards. You still aren't fundable."],
+      notes="Say: [Wait. Do not move until the chat fills.] That's most of the room.")
+
+ask("Q3 — Ask 3 (after S8)", "TYPE IN THE CHAT",
+    "Type YES if even one of those four is you.",
+    "Why: Highest-volume yes of the night. The wall of YES is the point, not the answer — it proves "
+    "to every person that they aren't the only one.")
+
+slide("S9 — Both rooms", LIGHT, "lines",
+      lines=["Some of you are here for personal credit.",
+             "Some of you are here for business funding.",
+             "Same file. Same rules. Same machine."],
+      notes="Say: Nobody's in the wrong room tonight. Underwriting doesn't read a file differently "
+            "because of what you want at the end of it.")
+
+ask("Q4 — Ask 4 (after S9)", "TYPE IN THE CHAT",
+    "Type 1 if you're here for personal credit, 2 if you're here for business funding, 3 if it's both.",
+    "Why: Diagnostic, not agreement — it tells you the room mix so you can weight your examples for "
+    "the next hour. Say the split out loud once you see it.")
+
+slide("S10 — Who I am", LIGHT, "lines",
+      lines=["[Your name]", "Owner — Get AI Leads Now", "",
+             "I'm not a credit repair company.",
+             "I'm a business owner who uses this software."],
+      notes="Say: Quick word on who's talking to you. I run a marketing company — Get AI Leads Now. "
+            "Credit isn't my industry. I'm on this call because of what this tool did inside my business "
+            "and my clients' businesses, and I want to show it to you from the business owner's side of "
+            "the desk, not the software company's side.\n\n"
+            "LANGUAGE DISCIPLINE FOR THE WHOLE NIGHT: always “they” and “Score Machine.” "
+            "Never “we,” “our software,” “our team.” You're a customer telling the room what "
+            "the product did for you. That's the position, and one slip into “we” costs it.\n\n"
+            "PACING: Never cut this slide.")
+
+slide("S11 — The three ways I make money with it", LIGHT, "numbered",
+      items=["<b>On my own file</b> — I know where I stand before I ever apply",
+             "<b>For my clients</b> — I help them get funded, and I charge for that",
+             "<b>By referring it</b> — I earn when people I send use it. Including tonight."],
+      notes="Say: I want to be straight with you about all three, especially the last one. I get paid "
+            "when someone signs up through my link — including anybody who signs up tonight. I'm telling "
+            "you that up front because I'd rather you hear it from me than wonder about it later, and "
+            "honestly, it's the whole point: number three is a business model, and it's available to "
+            "every person on this call.\n\n"
+            "WHY THIS SLIDE MATTERS: the disclosure is required if you earn on referrals, and delivering "
+            "it yourself, early, in your own words converts a liability into proof. You're not hiding the "
+            "affiliate model — you're demonstrating it live. This also plants Act 4's second tier fifteen "
+            "minutes before it arrives.\n\n"
+            "ON THE MARKETING RELATIONSHIP: you don't need to volunteer that your company does marketing "
+            "work — that's simply not what tonight is about, and no rule requires you to narrate your whole "
+            "client list. But don't deny it either. If someone asks you point-blank in Q&A whether you work "
+            "with Score Machine, answer plainly and move on: “My company does marketing work in this space, "
+            "yes — and everything I showed you tonight is something I actually use.” A brief honest answer "
+            "costs you nothing. A denial that later surfaces costs you the room and the relationship.\n\n"
+            "PACING: Slow slide. Never cut.")
+
+slide("S12 — What changed in my business", LIGHT, "lines",
+      lines=["Before: a client asked me about funding and I had nothing to hand them.",
+             "Now: I read their file in minutes and tell them exactly where they stand.",
+             "",
+             "New service. Same clients.",
+             "",
+             "If you own a business that touches people with credit problems —",
+             "you're closer to this than you think."],
+      notes="Say: I didn't have to become a credit expert. I didn't have to go get certified in anything. "
+            "I already had the clients — what I didn't have was something useful to say when they brought "
+            "me a funding problem. Now I do, and it's a line of revenue that didn't exist in my business a "
+            "year ago. And that's the last I'll say about me. I only told you that because most of the room "
+            "is going to spend tonight thinking about their own credit file — and some of you should be "
+            "thinking about both.\n\n"
+            "⚠️ FILL THIS WITH YOUR OWN TRUE SPECIFICS BEFORE STAGE — what you actually offer clients "
+            "now, and what actually changed. Do not put a revenue figure on this slide. “A line of revenue "
+            "that didn't exist” is honest and persuasive; a dollar amount is an earnings claim and invites a "
+            "very different set of problems.\n\n"
+            "Why: The host block must end pointed at them, not at you. Three slides about you is credibility; "
+            "a fourth is a detour. This is the hard stop — the second half of this slide is the handoff back "
+            "to the room.\n\n"
+            "PACING: Cut this slide first if the host block runs long — but never 10 or 11.")
+
+slide("S13 — Let me be straight with you", LIGHT, "twocol",
+      col_a_head="What this is:",
+      col_a=["Exactly how underwriting reads your file",
+             "The software that does it in about a minute"],
+      col_b_head="What this isn't:",
+      col_b=["A promise of an approval", "A promise of a number"],
+      notes="Say: I'm not going to stand up here and guarantee you an approval or tell you your score is "
+            "going up 100 points. Nobody honest can promise you that. What I can do is show you the ten "
+            "questions every lender is asking about your file, and then show you your own answers.")
+
+slide("S14 — The chain", LIGHT, "numbered",
+      items=["You got denied",
+             "Because inquiries quietly lowered your ceiling",
+             "Because you applied without knowing if you were eligible",
+             "Eligibility can be known <b>before</b> you apply",
+             "If you're not eligible — the file gets fixed",
+             "Once you are — the bank and the bureau decide where you apply"],
+      notes="Say: That's the whole ninety minutes on one slide. Screenshot it. Everything from here just "
+            "fills it in.\n\nPACING: Needs silence after it.")
+
+# ─────────────────────────────────────────────────────────────
+# ACT 2 — WHY YOU GOT DENIED
+# ─────────────────────────────────────────────────────────────
+
+slide("S15 — The pivot", LIGHT, "statement",
+      text="A score is not an approval.",
+      notes="Say: A score gets you considered. It does not get you approved. Those are two different "
+            "events and almost nobody is taught the difference.")
+
+slide("S16 — Three files", LIGHT, "lines",
+      lines=["You don't have a credit score.", "You have three files.", "",
+             "Experian · Equifax · TransUnion", "",
+             "Different data. Different scores."])
+
+slide("S17 — The question", LIGHT, "statement",
+      text="Which one did they pull?",
+      notes="Say: Think about your last denial. Right now. Which bureau did that lender pull? "
+            "[Pause. Let it be uncomfortable.]\n\nPACING: Needs silence after it. Never cut this slide.")
+
+ask("Q5 — Ask 5 (after S17)", "TYPE IN THE CHAT",
+    "Type YES if you have no idea which bureau your last denial pulled.",
+    "Why: Near-universal, and it's an admission rather than an agreement — which is stronger. Once "
+    "they've typed it they've told themselves they have a gap. Follow with: “That's not your fault. "
+    "Nobody ever told you it mattered.”")
+
+slide("S18 — Why it matters", LIGHT, "lines",
+      lines=["Your best file doesn't get you approved.", "The one they pulled does."],
+      notes="PACING: Cuttable if running long.")
+
+slide("S19 — Credit decay", LIGHT, "lines",
+      lines=["Every application leaves an inquiry.",
+             "Every inquiry lowers what a bank will extend you.", "",
+             "This is called <b>credit decay.</b>"],
+      notes="Say: This is the part nobody tells you. It's not just that inquiries ding your score a few "
+            "points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens "
+            "quietly, whether you got approved or not.")
+
+ask("Q6 — Ask 6 (after S19)", "TYPE IN THE CHAT",
+    "Type YES if nobody has ever explained credit decay to you before tonight.",
+    "Why: Establishes you as the one who told them. This is the authority beat of Act 2.")
+
+slide("S20 — What decay looks like", LIGHT, "statfocus",
+      kicker="Real file. 14 inquiries.",
+      stat="Approval odds: −$5,000",
+      notes="Say: Negative five thousand. This person isn't getting a smaller approval — they're not "
+            "getting anything, from anyone, and their credit score never told them that. They'd have "
+            "kept applying.\n\nPACING: Never cut this slide.")
+
+slide("S21 — The line", LIGHT, "statement",
+      text="Forget about points.",
+      sub="It's about money.")
+
+slide("S22 — So what actually happened", LIGHT, "lines",
+      lines=["You applied.", "You didn't know if you qualified.", "You got denied.",
+             "And the inquiry made the next one harder."],
+      notes="PACING: Cuttable if running long.")
+
+slide("S23 — The spiral", LIGHT, "lines",
+      lines=["Denied → inquiry → lower ceiling →",
+             "denied → inquiry → lower ceiling →",
+             "denied"],
+      notes="Say: This is why it feels like it's getting worse even though you're trying harder. You are "
+            "trying harder. Every attempt is costing you the next one.")
+
+ask("Q7 — Ask 7 (after S23)", "TYPE IN THE CHAT",
+    "Type YES if that's been your experience.",
+    "Why: They're now agreeing to your diagnosis of their own history. Everything after this is built "
+    "on that yes.")
+
+slide("S24 — The turn", LIGHT, "statement",
+      text="There is a way to know first.")
+
+# ─────────────────────────────────────────────────────────────
+# ACT 3 — ELIGIBILITY FIRST
+# ─────────────────────────────────────────────────────────────
+
+slide("S25 — Eligibility is the whole game", LIGHT, "lines",
+      lines=["The question is never “what's my score?”", "",
+             "The question is <b>“should I apply at all?”</b>"])
+
+slide("S26 — How it starts", LIGHT, "lines",
+      lines=["Upload your credit report.", "No forms. No typing.",
+             "Five AIs read every line of it."])
+
+slide("S27 — The Blueprint", LIGHT, "statement",
+      text="THE UNDERWRITING BLUEPRINT",
+      sub="Ten questions.<br>Every lender asks them.<br>Almost nobody has ever seen them written down.")
+
+slide("S28 — The legend", LIGHT, "legend",
+      rows=[("#D7191C", "RED = STOP"),
+            ("#B07A00", "YELLOW = PROCEED WITH CAUTION"),
+            ("#1A7A3C", "GREEN = GO")],
+      notes="Say: Like a traffic light. If you can drive a car, you can read a credit file. That's not me "
+            "being cute — that's genuinely the whole skill.")
+
+ask("Q8 — Ask 8 (after S28)", "TYPE IN THE CHAT",
+    "Type YES if you can read a traffic light.",
+    "Why: Deliberately easy and a little funny. Resets the energy after eight heavy minutes and plants "
+    "the belief that this is learnable — before you show them the ten lines.")
+
+slide("S29 — The ten lines", LIGHT, "tenlines",
+      items=["700 credit score?",
+             "Under 30% utilization?",
+             "Five open primary cards, two years of good history?",
+             "Three primary cards, three years old, $5,000 limit?",
+             "More than four unsecured accounts in the last 12 months?",
+             "Under four inquiries?",
+             "Collections?",
+             "Charge-offs?",
+             "Late payments?",
+             "Bankruptcy?"],
+      notes="Say: Ten. That's it. That's what stands between you and every approval you've been denied.\n\n"
+            "PACING: The longest single slide in the deck. Never cut.")
+
+ask("Q9 — Ask 9 (after S29)", "TYPE IN THE CHAT",
+    "Type YES if you've never seen these ten questions written down anywhere before.",
+    "Why: The value moment. They just received something they didn't have — get them to say so out loud.\n\n"
+    "⚠️ Line 5 direction must be locked before stage — see the framework doc.")
+
+slide("S30 — The question it answers", LIGHT, "statement",
+      text="→ Are you eligible?")
+
+slide("S31 — Let's read one together", LIGHT, "lines",
+      lines=["Let's read a real file.", "You call it."],
+      notes="Say: I'm going to read you the line. You tell me red, yellow, or green. Don't be shy — you "
+            "already know how to do this, you just haven't been allowed to before.")
+
+slide("S32 — The file (red)", LIGHT, "placeholder",
+      text="[Ten lines, marked red/yellow/green from a real anonymized file]",
+      notes="Say: Walk it one line at a time. Let the room answer each one out loud. Do not answer for them.\n\n"
+            "ASK (spoken, not typed — Yes Ladder #10): Red, yellow, or green? — line by line. Gets "
+            "participation out loud rather than in the chat.\n\n"
+            "⚠️ Drop the real anonymized file art onto this slide before stage.")
+
+slide("S33 — The verdict", LIGHT, "lines",
+      lines=["Not eligible.", "And now you know exactly why.", "",
+             "Not “your credit is bad.”", "Four specific lines."],
+      notes="Say: That's the difference between how you felt walking in here and how you feel now. "
+            "“Bad credit” is a feeling. Four red lines is a to-do list.\n\nPACING: Never cut this slide.")
+
+slide("S34 — What green looks like", LIGHT, "lines",
+      lines=["A real approved file:", "", "1 inquiry", "0 collections", "2% utilization",
+             "<b>Every line green</b>"],
+      notes="Say: Same ten questions. Completely different life.")
+
+ask("Q10 — Ask 10 (after S34)", "TYPE IN THE CHAT",
+    "Type YES if you want your file to look like that.",
+    "Why: The pivot from agreeing to wanting. Most important ask before the offer — the first time they "
+    "state a desire instead of confirming a fact. Do not skip it, do not rush it.")
+
+slide("S35 — Transition", LIGHT, "lines",
+      lines=["The software does all of this", "in about a minute.", "",
+             "And that's only the first of six things people use it for."],
+      notes="Say: I'm going to show it to you live before we're done tonight. But first I need you to "
+            "understand what this actually is, because most of the room only knows about one-sixth of it.")
+
+# ─────────────────────────────────────────────────────────────
+# ACT 4 — SIX WAYS PEOPLE USE THIS
+# (source doc mislabels these 48–56; correct range is 36–46)
+# ─────────────────────────────────────────────────────────────
+
+slide("S36 — The six", LIGHT, "statement",
+      text="Six ways people use this.",
+      sub="Three on yourself.<br>Three to get paid.",
+      notes="Say: Some of you came here tonight for the first three. Nobody told you the last three existed.")
+
+ask("Q11 — Ask 11 (after S36)", "TYPE IN THE CHAT",
+    "Type the number you came here for tonight — 1, 2, or 3.",
+    "Why: Primes them to hunt for their own number, which keeps all six avatars watching the rest of the act.")
+
+slide("S37 — Tier one", LIGHT, "heading",
+      text="FIRST — USE IT ON YOURSELF")
+
+slide("S38 — #1 Analyze", LIGHT, "usecase",
+      num="1. ANALYZE YOUR PROFILE",
+      sub="Know your factors — not your score.",
+      lines=["What's actually on all three bureaus.",
+             "What's helping. What's holding you back.",
+             "Whether you should apply at all."],
+      notes="Say: This is the one everybody needs and nobody has. Your score is a summary. Your factors "
+            "are the reasons. Lenders read the reasons.")
+
+slide("S39 — #2 Improve", LIGHT, "usecase",
+      num="2. IMPROVE YOUR PROFILE",
+      sub="Dispute with the latest AI.",
+      lines=["Custom letters written per account — not templates",
+             "Printed and mailed for you",
+             "Every removal tracked"],
+      notes="Say: Template letters get template responses. The bureaus have seen the same letter ten "
+            "thousand times — that's how you end up with stall letters. These are written per account, "
+            "per bureau, per situation.")
+
+slide("S40 — #3 Funding recommendations", LIGHT, "usecase",
+      num="3. KNOW WHERE TO APPLY",
+      sub="Which banks. Which bureau they pull. What order.",
+      lines=["Not “apply and hope.”"],
+      notes="Say: Remember slide seventeen — you couldn't tell me which bureau your last denial pulled. "
+            "This is the slide that fixes that permanently.")
+
+slide("S41 — The turn", LIGHT, "statement",
+      text="Now — here's what most people in this room don't know.",
+      notes="Say: Beat. Then move.\n\nPACING: Gets a beat.")
+
+slide("S42 — Tier two", LIGHT, "heading",
+      text="THEN — USE IT TO GET PAID",
+      sub="The same tool that fixes your file<br>is a business.")
+
+ask("Q12 — Ask 12 (after S42)", "TYPE IN THE CHAT",
+    "Type YES if you'd want to get paid doing this for other people.",
+    "Why: Opens the second tier and measures how operator-minded the room is. Big YES wall — slow down "
+    "on the next two slides. Thin — move through them and spend the time on the funding-business slide.")
+
+slide("S43 — #4 Credit repair business", LIGHT, "usecase",
+      num="4. LAUNCH A CREDIT REPAIR BUSINESS",
+      lines=["Pull a client's report. Read their ten lines.",
+             "Show them the red on their own screen.",
+             "Let the software write and mail the letters."],
+      notes="Say: The consultation sells itself. You don't have to convince anyone they need help — you "
+            "show them their own file and ask one question: do you want help with this?\n\n"
+            "⚠️ Be straight about what this takes: credit repair is a regulated business with state "
+            "requirements. The software is the engine, not the license. Say it out loud on this slide.")
+
+slide("S44 — #5 Funding business", LIGHT, "usecase",
+      num="5. LAUNCH A FUNDING BUSINESS",
+      lines=["Qualify the client before you ever apply.",
+             "Know the banks, the bureaus, the order.",
+             "Get paid a percentage of what you get funded."],
+      notes="Say: This is what people charge ten and fifteen percent for. The hard part was never the "
+            "paperwork — it was knowing whether the file could get approved before you burned an inquiry "
+            "finding out.\n\n"
+            "⚠️ No earnings claims. If you show the arithmetic of a percentage fee, say plainly that "
+            "it's arithmetic on an example, not a typical result.")
+
+slide("S45 — #6 Refer it", LIGHT, "usecase",
+      num="6. REFER IT",
+      lines=["Your own referral link.", "Share the software.",
+             "Earn on it — every month it stays active."],
+      notes="Say: You don't have to run a single client file to benefit from this. If all you ever do is "
+            "send it to the people in your circle who keep getting denied, that's a real thing.\n\n"
+            "⚠️ The referral program is a referral program. Describe how it works. Don't project what "
+            "anyone will earn from it.")
+
+slide("S46 — All six", LIGHT, "numbered",
+      items=["Analyze your profile", "Improve it with AI disputes", "Know where to apply",
+             "Launch a credit repair business", "Launch a funding business", "Refer it and earn"],
+      footer="One login.",
+      notes="Say: Find yourself on this list. Most of you are on it twice.\n\nPACING: Never cut this slide.")
+
+ask("Q13 — Ask 13 (after S46)", "TYPE IN THE CHAT",
+    "Type every number that applies to you. Not one — all of them.",
+    "Why: Someone typing “1, 3, 6” is telling you and themselves that this is worth more than one "
+    "thing to them. That multiplies perceived value right before the stack.")
+
+# ─────────────────────────────────────────────────────────────
+# ACT 5 — THE OFFER
+# ─────────────────────────────────────────────────────────────
+
+slide("S47 — The two files", LIGHT, "placeholder",
+      text="[Red file] · [Green file]",
+      sub="Same ten questions.",
+      notes="⚠️ Drop the two file comparisons onto this slide before stage.")
+
+slide("S48 — The question", LIGHT, "statement",
+      text="Which one are you?",
+      notes="Say: Be honest with yourself. Most of this room is the file on the left. That's not a "
+            "character flaw — it's a starting point, and now it's a measurable one.")
+
+slide("S49 — The good news", LIGHT, "lines",
+      lines=["The gap between those two files", "isn't willpower.", "",
+             "It's a checklist and a tool."])
+
+slide("S50 — Three levers", LIGHT, "numbered",
+      items=["Pay down what's high — often $7–8 a week",
+             "Remove what shouldn't be there",
+             "Only apply where you're actually eligible"],
+      notes="Say: Three levers. The third one is free — it just requires knowing something you didn't "
+            "know an hour ago.")
+
+ask("Q14 — Ask 14 (after S50)", "TYPE IN THE CHAT",
+    "Type YES if $8 a week is doable for you.",
+    "Why: The last micro-yes before money enters the room. They've just agreed the fix is affordable — "
+    "that's the frame you want them holding when the price appears four slides later.")
+
+slide("S51 — Back to why", LIGHT, "lines",
+      lines=["The house.", "The car.", "The capital.", "", "Or a business of your own."],
+      notes="Say: Because that's what this was always about. Not the score.")
+
+slide("S52 — What you get", LIGHT, "statement",
+      text="All six.",
+      sub="One login.")
+
+ask("Q15 — Ask 15 (after S52)", "TYPE IN THE CHAT",
+    "Type YES if you'd want all six of those in one place.",
+    "Why: Agreement on the bundle before it has a price. Now the stack is answering “how much,” "
+    "not “whether.”")
+
+slide("S53 — The value stack", LIGHT, "chart",
+      rows=[("Full AI Credit File Analysis — five AIs read your report", 297),
+            ("The Underwriting Blueprint — know before you apply", 197),
+            ("Bank + Bureau Matching — who pulls what, and in what order", 197),
+            ("AI Dispute Letter Engine — custom letters, not templates", 97),
+            ("Letter Print + Certified Mail", 97),
+            ("Progress Report + Score Timeline", 67),
+            ("Client Summary PDF", 45)],
+      notes="Say: Name each line as it appears and tie it back to the use case it powers. Nothing here "
+            "should be new information by now.\n\n"
+            "⚠️ The script calls for this to build one line at a time. The import lands it as one "
+            "chart — duplicate this slide seven times in Canva and delete bars upward if you want the build back.")
+
+# The four price slides — identical layout, only the number changes.
+slide("S54 — The total", DARK, "price", strike="", big="$997", sub="",
+      notes="Say: Let it sit. Say nothing for a beat.\n\n"
+            "PACING: Slides 54–57 are one motion — no pause except after this one.")
+
+slide("S55 — $497", DARK, "price", strike="$997", big="$497", sub="",
+      notes="PACING: One motion with 54, 56, 57. No pause.")
+
+slide("S56 — $247", DARK, "price", strike="$497", big="$247", sub="",
+      notes="PACING: One motion with 54, 55, 57. No pause.")
+
+slide("S57 — The offer", DARK, "price", strike="$247", big="$1 TO GET STARTED",
+      sub="7 days, then $97/month",
+      notes="Say: One dollar to get started. Seven days. After that it's $97 a month — your card gets "
+            "charged $97 on [state the exact date]. No surprises, no small print. If it's not for you, "
+            "cancel inside the seven days.\n\nPACING: Never cut this slide.")
+
+ask("Q16 — Ask 16 (after S57)", "TYPE IN THE CHAT",
+    "Type YES if you're getting started tonight.",
+    "Why: The commitment ask. Every yes before this one was practice for this one. Wait through the "
+    "silence — it always feels longer than it is.")
+
+slide("S58 — What happens in those 7 days", LIGHT, "lines",
+      lines=["Tonight: upload your report", "Tonight: run the Blueprint", "Tonight: see your ten lines",
+             "", "This week: know whether you're eligible —", "before you apply to anything else."],
+      notes="Say: The trial isn't “poke around and see.” You have one job in seven days: find out what "
+            "your own ten lines actually say.")
+
+slide("S59 — Who this is for", LIGHT, "bullets",
+      bullets=["You've been denied and never got a real answer",
+               "You're about to apply for something that matters",
+               "You're fixing your file and want the work tracked",
+               "You want to start a credit repair business",
+               "You want to start a funding business",
+               "You want to refer it and earn"],
+      notes="Say: Read all six out loud, slowly. Every person in the room should hear their own line. "
+            "This is the slide where the six avatars each decide it's for them.")
+
+slide("S60 — Who this isn't for", LIGHT, "bullets",
+      bullets=["Anyone looking for a guaranteed approval",
+               "Anyone who wants someone else to care about their file more than they do"],
+      notes="Say: I'd rather you not start than start expecting a miracle. This is a tool. A very good "
+            "one. It isn't magic, and it isn't a license — if you're building a business on it, you still "
+            "have to build the business.")
+
+slide("S61 — How to start", LIGHT, "numbered",
+      items=["Click the link", "Create your account — $1", "Upload your report tonight"])
+
+slide("S62 — The link", LIGHT, "placeholder",
+      text="[URL]",
+      notes="Say: Say it out loud. Have someone drop it in chat now, and again in five minutes.\n\n"
+            "⚠️ Replace [URL] with the live referral link before stage.")
+
+ask("Q17 — Ask 17 (after S62)", "TYPE IN THE CHAT",
+    "Type GOT IT when you see the link.",
+    "Why: Two jobs at once — confirms the link actually reached people, and puts visible evidence in the "
+    "chat that others are moving. That's the most persuasive thing on screen at this moment.")
+
+slide("S63 — Close before the demo", DARK, "close",
+      lines=["You were never bad with credit.", "You were playing a game",
+             "nobody showed you the rules to."],
+      big="$1 TO GET STARTED",
+      sub="7 days, then $97/month · [URL]",
+      notes="Say: Get started now, and then watch me use the exact thing you just got. Everybody else — "
+            "watch anyway, and decide at the end.\n\n"
+            "⚠️ THIS SLIDE STAYS VISIBLE OR PINNED IN CHAT FOR THE ENTIRE 30-MINUTE DEMO. The link "
+            "never leaves the screen.")
+
+# ── DEMO ASKS — held in reserve, not part of the running order ──
+ask("Q18 — Demo ask 1 (after demo beat 3)", "TYPE IN THE CHAT",
+    "Type YES if you want to see your own ten lines.",
+    "DEMO ASK — hold in reserve. Bring this up after demo beat 3 (the Blueprint live), then return to "
+    "S63 so the offer and link are back on screen. Thirty minutes is a long time to watch someone "
+    "else's screen; these keep the room from drifting.")
+
+ask("Q19 — Demo ask 2 (after demo beat 6)", "TYPE IN THE CHAT",
+    "Type YES if you thought that number would be higher.",
+    "DEMO ASK — hold in reserve. Bring this up after demo beat 6 (the paydown calculator), then return "
+    "to S63 so the offer and link are back on screen.")
+
+ask("Q20 — Demo ask 3 (after demo beat 14)", "TYPE IN THE CHAT",
+    "Type YES if that was helpful tonight.",
+    "DEMO ASK — hold in reserve. Bring this up after demo beat 14 (the green file), then return to S63. "
+    "This one warms the room for the second ask.")
+
+slide("S64 — After the demo", DARK, "close",
+      lines=["That's the whole thing."],
+      big="$1 TO GET STARTED",
+      sub="7 days, then $97/month · [URL]",
+      notes="Say: This is the ask that actually converts the room, so don't rush past it into questions. "
+            "Everyone who was undecided forty-five minutes ago just watched it work. Say the price, say "
+            "the rebill date, say the link, and give them fifteen seconds of silence to click before you "
+            "take the first question.\n\nPACING: Never cut this slide.")
+
+ask("Q21 — Ask 21 (after S64)", "TYPE IN THE CHAT",
+    "Type YES if you're in.",
+    "Why: The second ask. Fifteen seconds of silence after the link.")
+
+slide("S65 — Q&A holding slide", DARK, "qa",
+      text="Questions.",
+      blueprint=["700 credit score?", "Under 30% utilization?",
+                 "Five open primary cards, two years of good history?",
+                 "Three primary cards, three years old, $5,000 limit?",
+                 "More than four unsecured accounts in the last 12 months?",
+                 "Under four inquiries?", "Collections?", "Charge-offs?",
+                 "Late payments?", "Bankruptcy?"],
+      offer="$1 to get started · 7 days · then $97/month · [URL]",
+      notes="Say: Leave this up the entire time. Late arrivals can still read the Blueprint and still "
+            "find the link.")
+
+
+# ─────────────────────────────────────────────────────────────
+# Rendering
+# ─────────────────────────────────────────────────────────────
+
+def esc(t):
+    return html.escape(t, quote=True)
+
+
+VB_W, VB_H = 1520, 660
+
+
+def chart_svg(rows):
+    """Horizontal bar chart. Single series, magnitude -> bars, direct labels, no legend.
+
+    No chart title and no total: neither appears on this slide in the source, and the
+    $997 total is the reveal on the very next slide.
+    """
+    lab_end, x0, track = 800, 840, 560
+    top, bar_h, gap = 30, 48, 38
+    mx = max(v for _, v in rows)
+    out = [f'<svg class="chart" viewBox="0 0 {VB_W} {VB_H}" role="img" '
+           'aria-label="Value stack, seven components by dollar value">']
+    for i, (lab, val) in enumerate(rows):
+        y = top + i * (bar_h + gap)
+        w = round(track * val / mx, 1)
+        out.append(f'<text class="c-lab" x="{lab_end}" y="{y + bar_h/2 + 9}" text-anchor="end">{esc(lab)}</text>')
+        out.append(f'<rect class="c-bar" x="{x0}" y="{y}" width="{w}" height="{bar_h}" rx="4"/>')
+        out.append(f'<text class="c-val" x="{x0 + w + 18}" y="{y + bar_h/2 + 11}">${val}</text>')
+    out.append('</svg>')
+    return "\n".join(out)
+
+
+def render(s):
+    L, b = s["layout"], []
+    if L == "title":
+        b.append(f'<h1 class="t-title">{esc(s["title"])}</h1>')
+        b.append(f'<p class="t-sub">{esc(s["sub"])}</p>')
+    elif L == "statement":
+        b.append(f'<h1 class="t-state">{esc(s["text"])}</h1>')
+        if s.get("sub"):
+            b.append(f'<p class="t-statsub">{s["sub"]}</p>')
+    elif L == "heading":
+        b.append(f'<h2 class="t-head">{esc(s["text"])}</h2>')
+        if s.get("sub"):
+            b.append(f'<p class="t-statsub">{s["sub"]}</p>')
+    elif L == "lines":
+        for ln in s["lines"]:
+            b.append('<p class="t-line spacer">&nbsp;</p>' if ln == ""
+                     else f'<p class="t-line">{ln}</p>')
+    elif L == "bullets":
+        b.append('<ul class="t-ul">' + "".join(f'<li>{esc(x)}</li>' for x in s["bullets"]) + '</ul>')
+    elif L == "numbered":
+        b.append('<ol class="t-ol">' + "".join(f'<li>{x}</li>' for x in s["items"]) + '</ol>')
+        if s.get("footer"):
+            b.append(f'<p class="t-footer">{esc(s["footer"])}</p>')
+    elif L == "tenlines":
+        b.append('<ol class="t-ten">' + "".join(f'<li>{esc(x)}</li>' for x in s["items"]) + '</ol>')
+    elif L == "twocol":
+        b.append('<div class="t-cols">')
+        for head, items in ((s["col_a_head"], s["col_a"]), (s["col_b_head"], s["col_b"])):
+            b.append(f'<div class="t-col"><h3>{esc(head)}</h3><ul>'
+                     + "".join(f'<li>{esc(i)}</li>' for i in items) + '</ul></div>')
+        b.append('</div>')
+    elif L == "usecase":
+        b.append(f'<h2 class="t-uc">{esc(s["num"])}</h2>')
+        if s.get("sub"):
+            b.append(f'<p class="t-ucsub">{esc(s["sub"])}</p>')
+        for ln in s["lines"]:
+            b.append(f'<p class="t-line">{esc(ln)}</p>')
+    elif L == "legend":
+        b.append('<div class="t-legend">')
+        for color, label in s["rows"]:
+            b.append(f'<div class="t-legrow"><span class="chip" style="background:{color}"></span>'
+                     f'<span class="t-leglab">{esc(label)}</span></div>')
+        b.append('</div>')
+    elif L == "statfocus":
+        b.append(f'<p class="t-kicker">{esc(s["kicker"])}</p>')
+        b.append(f'<p class="t-stat">{esc(s["stat"])}</p>')
+    elif L == "placeholder":
+        b.append(f'<p class="t-ph">{esc(s["text"])}</p>')
+        if s.get("sub"):
+            b.append(f'<p class="t-line">{esc(s["sub"])}</p>')
+    elif L == "chart":
+        b.append(chart_svg(s["rows"]))
+    elif L == "price":
+        b.append(f'<p class="t-strike">{esc(s["strike"]) if s["strike"] else "&nbsp;"}</p>')
+        b.append(f'<p class="t-big">{esc(s["big"])}</p>')
+        b.append(f'<p class="t-pricesub">{esc(s["sub"]) if s["sub"] else "&nbsp;"}</p>')
+    elif L == "close":
+        for ln in s["lines"]:
+            b.append(f'<p class="t-closeline">{esc(ln)}</p>')
+        b.append(f'<p class="t-big close">{esc(s["big"])}</p>')
+        b.append(f'<p class="t-pricesub">{esc(s["sub"])}</p>')
+    elif L == "question":
+        b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
+        b.append(f'<p class="q-text">{esc(s["text"])}</p>')
+    elif L == "qa":
+        b.append(f'<h1 class="t-state qa">{esc(s["text"])}</h1>')
+        b.append('<ol class="qa-bp">' + "".join(f'<li>{esc(x)}</li>' for x in s["blueprint"]) + '</ol>')
+        b.append(f'<p class="qa-offer">{esc(s["offer"])}</p>')
+    return "\n      ".join(b)
+
+
+CSS = """
+:root{
+  --ink:#0B0B0B; --ink-2:#3A3A3A; --paper:#FFFFFF;
+  --red:#ED1C24; --gold:#FFB81C; --green:#00C637;
+  --bar:#16181C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#20232A;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
+.page{
+  position:relative;width:1920px;height:1080px;overflow:hidden;
+  margin:0 auto 40px;background:var(--paper);
+}
+.bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;z-index:0}
+.safe{
+  position:absolute;z-index:2;left:190px;top:150px;width:1540px;height:760px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+}
+.page.light .safe{color:var(--ink)}
+.page.dark  .safe{color:#FFFFFF}
+
+h1,h2,h3{font-family:'Archivo Black','Arial Black','Helvetica Neue',Arial,sans-serif;
+  font-weight:900;letter-spacing:-.5px;line-height:1.02}
+
+.t-title{font-size:132px;text-transform:uppercase}
+.t-sub{font-size:44px;margin-top:34px;color:#EDEDED;font-weight:600}
+.t-state{font-size:104px;text-transform:none}
+.t-state.qa{font-size:86px}
+.t-statsub{font-size:46px;line-height:1.35;margin-top:30px;font-weight:600}
+.t-head{font-size:82px;text-transform:uppercase}
+.t-line{font-size:52px;line-height:1.45;font-weight:600}
+.t-line.spacer{height:26px}
+.t-ul{list-style:none;text-align:left;max-width:1320px}
+.t-ul li{font-size:46px;line-height:1.4;margin:22px 0;padding-left:52px;position:relative;font-weight:600}
+.t-ul li:before{content:"";position:absolute;left:0;top:24px;width:26px;height:6px;background:var(--red)}
+.t-ol{list-style:none;counter-reset:n;text-align:left;max-width:1340px}
+.t-ol li{counter-increment:n;font-size:44px;line-height:1.35;margin:20px 0;padding-left:78px;position:relative;font-weight:600}
+.t-ol li:before{content:counter(n) ".";position:absolute;left:0;font-family:'Archivo Black',Arial,sans-serif;color:var(--red)}
+.t-footer{font-family:'Archivo Black',Arial,sans-serif;font-size:56px;margin-top:34px}
+.t-ten{list-style:none;counter-reset:n;text-align:left;max-width:1400px}
+.t-ten li{counter-increment:n;font-size:40px;line-height:1.3;margin:13px 0;padding-left:72px;position:relative;font-weight:600}
+.t-ten li:before{content:counter(n) ".";position:absolute;left:0;font-family:'Archivo Black',Arial,sans-serif;color:var(--red)}
+.t-cols{display:flex;gap:110px;text-align:left;width:100%}
+.t-col{flex:1}
+.t-col h3{font-size:44px;margin-bottom:26px}
+.t-col ul{list-style:none}
+.t-col li{font-size:36px;line-height:1.35;margin:18px 0;padding-left:44px;position:relative;font-weight:600}
+.t-col li:before{content:"";position:absolute;left:0;top:19px;width:22px;height:5px;background:var(--red)}
+.t-uc{font-size:70px;text-transform:uppercase}
+.t-ucsub{font-size:46px;margin:22px 0 34px;font-weight:700;color:var(--ink-2)}
+.t-legend{display:flex;flex-direction:column;gap:44px}
+.t-legrow{display:flex;align-items:center;gap:40px}
+.chip{width:76px;height:76px;border-radius:50%;flex:none;
+  box-shadow:0 0 0 5px rgba(0,0,0,.82) inset,0 0 0 3px rgba(0,0,0,.28)}
+.t-leglab{font-family:'Archivo Black',Arial,sans-serif;font-size:58px}
+.t-kicker{font-size:48px;font-weight:700;margin-bottom:38px}
+.t-stat{font-family:'Archivo Black',Arial,sans-serif;font-size:118px;color:var(--red)}
+.t-ph{font-size:44px;font-weight:700;color:#8A8A8A;border:4px dashed #B9B9B9;
+  border-radius:14px;padding:56px 68px}
+.chart{width:1520px;height:660px}
+.c-lab{font-family:'Inter',Arial,sans-serif;font-size:24px;font-weight:600;fill:#25282E}
+.c-bar{fill:var(--bar)}
+.c-val{font-family:'Archivo Black',Arial,sans-serif;font-size:32px;fill:#0B0B0B}
+.t-strike{font-size:66px;font-weight:700;text-decoration:line-through;color:#9BA0A8;min-height:80px}
+.t-big{font-family:'Archivo Black',Arial,sans-serif;font-size:190px;line-height:1;margin:18px 0}
+.t-big.close{font-size:120px;margin-top:52px}
+.t-pricesub{font-size:46px;font-weight:600;color:#E4E4E4;min-height:58px}
+.t-closeline{font-size:56px;line-height:1.4;font-weight:600}
+.q-kicker{font-family:'Archivo Black',Arial,sans-serif;font-size:40px;letter-spacing:7px;
+  color:var(--gold);margin-bottom:52px}
+.q-text{font-family:'Archivo Black',Arial,sans-serif;font-size:82px;line-height:1.18}
+.qa-bp{list-style:none;counter-reset:n;text-align:left;margin:40px 0 34px;
+  columns:2;column-gap:80px;max-width:1460px}
+.qa-bp li{counter-increment:n;font-size:26px;line-height:1.4;margin:9px 0;padding-left:44px;
+  position:relative;font-weight:600;break-inside:avoid}
+.qa-bp li:before{content:counter(n) ".";position:absolute;left:0;color:var(--gold);
+  font-family:'Archivo Black',Arial,sans-serif}
+.qa-offer{font-family:'Archivo Black',Arial,sans-serif;font-size:40px;color:var(--gold)}
+"""
+
+
+def main():
+    pages = []
+    for s in S:
+        bgfile = "bg_dark.jpg" if s["bg"] == DARK else "bg_light.jpg"
+        pages.append(
+            f'  <section class="page {s["bg"]}" data-document-role="page"\n'
+            f'           data-label="{esc(s["label"])}"\n'
+            f'           data-speaker-notes="{esc(s["notes"])}">\n'
+            f'    <img class="bg" src="{BG_BASE}/{bgfile}" alt="">\n'
+            f'    <div class="safe">\n      {render(s)}\n    </div>\n'
+            f'  </section>'
+        )
+    doc = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
+           "<title>The Score Machine — 90-Minute Webinar</title>\n"
+           f"<style>{CSS}</style>\n</head>\n<body>\n" + "\n".join(pages) + "\n</body>\n</html>\n")
+
+    out = sys.argv[2] if len(sys.argv) > 2 else "score-machine-deck.html"
+    with open(out, "w", encoding="utf-8") as f:
+        f.write(doc)
+
+    q = sum(1 for s in S if s["layout"] == "question")
+    print(f"pages={len(S)}  question_slides={q}  base_slides={len(S)-q}")
+    print(f"dark={sum(1 for s in S if s['bg']==DARK)}  light={sum(1 for s in S if s['bg']==LIGHT)}")
+    print(f"wrote {out}")
+
+
+if __name__ == "__main__":
+    main()

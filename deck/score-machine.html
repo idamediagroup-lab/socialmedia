@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Score Machine — 90-Minute Webinar</title>
+<style>
+:root{
+  --ink:#0B0B0B; --ink-2:#3A3A3A; --paper:#FFFFFF;
+  --red:#ED1C24; --gold:#FFB81C; --green:#00C637;
+  --bar:#16181C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#20232A;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
+.page{
+  position:relative;width:1920px;height:1080px;overflow:hidden;
+  margin:0 auto 40px;background:var(--paper);
+}
+.bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;z-index:0}
+.safe{
+  position:absolute;z-index:2;left:190px;top:150px;width:1540px;height:760px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+}
+.page.light .safe{color:var(--ink)}
+.page.dark  .safe{color:#FFFFFF}
+
+h1,h2,h3{font-family:'Archivo Black','Arial Black','Helvetica Neue',Arial,sans-serif;
+  font-weight:900;letter-spacing:-.5px;line-height:1.02}
+
+.t-title{font-size:132px;text-transform:uppercase}
+.t-sub{font-size:44px;margin-top:34px;color:#EDEDED;font-weight:600}
+.t-state{font-size:104px;text-transform:none}
+.t-state.qa{font-size:86px}
+.t-statsub{font-size:46px;line-height:1.35;margin-top:30px;font-weight:600}
+.t-head{font-size:82px;text-transform:uppercase}
+.t-line{font-size:52px;line-height:1.45;font-weight:600}
+.t-line.spacer{height:26px}
+.t-ul{list-style:none;text-align:left;max-width:1320px}
+.t-ul li{font-size:46px;line-height:1.4;margin:22px 0;padding-left:52px;position:relative;font-weight:600}
+.t-ul li:before{content:"";position:absolute;left:0;top:24px;width:26px;height:6px;background:var(--red)}
+.t-ol{list-style:none;counter-reset:n;text-align:left;max-width:1340px}
+.t-ol li{counter-increment:n;font-size:44px;line-height:1.35;margin:20px 0;padding-left:78px;position:relative;font-weight:600}
+.t-ol li:before{content:counter(n) ".";position:absolute;left:0;font-family:'Archivo Black',Arial,sans-serif;color:var(--red)}
+.t-footer{font-family:'Archivo Black',Arial,sans-serif;font-size:56px;margin-top:34px}
+.t-ten{list-style:none;counter-reset:n;text-align:left;max-width:1400px}
+.t-ten li{counter-increment:n;font-size:40px;line-height:1.3;margin:13px 0;padding-left:72px;position:relative;font-weight:600}
+.t-ten li:before{content:counter(n) ".";position:absolute;left:0;font-family:'Archivo Black',Arial,sans-serif;color:var(--red)}
+.t-cols{display:flex;gap:110px;text-align:left;width:100%}
+.t-col{flex:1}
+.t-col h3{font-size:44px;margin-bottom:26px}
+.t-col ul{list-style:none}
+.t-col li{font-size:36px;line-height:1.35;margin:18px 0;padding-left:44px;position:relative;font-weight:600}
+.t-col li:before{content:"";position:absolute;left:0;top:19px;width:22px;height:5px;background:var(--red)}
+.t-uc{font-size:70px;text-transform:uppercase}
+.t-ucsub{font-size:46px;margin:22px 0 34px;font-weight:700;color:var(--ink-2)}
+.t-legend{display:flex;flex-direction:column;gap:44px}
+.t-legrow{display:flex;align-items:center;gap:40px}
+.chip{width:76px;height:76px;border-radius:50%;flex:none;
+  box-shadow:0 0 0 5px rgba(0,0,0,.82) inset,0 0 0 3px rgba(0,0,0,.28)}
+.t-leglab{font-family:'Archivo Black',Arial,sans-serif;font-size:58px}
+.t-kicker{font-size:48px;font-weight:700;margin-bottom:38px}
+.t-stat{font-family:'Archivo Black',Arial,sans-serif;font-size:118px;color:var(--red)}
+.t-ph{font-size:44px;font-weight:700;color:#8A8A8A;border:4px dashed #B9B9B9;
+  border-radius:14px;padding:56px 68px}
+.chart{width:1520px;height:660px}
+.c-lab{font-family:'Inter',Arial,sans-serif;font-size:24px;font-weight:600;fill:#25282E}
+.c-bar{fill:var(--bar)}
+.c-val{font-family:'Archivo Black',Arial,sans-serif;font-size:32px;fill:#0B0B0B}
+.t-strike{font-size:66px;font-weight:700;text-decoration:line-through;color:#9BA0A8;min-height:80px}
+.t-big{font-family:'Archivo Black',Arial,sans-serif;font-size:190px;line-height:1;margin:18px 0}
+.t-big.close{font-size:120px;margin-top:52px}
+.t-pricesub{font-size:46px;font-weight:600;color:#E4E4E4;min-height:58px}
+.t-closeline{font-size:56px;line-height:1.4;font-weight:600}
+.q-kicker{font-family:'Archivo Black',Arial,sans-serif;font-size:40px;letter-spacing:7px;
+  color:var(--gold);margin-bottom:52px}
+.q-text{font-family:'Archivo Black',Arial,sans-serif;font-size:82px;line-height:1.18}
+.qa-bp{list-style:none;counter-reset:n;text-align:left;margin:40px 0 34px;
+  columns:2;column-gap:80px;max-width:1460px}
+.qa-bp li{counter-increment:n;font-size:26px;line-height:1.4;margin:9px 0;padding-left:44px;
+  position:relative;font-weight:600;break-inside:avoid}
+.qa-bp li:before{content:counter(n) ".";position:absolute;left:0;color:var(--gold);
+  font-family:'Archivo Black',Arial,sans-serif}
+.qa-offer{font-family:'Archivo Black',Arial,sans-serif;font-size:40px;color:var(--gold)}
+</style>
+</head>
+<body>
+  <section class="page dark" data-document-role="page"
+           data-label="S1 — Title"
+           data-speaker-notes="Say: Ninety minutes. By the end of tonight you&#x27;re going to know exactly why your last denial happened, and exactly what your file needs before you apply to anything again.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-title">THE SCORE MACHINE</h1>
+      <p class="t-sub">Why you got denied — and what to do about it</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q1 — Ask 1 (after S1)"
+           data-speaker-notes="Why: The first ask must be trivially easy and it must succeed. It teaches the room that typing in the chat is what we do here. If the chat stays quiet, stop and fix it now — every later ask depends on this one landing.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Before we start — type YES in the chat if you can see my screen and hear me clearly.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S2 — The hook"
+           data-speaker-notes="Say: Nothing. Three full seconds of silence. Let it sit before you move.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">You didn&#x27;t get turned down for the reason you think.</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S3 — The house"
+           data-speaker-notes="Say: Some of you know exactly what that phone call sounds like.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">You found the house.</p>
+      <p class="t-line">You got pre-approved.</p>
+      <p class="t-line">Then you weren't.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S4 — The car"
+           data-speaker-notes="Say: Slow down here. This is the slide people feel. Nobody applies for a car loan because they want a car loan — they want to stop asking for rides, stop losing shifts, get home before their kids are asleep. Do not rush this slide.
+
+PACING: One of only two slow slides in Act 1. Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">You need the car to get to work.</p>
+      <p class="t-line">The job is what feeds your family.</p>
+      <p class="t-line">The denial costs you both.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q2 — Ask 2 (after S4)"
+           data-speaker-notes="Why: First emotional yes. Wait for it. Read two or three names out loud — that&#x27;s what teaches the room that answering gets acknowledged.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if a denial has ever cost you something that mattered more than the money.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S5 — The contract"
+           data-speaker-notes="Say: And for the business owners in here — same feeling, different shape. You weren&#x27;t short on skill. You were short on cash for ninety days.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">The contract was yours.</p>
+      <p class="t-line">You didn't have the capital to staff it.</p>
+      <p class="t-line">So you watched someone else take it.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S6 — The reframe"
+           data-speaker-notes="Say: Nobody has ever laid in bed at night wishing their score was higher for its own sake. You want the house. You want the truck. You want the line of credit. The score is just the door.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">NOBODY WANTS A CREDIT SCORE.</h1>
+      <p class="t-statsub">They want what it unlocks.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S7 — What this class actually is"
+           data-speaker-notes="PACING: Cuttable if running long.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">This isn't a class about credit.</p>
+      <p class="t-line">It's a class about approvals.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S8 — Let&#x27;s see if I&#x27;m describing your situation"
+           data-speaker-notes="Say: [Wait. Do not move until the chat fills.] That&#x27;s most of the room.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ul class="t-ul"><li>Denied — and the letter never really told you why</li><li>Your score is “fine.” 640. 700. Still denied.</li><li>Solid card, still stuck at a $500 limit, calling it progress</li><li>You have cards. You still aren&#x27;t fundable.</li></ul>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q3 — Ask 3 (after S8)"
+           data-speaker-notes="Why: Highest-volume yes of the night. The wall of YES is the point, not the answer — it proves to every person that they aren&#x27;t the only one.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if even one of those four is you.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S9 — Both rooms"
+           data-speaker-notes="Say: Nobody&#x27;s in the wrong room tonight. Underwriting doesn&#x27;t read a file differently because of what you want at the end of it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Some of you are here for personal credit.</p>
+      <p class="t-line">Some of you are here for business funding.</p>
+      <p class="t-line">Same file. Same rules. Same machine.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q4 — Ask 4 (after S9)"
+           data-speaker-notes="Why: Diagnostic, not agreement — it tells you the room mix so you can weight your examples for the next hour. Say the split out loud once you see it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type 1 if you&#x27;re here for personal credit, 2 if you&#x27;re here for business funding, 3 if it&#x27;s both.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S10 — Who I am"
+           data-speaker-notes="Say: Quick word on who&#x27;s talking to you. I run a marketing company — Get AI Leads Now. Credit isn&#x27;t my industry. I&#x27;m on this call because of what this tool did inside my business and my clients&#x27; businesses, and I want to show it to you from the business owner&#x27;s side of the desk, not the software company&#x27;s side.
+
+LANGUAGE DISCIPLINE FOR THE WHOLE NIGHT: always “they” and “Score Machine.” Never “we,” “our software,” “our team.” You&#x27;re a customer telling the room what the product did for you. That&#x27;s the position, and one slip into “we” costs it.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">[Your name]</p>
+      <p class="t-line">Owner — Get AI Leads Now</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">I'm not a credit repair company.</p>
+      <p class="t-line">I'm a business owner who uses this software.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S11 — The three ways I make money with it"
+           data-speaker-notes="Say: I want to be straight with you about all three, especially the last one. I get paid when someone signs up through my link — including anybody who signs up tonight. I&#x27;m telling you that up front because I&#x27;d rather you hear it from me than wonder about it later, and honestly, it&#x27;s the whole point: number three is a business model, and it&#x27;s available to every person on this call.
+
+WHY THIS SLIDE MATTERS: the disclosure is required if you earn on referrals, and delivering it yourself, early, in your own words converts a liability into proof. You&#x27;re not hiding the affiliate model — you&#x27;re demonstrating it live. This also plants Act 4&#x27;s second tier fifteen minutes before it arrives.
+
+ON THE MARKETING RELATIONSHIP: you don&#x27;t need to volunteer that your company does marketing work — that&#x27;s simply not what tonight is about, and no rule requires you to narrate your whole client list. But don&#x27;t deny it either. If someone asks you point-blank in Q&amp;A whether you work with Score Machine, answer plainly and move on: “My company does marketing work in this space, yes — and everything I showed you tonight is something I actually use.” A brief honest answer costs you nothing. A denial that later surfaces costs you the room and the relationship.
+
+PACING: Slow slide. Never cut.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ol"><li><b>On my own file</b> — I know where I stand before I ever apply</li><li><b>For my clients</b> — I help them get funded, and I charge for that</li><li><b>By referring it</b> — I earn when people I send use it. Including tonight.</li></ol>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S12 — What changed in my business"
+           data-speaker-notes="Say: I didn&#x27;t have to become a credit expert. I didn&#x27;t have to go get certified in anything. I already had the clients — what I didn&#x27;t have was something useful to say when they brought me a funding problem. Now I do, and it&#x27;s a line of revenue that didn&#x27;t exist in my business a year ago. And that&#x27;s the last I&#x27;ll say about me. I only told you that because most of the room is going to spend tonight thinking about their own credit file — and some of you should be thinking about both.
+
+⚠️ FILL THIS WITH YOUR OWN TRUE SPECIFICS BEFORE STAGE — what you actually offer clients now, and what actually changed. Do not put a revenue figure on this slide. “A line of revenue that didn&#x27;t exist” is honest and persuasive; a dollar amount is an earnings claim and invites a very different set of problems.
+
+Why: The host block must end pointed at them, not at you. Three slides about you is credibility; a fourth is a detour. This is the hard stop — the second half of this slide is the handoff back to the room.
+
+PACING: Cut this slide first if the host block runs long — but never 10 or 11.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Before: a client asked me about funding and I had nothing to hand them.</p>
+      <p class="t-line">Now: I read their file in minutes and tell them exactly where they stand.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">New service. Same clients.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">If you own a business that touches people with credit problems —</p>
+      <p class="t-line">you're closer to this than you think.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S13 — Let me be straight with you"
+           data-speaker-notes="Say: I&#x27;m not going to stand up here and guarantee you an approval or tell you your score is going up 100 points. Nobody honest can promise you that. What I can do is show you the ten questions every lender is asking about your file, and then show you your own answers.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <div class="t-cols">
+      <div class="t-col"><h3>What this is:</h3><ul><li>Exactly how underwriting reads your file</li><li>The software that does it in about a minute</li></ul></div>
+      <div class="t-col"><h3>What this isn&#x27;t:</h3><ul><li>A promise of an approval</li><li>A promise of a number</li></ul></div>
+      </div>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S14 — The chain"
+           data-speaker-notes="Say: That&#x27;s the whole ninety minutes on one slide. Screenshot it. Everything from here just fills it in.
+
+PACING: Needs silence after it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ol"><li>You got denied</li><li>Because inquiries quietly lowered your ceiling</li><li>Because you applied without knowing if you were eligible</li><li>Eligibility can be known <b>before</b> you apply</li><li>If you're not eligible — the file gets fixed</li><li>Once you are — the bank and the bureau decide where you apply</li></ol>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S15 — The pivot"
+           data-speaker-notes="Say: A score gets you considered. It does not get you approved. Those are two different events and almost nobody is taught the difference.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">A score is not an approval.</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S16 — Three files"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">You don't have a credit score.</p>
+      <p class="t-line">You have three files.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">Experian · Equifax · TransUnion</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">Different data. Different scores.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S17 — The question"
+           data-speaker-notes="Say: Think about your last denial. Right now. Which bureau did that lender pull? [Pause. Let it be uncomfortable.]
+
+PACING: Needs silence after it. Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">Which one did they pull?</h1>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q5 — Ask 5 (after S17)"
+           data-speaker-notes="Why: Near-universal, and it&#x27;s an admission rather than an agreement — which is stronger. Once they&#x27;ve typed it they&#x27;ve told themselves they have a gap. Follow with: “That&#x27;s not your fault. Nobody ever told you it mattered.”">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you have no idea which bureau your last denial pulled.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S18 — Why it matters"
+           data-speaker-notes="PACING: Cuttable if running long.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Your best file doesn't get you approved.</p>
+      <p class="t-line">The one they pulled does.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S19 — Credit decay"
+           data-speaker-notes="Say: This is the part nobody tells you. It&#x27;s not just that inquiries ding your score a few points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens quietly, whether you got approved or not.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Every application leaves an inquiry.</p>
+      <p class="t-line">Every inquiry lowers what a bank will extend you.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">This is called <b>credit decay.</b></p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q6 — Ask 6 (after S19)"
+           data-speaker-notes="Why: Establishes you as the one who told them. This is the authority beat of Act 2.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if nobody has ever explained credit decay to you before tonight.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S20 — What decay looks like"
+           data-speaker-notes="Say: Negative five thousand. This person isn&#x27;t getting a smaller approval — they&#x27;re not getting anything, from anyone, and their credit score never told them that. They&#x27;d have kept applying.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-kicker">Real file. 14 inquiries.</p>
+      <p class="t-stat">Approval odds: −$5,000</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S21 — The line"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">Forget about points.</h1>
+      <p class="t-statsub">It's about money.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S22 — So what actually happened"
+           data-speaker-notes="PACING: Cuttable if running long.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">You applied.</p>
+      <p class="t-line">You didn't know if you qualified.</p>
+      <p class="t-line">You got denied.</p>
+      <p class="t-line">And the inquiry made the next one harder.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S23 — The spiral"
+           data-speaker-notes="Say: This is why it feels like it&#x27;s getting worse even though you&#x27;re trying harder. You are trying harder. Every attempt is costing you the next one.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Denied → inquiry → lower ceiling →</p>
+      <p class="t-line">denied → inquiry → lower ceiling →</p>
+      <p class="t-line">denied</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q7 — Ask 7 (after S23)"
+           data-speaker-notes="Why: They&#x27;re now agreeing to your diagnosis of their own history. Everything after this is built on that yes.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if that&#x27;s been your experience.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S24 — The turn"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">There is a way to know first.</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S25 — Eligibility is the whole game"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">The question is never “what's my score?”</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">The question is <b>“should I apply at all?”</b></p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S26 — How it starts"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Upload your credit report.</p>
+      <p class="t-line">No forms. No typing.</p>
+      <p class="t-line">Five AIs read every line of it.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S27 — The Blueprint"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">THE UNDERWRITING BLUEPRINT</h1>
+      <p class="t-statsub">Ten questions.<br>Every lender asks them.<br>Almost nobody has ever seen them written down.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S28 — The legend"
+           data-speaker-notes="Say: Like a traffic light. If you can drive a car, you can read a credit file. That&#x27;s not me being cute — that&#x27;s genuinely the whole skill.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <div class="t-legend">
+      <div class="t-legrow"><span class="chip" style="background:#D7191C"></span><span class="t-leglab">RED = STOP</span></div>
+      <div class="t-legrow"><span class="chip" style="background:#B07A00"></span><span class="t-leglab">YELLOW = PROCEED WITH CAUTION</span></div>
+      <div class="t-legrow"><span class="chip" style="background:#1A7A3C"></span><span class="t-leglab">GREEN = GO</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q8 — Ask 8 (after S28)"
+           data-speaker-notes="Why: Deliberately easy and a little funny. Resets the energy after eight heavy minutes and plants the belief that this is learnable — before you show them the ten lines.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you can read a traffic light.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S29 — The ten lines"
+           data-speaker-notes="Say: Ten. That&#x27;s it. That&#x27;s what stands between you and every approval you&#x27;ve been denied.
+
+PACING: The longest single slide in the deck. Never cut.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ten"><li>700 credit score?</li><li>Under 30% utilization?</li><li>Five open primary cards, two years of good history?</li><li>Three primary cards, three years old, $5,000 limit?</li><li>More than four unsecured accounts in the last 12 months?</li><li>Under four inquiries?</li><li>Collections?</li><li>Charge-offs?</li><li>Late payments?</li><li>Bankruptcy?</li></ol>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q9 — Ask 9 (after S29)"
+           data-speaker-notes="Why: The value moment. They just received something they didn&#x27;t have — get them to say so out loud.
+
+⚠️ Line 5 direction must be locked before stage — see the framework doc.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you&#x27;ve never seen these ten questions written down anywhere before.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S30 — The question it answers"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">→ Are you eligible?</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S31 — Let&#x27;s read one together"
+           data-speaker-notes="Say: I&#x27;m going to read you the line. You tell me red, yellow, or green. Don&#x27;t be shy — you already know how to do this, you just haven&#x27;t been allowed to before.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Let's read a real file.</p>
+      <p class="t-line">You call it.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S32 — The file (red)"
+           data-speaker-notes="Say: Walk it one line at a time. Let the room answer each one out loud. Do not answer for them.
+
+ASK (spoken, not typed — Yes Ladder #10): Red, yellow, or green? — line by line. Gets participation out loud rather than in the chat.
+
+⚠️ Drop the real anonymized file art onto this slide before stage.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-ph">[Ten lines, marked red/yellow/green from a real anonymized file]</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S33 — The verdict"
+           data-speaker-notes="Say: That&#x27;s the difference between how you felt walking in here and how you feel now. “Bad credit” is a feeling. Four red lines is a to-do list.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Not eligible.</p>
+      <p class="t-line">And now you know exactly why.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">Not “your credit is bad.”</p>
+      <p class="t-line">Four specific lines.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S34 — What green looks like"
+           data-speaker-notes="Say: Same ten questions. Completely different life.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">A real approved file:</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">1 inquiry</p>
+      <p class="t-line">0 collections</p>
+      <p class="t-line">2% utilization</p>
+      <p class="t-line"><b>Every line green</b></p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q10 — Ask 10 (after S34)"
+           data-speaker-notes="Why: The pivot from agreeing to wanting. Most important ask before the offer — the first time they state a desire instead of confirming a fact. Do not skip it, do not rush it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you want your file to look like that.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S35 — Transition"
+           data-speaker-notes="Say: I&#x27;m going to show it to you live before we&#x27;re done tonight. But first I need you to understand what this actually is, because most of the room only knows about one-sixth of it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">The software does all of this</p>
+      <p class="t-line">in about a minute.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">And that's only the first of six things people use it for.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S36 — The six"
+           data-speaker-notes="Say: Some of you came here tonight for the first three. Nobody told you the last three existed.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">Six ways people use this.</h1>
+      <p class="t-statsub">Three on yourself.<br>Three to get paid.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q11 — Ask 11 (after S36)"
+           data-speaker-notes="Why: Primes them to hunt for their own number, which keeps all six avatars watching the rest of the act.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type the number you came here for tonight — 1, 2, or 3.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S37 — Tier one"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-head">FIRST — USE IT ON YOURSELF</h2>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S38 — #1 Analyze"
+           data-speaker-notes="Say: This is the one everybody needs and nobody has. Your score is a summary. Your factors are the reasons. Lenders read the reasons.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">1. ANALYZE YOUR PROFILE</h2>
+      <p class="t-ucsub">Know your factors — not your score.</p>
+      <p class="t-line">What&#x27;s actually on all three bureaus.</p>
+      <p class="t-line">What&#x27;s helping. What&#x27;s holding you back.</p>
+      <p class="t-line">Whether you should apply at all.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S39 — #2 Improve"
+           data-speaker-notes="Say: Template letters get template responses. The bureaus have seen the same letter ten thousand times — that&#x27;s how you end up with stall letters. These are written per account, per bureau, per situation.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">2. IMPROVE YOUR PROFILE</h2>
+      <p class="t-ucsub">Dispute with the latest AI.</p>
+      <p class="t-line">Custom letters written per account — not templates</p>
+      <p class="t-line">Printed and mailed for you</p>
+      <p class="t-line">Every removal tracked</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S40 — #3 Funding recommendations"
+           data-speaker-notes="Say: Remember slide seventeen — you couldn&#x27;t tell me which bureau your last denial pulled. This is the slide that fixes that permanently.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">3. KNOW WHERE TO APPLY</h2>
+      <p class="t-ucsub">Which banks. Which bureau they pull. What order.</p>
+      <p class="t-line">Not “apply and hope.”</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S41 — The turn"
+           data-speaker-notes="Say: Beat. Then move.
+
+PACING: Gets a beat.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">Now — here&#x27;s what most people in this room don&#x27;t know.</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S42 — Tier two"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-head">THEN — USE IT TO GET PAID</h2>
+      <p class="t-statsub">The same tool that fixes your file<br>is a business.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q12 — Ask 12 (after S42)"
+           data-speaker-notes="Why: Opens the second tier and measures how operator-minded the room is. Big YES wall — slow down on the next two slides. Thin — move through them and spend the time on the funding-business slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you&#x27;d want to get paid doing this for other people.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S43 — #4 Credit repair business"
+           data-speaker-notes="Say: The consultation sells itself. You don&#x27;t have to convince anyone they need help — you show them their own file and ask one question: do you want help with this?
+
+⚠️ Be straight about what this takes: credit repair is a regulated business with state requirements. The software is the engine, not the license. Say it out loud on this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">4. LAUNCH A CREDIT REPAIR BUSINESS</h2>
+      <p class="t-line">Pull a client&#x27;s report. Read their ten lines.</p>
+      <p class="t-line">Show them the red on their own screen.</p>
+      <p class="t-line">Let the software write and mail the letters.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S44 — #5 Funding business"
+           data-speaker-notes="Say: This is what people charge ten and fifteen percent for. The hard part was never the paperwork — it was knowing whether the file could get approved before you burned an inquiry finding out.
+
+⚠️ No earnings claims. If you show the arithmetic of a percentage fee, say plainly that it&#x27;s arithmetic on an example, not a typical result.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">5. LAUNCH A FUNDING BUSINESS</h2>
+      <p class="t-line">Qualify the client before you ever apply.</p>
+      <p class="t-line">Know the banks, the bureaus, the order.</p>
+      <p class="t-line">Get paid a percentage of what you get funded.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S45 — #6 Refer it"
+           data-speaker-notes="Say: You don&#x27;t have to run a single client file to benefit from this. If all you ever do is send it to the people in your circle who keep getting denied, that&#x27;s a real thing.
+
+⚠️ The referral program is a referral program. Describe how it works. Don&#x27;t project what anyone will earn from it.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h2 class="t-uc">6. REFER IT</h2>
+      <p class="t-line">Your own referral link.</p>
+      <p class="t-line">Share the software.</p>
+      <p class="t-line">Earn on it — every month it stays active.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S46 — All six"
+           data-speaker-notes="Say: Find yourself on this list. Most of you are on it twice.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ol"><li>Analyze your profile</li><li>Improve it with AI disputes</li><li>Know where to apply</li><li>Launch a credit repair business</li><li>Launch a funding business</li><li>Refer it and earn</li></ol>
+      <p class="t-footer">One login.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q13 — Ask 13 (after S46)"
+           data-speaker-notes="Why: Someone typing “1, 3, 6” is telling you and themselves that this is worth more than one thing to them. That multiplies perceived value right before the stack.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type every number that applies to you. Not one — all of them.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S47 — The two files"
+           data-speaker-notes="⚠️ Drop the two file comparisons onto this slide before stage.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-ph">[Red file] · [Green file]</p>
+      <p class="t-line">Same ten questions.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S48 — The question"
+           data-speaker-notes="Say: Be honest with yourself. Most of this room is the file on the left. That&#x27;s not a character flaw — it&#x27;s a starting point, and now it&#x27;s a measurable one.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">Which one are you?</h1>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S49 — The good news"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">The gap between those two files</p>
+      <p class="t-line">isn't willpower.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">It's a checklist and a tool.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S50 — Three levers"
+           data-speaker-notes="Say: Three levers. The third one is free — it just requires knowing something you didn&#x27;t know an hour ago.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ol"><li>Pay down what's high — often $7–8 a week</li><li>Remove what shouldn't be there</li><li>Only apply where you're actually eligible</li></ol>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q14 — Ask 14 (after S50)"
+           data-speaker-notes="Why: The last micro-yes before money enters the room. They&#x27;ve just agreed the fix is affordable — that&#x27;s the frame you want them holding when the price appears four slides later.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if $8 a week is doable for you.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S51 — Back to why"
+           data-speaker-notes="Say: Because that&#x27;s what this was always about. Not the score.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">The house.</p>
+      <p class="t-line">The car.</p>
+      <p class="t-line">The capital.</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">Or a business of your own.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S52 — What you get"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state">All six.</h1>
+      <p class="t-statsub">One login.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q15 — Ask 15 (after S52)"
+           data-speaker-notes="Why: Agreement on the bundle before it has a price. Now the stack is answering “how much,” not “whether.”">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you&#x27;d want all six of those in one place.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S53 — The value stack"
+           data-speaker-notes="Say: Name each line as it appears and tie it back to the use case it powers. Nothing here should be new information by now.
+
+⚠️ The script calls for this to build one line at a time. The import lands it as one chart — duplicate this slide seven times in Canva and delete bars upward if you want the build back.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <svg class="chart" viewBox="0 0 1520 660" role="img" aria-label="Value stack, seven components by dollar value">
+<text class="c-lab" x="800" y="63.0" text-anchor="end">Full AI Credit File Analysis — five AIs read your report</text>
+<rect class="c-bar" x="840" y="30" width="560.0" height="48" rx="4"/>
+<text class="c-val" x="1418.0" y="65.0">$297</text>
+<text class="c-lab" x="800" y="149.0" text-anchor="end">The Underwriting Blueprint — know before you apply</text>
+<rect class="c-bar" x="840" y="116" width="371.4" height="48" rx="4"/>
+<text class="c-val" x="1229.4" y="151.0">$197</text>
+<text class="c-lab" x="800" y="235.0" text-anchor="end">Bank + Bureau Matching — who pulls what, and in what order</text>
+<rect class="c-bar" x="840" y="202" width="371.4" height="48" rx="4"/>
+<text class="c-val" x="1229.4" y="237.0">$197</text>
+<text class="c-lab" x="800" y="321.0" text-anchor="end">AI Dispute Letter Engine — custom letters, not templates</text>
+<rect class="c-bar" x="840" y="288" width="182.9" height="48" rx="4"/>
+<text class="c-val" x="1040.9" y="323.0">$97</text>
+<text class="c-lab" x="800" y="407.0" text-anchor="end">Letter Print + Certified Mail</text>
+<rect class="c-bar" x="840" y="374" width="182.9" height="48" rx="4"/>
+<text class="c-val" x="1040.9" y="409.0">$97</text>
+<text class="c-lab" x="800" y="493.0" text-anchor="end">Progress Report + Score Timeline</text>
+<rect class="c-bar" x="840" y="460" width="126.3" height="48" rx="4"/>
+<text class="c-val" x="984.3" y="495.0">$67</text>
+<text class="c-lab" x="800" y="579.0" text-anchor="end">Client Summary PDF</text>
+<rect class="c-bar" x="840" y="546" width="84.8" height="48" rx="4"/>
+<text class="c-val" x="942.8" y="581.0">$45</text>
+</svg>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S54 — The total"
+           data-speaker-notes="Say: Let it sit. Say nothing for a beat.
+
+PACING: Slides 54–57 are one motion — no pause except after this one.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-strike">&nbsp;</p>
+      <p class="t-big">$997</p>
+      <p class="t-pricesub">&nbsp;</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S55 — $497"
+           data-speaker-notes="PACING: One motion with 54, 56, 57. No pause.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-strike">$997</p>
+      <p class="t-big">$497</p>
+      <p class="t-pricesub">&nbsp;</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S56 — $247"
+           data-speaker-notes="PACING: One motion with 54, 55, 57. No pause.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-strike">$497</p>
+      <p class="t-big">$247</p>
+      <p class="t-pricesub">&nbsp;</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S57 — The offer"
+           data-speaker-notes="Say: One dollar to get started. Seven days. After that it&#x27;s $97 a month — your card gets charged $97 on [state the exact date]. No surprises, no small print. If it&#x27;s not for you, cancel inside the seven days.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-strike">$247</p>
+      <p class="t-big">$1 TO GET STARTED</p>
+      <p class="t-pricesub">7 days, then $97/month</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q16 — Ask 16 (after S57)"
+           data-speaker-notes="Why: The commitment ask. Every yes before this one was practice for this one. Wait through the silence — it always feels longer than it is.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you&#x27;re getting started tonight.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S58 — What happens in those 7 days"
+           data-speaker-notes="Say: The trial isn&#x27;t “poke around and see.” You have one job in seven days: find out what your own ten lines actually say.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-line">Tonight: upload your report</p>
+      <p class="t-line">Tonight: run the Blueprint</p>
+      <p class="t-line">Tonight: see your ten lines</p>
+      <p class="t-line spacer">&nbsp;</p>
+      <p class="t-line">This week: know whether you're eligible —</p>
+      <p class="t-line">before you apply to anything else.</p>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S59 — Who this is for"
+           data-speaker-notes="Say: Read all six out loud, slowly. Every person in the room should hear their own line. This is the slide where the six avatars each decide it&#x27;s for them.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ul class="t-ul"><li>You&#x27;ve been denied and never got a real answer</li><li>You&#x27;re about to apply for something that matters</li><li>You&#x27;re fixing your file and want the work tracked</li><li>You want to start a credit repair business</li><li>You want to start a funding business</li><li>You want to refer it and earn</li></ul>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S60 — Who this isn&#x27;t for"
+           data-speaker-notes="Say: I&#x27;d rather you not start than start expecting a miracle. This is a tool. A very good one. It isn&#x27;t magic, and it isn&#x27;t a license — if you&#x27;re building a business on it, you still have to build the business.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ul class="t-ul"><li>Anyone looking for a guaranteed approval</li><li>Anyone who wants someone else to care about their file more than they do</li></ul>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S61 — How to start"
+           data-speaker-notes="">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <ol class="t-ol"><li>Click the link</li><li>Create your account — $1</li><li>Upload your report tonight</li></ol>
+    </div>
+  </section>
+  <section class="page light" data-document-role="page"
+           data-label="S62 — The link"
+           data-speaker-notes="Say: Say it out loud. Have someone drop it in chat now, and again in five minutes.
+
+⚠️ Replace [URL] with the live referral link before stage.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_light.jpg" alt="">
+    <div class="safe">
+      <p class="t-ph">[URL]</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q17 — Ask 17 (after S62)"
+           data-speaker-notes="Why: Two jobs at once — confirms the link actually reached people, and puts visible evidence in the chat that others are moving. That&#x27;s the most persuasive thing on screen at this moment.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type GOT IT when you see the link.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S63 — Close before the demo"
+           data-speaker-notes="Say: Get started now, and then watch me use the exact thing you just got. Everybody else — watch anyway, and decide at the end.
+
+⚠️ THIS SLIDE STAYS VISIBLE OR PINNED IN CHAT FOR THE ENTIRE 30-MINUTE DEMO. The link never leaves the screen.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-closeline">You were never bad with credit.</p>
+      <p class="t-closeline">You were playing a game</p>
+      <p class="t-closeline">nobody showed you the rules to.</p>
+      <p class="t-big close">$1 TO GET STARTED</p>
+      <p class="t-pricesub">7 days, then $97/month · [URL]</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q18 — Demo ask 1 (after demo beat 3)"
+           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 3 (the Blueprint live), then return to S63 so the offer and link are back on screen. Thirty minutes is a long time to watch someone else&#x27;s screen; these keep the room from drifting.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you want to see your own ten lines.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q19 — Demo ask 2 (after demo beat 6)"
+           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 6 (the paydown calculator), then return to S63 so the offer and link are back on screen.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you thought that number would be higher.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q20 — Demo ask 3 (after demo beat 14)"
+           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 14 (the green file), then return to S63. This one warms the room for the second ask.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if that was helpful tonight.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S64 — After the demo"
+           data-speaker-notes="Say: This is the ask that actually converts the room, so don&#x27;t rush past it into questions. Everyone who was undecided forty-five minutes ago just watched it work. Say the price, say the rebill date, say the link, and give them fifteen seconds of silence to click before you take the first question.
+
+PACING: Never cut this slide.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="t-closeline">That&#x27;s the whole thing.</p>
+      <p class="t-big close">$1 TO GET STARTED</p>
+      <p class="t-pricesub">7 days, then $97/month · [URL]</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="Q21 — Ask 21 (after S64)"
+           data-speaker-notes="Why: The second ask. Fifteen seconds of silence after the link.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <p class="q-kicker">TYPE IN THE CHAT</p>
+      <p class="q-text">Type YES if you&#x27;re in.</p>
+    </div>
+  </section>
+  <section class="page dark" data-document-role="page"
+           data-label="S65 — Q&amp;A holding slide"
+           data-speaker-notes="Say: Leave this up the entire time. Late arrivals can still read the Blueprint and still find the link.">
+    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/aa8737127648843d6538b38f4488c697c3fc5f63/assets/bg_dark.jpg" alt="">
+    <div class="safe">
+      <h1 class="t-state qa">Questions.</h1>
+      <ol class="qa-bp"><li>700 credit score?</li><li>Under 30% utilization?</li><li>Five open primary cards, two years of good history?</li><li>Three primary cards, three years old, $5,000 limit?</li><li>More than four unsecured accounts in the last 12 months?</li><li>Under four inquiries?</li><li>Collections?</li><li>Charge-offs?</li><li>Late payments?</li><li>Bankruptcy?</li></ol>
+      <p class="qa-offer">$1 to get started · 7 days · then $97/month · [URL]</p>
+    </div>
+  </section>
+</body>
+</html>
