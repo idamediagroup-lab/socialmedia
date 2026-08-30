@@ -1,12 +1,12 @@
 # The Score Machine — Full Slide Script
-### 90 minutes · 62 slides · 22 audience asks · copy + speaker notes only, no design
+### 90 minutes · 65 slides · 22 audience asks · copy + speaker notes only, no design
 
 | Segment | Time | Slides |
 |---|---|---|
-| **Slides** | 45 min | 1–60 |
+| **Slides** | 47 min | 1–63 |
 | **Demo** | 30 min | live software, offer slide visible throughout |
-| **Second ask** | 1 min | 61 |
-| **Q&A** | 15 min | slide 62 on screen |
+| **Second ask** | 1 min | 64 |
+| **Q&A** | 13 min | slide 65 on screen |
 
 **Running order note:** the offer lands before the demo. That means the demo is no longer proof that earns the ask — it's proof that converts everyone who didn't move on the first ask. Two things make that work, and both are non-negotiable: the offer and link stay on screen for the entire demo, and you **ask a second time at the end of the demo** (see the second-ask slide after the demo section).
 
@@ -16,7 +16,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 # SLIDES (45 min)
 
-## ACT 1 — WHAT THIS IS REALLY ABOUT (1–11 · 8 min)
+## ACT 1 — WHAT THIS IS REALLY ABOUT (1–14 · 11 min)
 
 **SLIDE 1 — Title**
 > # THE SCORE MACHINE
@@ -105,7 +105,50 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 10 — Let me be straight with you**
+**SLIDE 10 — Who I am**
+> **[Your name]**
+> Owner — Get AI Leads Now
+>
+> I'm not a credit repair company.
+> I'm a business owner who uses this software.
+
+**Say:** Quick word on who's talking to you. I run a marketing company — Get AI Leads Now. Credit isn't my industry. I'm on this call because of what this tool did inside my business and my clients' businesses, and I want to show it to you from the business owner's side of the desk, not the software company's side.
+
+**Language discipline for the whole night:** always "they" and "Score Machine." Never "we," "our software," "our team." You're a customer telling the room what the product did for you. That's the position, and one slip into "we" costs it.
+
+---
+
+**SLIDE 11 — The three ways I make money with it**
+> 1. **On my own file** — I know where I stand before I ever apply
+> 2. **For my clients** — I help them get funded, and I charge for that
+> 3. **By referring it** — I earn when people I send use it. Including tonight.
+
+**Say:** I want to be straight with you about all three, especially the last one. I get paid when someone signs up through my link — including anybody who signs up tonight. I'm telling you that up front because I'd rather you hear it from me than wonder about it later, and honestly, it's the whole point: number three is a business model, and it's available to every person on this call.
+
+**Why this slide matters:** the disclosure is required if you earn on referrals, and delivering it yourself, early, in your own words converts a liability into proof. You're not hiding the affiliate model — you're demonstrating it live. This also plants Act 4's second tier fifteen minutes before it arrives.
+
+**On the marketing relationship:** you don't need to volunteer that your company does marketing work — that's simply not what tonight is about, and no rule requires you to narrate your whole client list. But **don't deny it either.** If someone asks you point-blank in Q&A whether you work with Score Machine, answer plainly and move on: *"My company does marketing work in this space, yes — and everything I showed you tonight is something I actually use."* A brief honest answer costs you nothing. A denial that later surfaces costs you the room and the relationship.
+
+---
+
+**SLIDE 12 — What changed in my business**
+> Before: a client asked me about funding and I had nothing to hand them.
+> Now: I read their file in minutes and tell them exactly where they stand.
+>
+> **New service. Same clients.**
+>
+> If you own a business that touches people with credit problems —
+> you're closer to this than you think.
+
+**Say:** I didn't have to become a credit expert. I didn't have to go get certified in anything. I already had the clients — what I didn't have was something useful to say when they brought me a funding problem. Now I do, and it's a line of revenue that didn't exist in my business a year ago. And that's the last I'll say about me. I only told you that because most of the room is going to spend tonight thinking about their own credit file — and some of you should be thinking about both.
+
+⚠️ **Fill this with your own true specifics before stage** — what you actually offer clients now, and what actually changed. Do not put a revenue figure on this slide. "A line of revenue that didn't exist" is honest and persuasive; a dollar amount is an earnings claim and invites a very different set of problems.
+
+**Why:** The host block must end pointed at *them*, not at you. Three slides about you is credibility; a fourth is a detour. This is the hard stop — the second half of this slide is the handoff back to the room.
+
+---
+
+**SLIDE 13 — Let me be straight with you**
 > What this is:
 > - Exactly how underwriting reads your file
 > - The software that does it in about a minute
@@ -118,7 +161,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 11 — The chain**
+**SLIDE 14 — The chain**
 > 1. You got denied
 > 2. Because inquiries quietly lowered your ceiling
 > 3. Because you applied without knowing if you were eligible
@@ -130,16 +173,16 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-## ACT 2 — WHY YOU GOT DENIED (12–21 · 8 min)
+## ACT 2 — WHY YOU GOT DENIED (15–24 · 8 min)
 
-**SLIDE 12 — The pivot**
+**SLIDE 15 — The pivot**
 > # A score is not an approval.
 
 **Say:** A score gets you *considered*. It does not get you approved. Those are two different events and almost nobody is taught the difference.
 
 ---
 
-**SLIDE 13 — Three files**
+**SLIDE 16 — Three files**
 > You don't have a credit score.
 > You have three files.
 >
@@ -149,7 +192,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 14 — The question**
+**SLIDE 17 — The question**
 > # Which one did they pull?
 
 **Say:** Think about your last denial. Right now. Which bureau did that lender pull? [Pause. Let it be uncomfortable.]
@@ -159,13 +202,13 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 15 — Why it matters**
+**SLIDE 18 — Why it matters**
 > Your best file doesn't get you approved.
 > The one they pulled does.
 
 ---
 
-**SLIDE 16 — Credit decay**
+**SLIDE 19 — Credit decay**
 > Every application leaves an inquiry.
 > Every inquiry lowers what a bank will extend you.
 >
@@ -178,7 +221,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 17 — What decay looks like**
+**SLIDE 20 — What decay looks like**
 > Real file. 14 inquiries.
 >
 > # Approval odds: −$5,000
@@ -187,13 +230,13 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 18 — The line**
+**SLIDE 21 — The line**
 > # Forget about points.
 > # It's about money.
 
 ---
 
-**SLIDE 19 — So what actually happened**
+**SLIDE 22 — So what actually happened**
 > You applied.
 > You didn't know if you qualified.
 > You got denied.
@@ -201,7 +244,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 20 — The spiral**
+**SLIDE 23 — The spiral**
 > Denied → inquiry → lower ceiling →
 > denied → inquiry → lower ceiling →
 > denied
@@ -213,28 +256,28 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 21 — The turn**
+**SLIDE 24 — The turn**
 > # There is a way to know first.
 
 ---
 
-## ACT 3 — ELIGIBILITY FIRST (22–32 · 10 min)
+## ACT 3 — ELIGIBILITY FIRST (25–35 · 10 min)
 
-**SLIDE 22 — Eligibility is the whole game**
+**SLIDE 25 — Eligibility is the whole game**
 > The question is never "what's my score?"
 >
 > The question is **"should I apply at all?"**
 
 ---
 
-**SLIDE 23 — How it starts**
+**SLIDE 26 — How it starts**
 > Upload your credit report.
 > No forms. No typing.
 > Five AIs read every line of it.
 
 ---
 
-**SLIDE 24 — The Blueprint**
+**SLIDE 27 — The Blueprint**
 > # THE UNDERWRITING BLUEPRINT
 > Ten questions.
 > Every lender asks them.
@@ -242,7 +285,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 25 — The legend**
+**SLIDE 28 — The legend**
 > ## RED = STOP
 > ## YELLOW = PROCEED WITH CAUTION
 > ## GREEN = GO
@@ -254,7 +297,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 26 — The ten lines**
+**SLIDE 29 — The ten lines**
 > 1. 700 credit score?
 > 2. Under 30% utilization?
 > 3. Five open primary cards, two years of good history?
@@ -273,12 +316,12 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 27 — The question it answers**
+**SLIDE 30 — The question it answers**
 > # → Are you eligible?
 
 ---
 
-**SLIDE 28 — Let's read one together**
+**SLIDE 31 — Let's read one together**
 > Let's read a real file.
 > You call it.
 
@@ -286,14 +329,14 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 29 — The file (red)**
+**SLIDE 32 — The file (red)**
 > [Ten lines, marked red/yellow/green from a real anonymized file]
 
 **Say:** Walk it one line at a time. Let the room answer each one out loud. Do not answer for them.
 
 ---
 
-**SLIDE 30 — The verdict**
+**SLIDE 33 — The verdict**
 > Not eligible.
 > And now you know exactly why.
 >
@@ -304,7 +347,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 31 — What green looks like**
+**SLIDE 34 — What green looks like**
 > A real approved file:
 >
 > 1 inquiry
@@ -319,7 +362,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 32 — Transition**
+**SLIDE 35 — Transition**
 > The software does all of this
 > in about a minute.
 >
@@ -329,9 +372,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-## ACT 4 — SIX WAYS PEOPLE USE THIS (33–43 · 9 min)
+## ACT 4 — SIX WAYS PEOPLE USE THIS (36–46 · 9 min)
 
-**SLIDE 33 — The six**
+**SLIDE 36 — The six**
 > # Six ways people use this.
 > Three on yourself.
 > Three to get paid.
@@ -343,12 +386,12 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 34 — Tier one**
+**SLIDE 37 — Tier one**
 > ## FIRST — USE IT ON YOURSELF
 
 ---
 
-**SLIDE 45 — #1 Analyze**
+**SLIDE 48 — #1 Analyze**
 > ## 1. ANALYZE YOUR PROFILE
 > Know your factors — not your score.
 >
@@ -360,7 +403,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 46 — #2 Improve**
+**SLIDE 49 — #2 Improve**
 > ## 2. IMPROVE YOUR PROFILE
 > Dispute with the latest AI.
 >
@@ -372,24 +415,24 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 47 — #3 Funding recommendations**
+**SLIDE 50 — #3 Funding recommendations**
 > ## 3. KNOW WHERE TO APPLY
 > Which banks. Which bureau they pull. What order.
 >
 > Not "apply and hope."
 
-**Say:** Remember slide fourteen — you couldn't tell me which bureau your last denial pulled. This is the slide that fixes that permanently.
+**Say:** Remember slide seventeen — you couldn't tell me which bureau your last denial pulled. This is the slide that fixes that permanently.
 
 ---
 
-**SLIDE 48 — The turn**
+**SLIDE 51 — The turn**
 > Now — here's what most people in this room don't know.
 
 **Say:** Beat. Then move.
 
 ---
 
-**SLIDE 49 — Tier two**
+**SLIDE 52 — Tier two**
 > ## THEN — USE IT TO GET PAID
 > The same tool that fixes your file
 > is a business.
@@ -399,7 +442,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 50 — #4 Credit repair business**
+**SLIDE 53 — #4 Credit repair business**
 > ## 4. LAUNCH A CREDIT REPAIR BUSINESS
 > Pull a client's report. Read their ten lines.
 > Show them the red on their own screen.
@@ -409,7 +452,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 51 — #5 Funding business**
+**SLIDE 54 — #5 Funding business**
 > ## 5. LAUNCH A FUNDING BUSINESS
 > Qualify the client before you ever apply.
 > Know the banks, the bureaus, the order.
@@ -419,7 +462,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 52 — #6 Refer it**
+**SLIDE 55 — #6 Refer it**
 > ## 6. REFER IT
 > Your own referral link.
 > Share the software.
@@ -429,7 +472,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 53 — All six**
+**SLIDE 56 — All six**
 > 1. Analyze your profile
 > 2. Improve it with AI disputes
 > 3. Know where to apply
@@ -445,23 +488,23 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 **Why:** Someone typing "1, 3, 6" is telling you and themselves that this is worth more than one thing to them. That multiplies perceived value right before the stack.
 
 ---
-## ACT 5 — THE OFFER (44–60 · 10 min)
+## ACT 5 — THE OFFER (47–63 · 10 min)
 
-**SLIDE 44 — The two files**
+**SLIDE 47 — The two files**
 > [Red file] · [Green file]
 >
 > Same ten questions.
 
 ---
 
-**SLIDE 45 — The question**
+**SLIDE 48 — The question**
 > # Which one are you?
 
 **Say:** Be honest with yourself. Most of this room is the file on the left. That's not a character flaw — it's a starting point, and now it's a measurable one.
 
 ---
 
-**SLIDE 46 — The good news**
+**SLIDE 49 — The good news**
 > The gap between those two files
 > isn't willpower.
 >
@@ -469,7 +512,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 47 — Three levers**
+**SLIDE 50 — Three levers**
 > 1. Pay down what's high — often $7–8 a week
 > 2. Remove what shouldn't be there
 > 3. Only apply where you're actually eligible
@@ -481,7 +524,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 48 — Back to why**
+**SLIDE 51 — Back to why**
 > The house.
 > The car.
 > The capital.
@@ -492,7 +535,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 49 — What you get**
+**SLIDE 52 — What you get**
 > All six.
 > One login.
 
@@ -501,7 +544,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 50 — The value stack** *(builds one line at a time)*
+**SLIDE 53 — The value stack** *(builds one line at a time)*
 > Full AI Credit File Analysis — five AIs read your report · **$297**
 > The Underwriting Blueprint — know before you apply · **$197**
 > Bank + Bureau Matching — who pulls what, and in what order · **$197**
@@ -514,26 +557,26 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 51 — The total**
+**SLIDE 54 — The total**
 > # $997
 
 **Say:** Let it sit. Say nothing for a beat.
 
 ---
 
-**SLIDE 52**
+**SLIDE 55**
 > ~~$997~~
 > # $497
 
 ---
 
-**SLIDE 53**
+**SLIDE 56**
 > ~~$497~~
 > # $247
 
 ---
 
-**SLIDE 54 — The offer**
+**SLIDE 57 — The offer**
 > ~~$247~~
 > # $1 TO GET STARTED
 > 7 days, then $97/month
@@ -545,7 +588,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 55 — What happens in those 7 days**
+**SLIDE 58 — What happens in those 7 days**
 > Tonight: upload your report
 > Tonight: run the Blueprint
 > Tonight: see your ten lines
@@ -557,7 +600,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 56 — Who this is for**
+**SLIDE 59 — Who this is for**
 > - You've been denied and never got a real answer
 > - You're about to apply for something that matters
 > - You're fixing your file and want the work tracked
@@ -569,7 +612,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 57 — Who this isn't for**
+**SLIDE 60 — Who this isn't for**
 > - Anyone looking for a guaranteed approval
 > - Anyone who wants someone else to care about their file more than they do
 
@@ -577,14 +620,14 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 58 — How to start**
+**SLIDE 61 — How to start**
 > 1. Click the link
 > 2. Create your account — $1
 > 3. Upload your report tonight
 
 ---
 
-**SLIDE 59 — The link**
+**SLIDE 62 — The link**
 > [URL]
 
 **Say:** Say it out loud. Have someone drop it in chat now, and again in five minutes.
@@ -594,7 +637,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 ---
 
-**SLIDE 60 — Close before the demo**
+**SLIDE 63 — Close before the demo**
 > You were never bad with credit.
 > You were playing a game
 > nobody showed you the rules to.
@@ -608,7 +651,7 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes.
 
 # DEMO (30 min)
 
-Live software. **Slide 60 stays visible or pinned in chat the entire time** — the link never leaves the screen.
+Live software. **Slide 63 stays visible or pinned in chat the entire time** — the link never leaves the screen.
 
 Beat order:
 
@@ -642,7 +685,7 @@ Thirty minutes is a long time to watch someone else's screen. These keep the roo
 
 # THE SECOND ASK
 
-**SLIDE 61 — After the demo**
+**SLIDE 64 — After the demo**
 > That's the whole thing.
 >
 > # $1 TO GET STARTED
@@ -656,7 +699,7 @@ Thirty minutes is a long time to watch someone else's screen. These keep the roo
 
 # Q&A (15 min)
 
-**SLIDE 62 — Q&A holding slide**
+**SLIDE 65 — Q&A holding slide**
 > Questions.
 >
 > [The ten Blueprint lines, small, on one side]
@@ -676,22 +719,23 @@ Each is easier to agree with than the one after it. That's the design: by the ti
 | 2 | 4 | Type YES if a denial cost you something that mattered more than money | First emotional yes |
 | 3 | 8 | Type YES if even one of those four is you | The wall of YES |
 | 4 | 9 | Type 1, 2, or 3 — personal, business, or both | Room mix |
-| 5 | 14 | Type YES if you don't know which bureau your denial pulled | An admission |
-| 6 | 16 | Type YES if nobody explained credit decay to you | Your authority |
-| 7 | 20 | Type YES if that's been your experience | Agreement with your diagnosis |
-| 8 | 25 | Type YES if you can read a traffic light | Energy reset — "this is learnable" |
-| 9 | 26 | Type YES if you've never seen these ten written down | The value moment |
-| 10 | 29 | Red, yellow, or green? — line by line | Participation out loud, not typing |
-| 11 | 31 | Type YES if you want your file to look like that | **First stated desire** |
-| 12 | 33 | Type the number you came for | Self-identification |
-| 13 | 39 | Type YES if you'd want to get paid doing this | Operator temperature |
-| 14 | 43 | Type every number that applies | Multiplies perceived value |
-| 15 | 47 | Type YES if $8 a week is doable | Affordability, before price |
-| 16 | 49 | Type YES if you'd want all six in one place | Wants the bundle |
-| 17 | 54 | Type YES if you're getting started tonight | **The commitment** |
-| 18 | 59 | Type GOT IT when you see the link | Social proof of action |
+| — | 10–12 | *(host block — no ask; too soon after #4)* | |
+| 5 | 17 | Type YES if you don't know which bureau your denial pulled | An admission |
+| 6 | 19 | Type YES if nobody explained credit decay to you | Your authority |
+| 7 | 23 | Type YES if that's been your experience | Agreement with your diagnosis |
+| 8 | 28 | Type YES if you can read a traffic light | Energy reset — "this is learnable" |
+| 9 | 29 | Type YES if you've never seen these ten written down | The value moment |
+| 10 | 32 | Red, yellow, or green? — line by line | Participation out loud, not typing |
+| 11 | 34 | Type YES if you want your file to look like that | **First stated desire** |
+| 12 | 36 | Type the number you came for | Self-identification |
+| 13 | 42 | Type YES if you'd want to get paid doing this | Operator temperature |
+| 14 | 46 | Type every number that applies | Multiplies perceived value |
+| 15 | 50 | Type YES if $8 a week is doable | Affordability, before price |
+| 16 | 52 | Type YES if you'd want all six in one place | Wants the bundle |
+| 17 | 57 | Type YES if you're getting started tonight | **The commitment** |
+| 18 | 62 | Type GOT IT when you see the link | Social proof of action |
 | 19–21 | demo | Three asks spaced through the demo | Attention |
-| 22 | 61 | Type YES if you're in | The second ask |
+| 22 | 64 | Type YES if you're in | The second ask |
 
 ### Rules that make it work
 
@@ -708,16 +752,18 @@ Each is easier to agree with than the one after it. That's the design: by the ti
 
 | Segment | Slides | Minutes | Pace |
 |---|---|---|---|
-| Act 1 | 1–11 | 8 | Fast. Slide 4 is the only slow one. |
-| Act 2 | 12–21 | 8 | Slides 14 and 17 need silence after them. |
-| Act 3 | 22–32 | 10 | Slide 29 is the longest single slide in the deck. |
-| Act 4 | 33–43 | 9 | Steady. Slide 38 gets a beat. |
-| Act 5 | 44–60 | 10 | Slides 51–54 are one motion — no pause except after 51. |
+| Act 1 | 1–14 | 11 | Fast. Slides 4 and 11 are the only slow ones. |
+| Act 2 | 15–24 | 8 | Slides 14 and 17 need silence after them. |
+| Act 3 | 25–35 | 10 | Slide 29 is the longest single slide in the deck. |
+| Act 4 | 36–46 | 9 | Steady. Slide 41 gets a beat. |
+| Act 5 | 47–63 | 10 | Slides 54–57 are one motion — no pause except after 54. |
 | Demo | — | 30 | Call the use-case number on every beat. |
-| Second ask | 61 | 1 | Fifteen seconds of silence after the link. |
-| Q&A | 62 | 15 | |
+| Second ask | 64 | 1 | Fifteen seconds of silence after the link. |
+| Q&A | 65 | 13 | |
 
-**If you're running long:** cut slides 7, 15, 19, 46, 48. **Never cut** 4, 14, 17, 26, 30, 43, 54, or 61.
+**If you're running long:** cut slides 7, 18, 22, 49, 51 — and if you must, tighten the host block by cutting slide 12 — but never 10 or 11. **Never cut** 4, 11, 17, 20, 29, 33, 46, 57, or 64.
+
+**Note:** the host intro adds ~3 minutes. Cutting 7 and 18 holds the slide segment near 45.
 
 ---
 
@@ -728,3 +774,5 @@ Acts 4 and 5 now put income-adjacent claims on stage. Three rules:
 1. **No earnings claims.** Not "make $2,000 per client," not "replace your income." If you show the arithmetic of a percentage fee, say plainly that it's arithmetic on an example, not a typical result.
 2. **Credit repair is regulated.** Say it out loud on slide 40. There are federal rules and state-level requirements, and the software is the engine, not the license. Being the one who tells them that is worth more than the objection it raises.
 3. **The referral program is a referral program.** Describe how it works. Don't project what anyone will earn from it.
+4. **Disclose your own referral relationship** — slide 11. If you earn when someone signs up through your link, the room hears that from you, before the offer, in plain language. Delivering it early and casually costs nothing; having it surface afterward costs everything.
+5. **Never deny a relationship you have.** Not volunteering the marketing side is fine. Denying it if asked directly is not — answer briefly and honestly, then move on.
