@@ -1,15 +1,16 @@
 # The Score Machine — Full Slide Script
-### 90 minutes · 53 slides · copy + speaker notes only, no design
+### 90 minutes · 62 slides · 22 audience asks · copy + speaker notes only, no design
 
 | Segment | Time | Slides |
 |---|---|---|
-| **Slides** | 45 min | 1–57 |
+| **Slides** | 45 min | 1–60 |
 | **Demo** | 30 min | live software, offer slide visible throughout |
-| **Q&A** | 15 min | slide 57 on screen |
+| **Second ask** | 1 min | 61 |
+| **Q&A** | 15 min | slide 62 on screen |
 
 **Running order note:** the offer lands before the demo. That means the demo is no longer proof that earns the ask — it's proof that converts everyone who didn't move on the first ask. Two things make that work, and both are non-negotiable: the offer and link stay on screen for the entire demo, and you **ask a second time at the end of the demo** (see the second-ask slide after the demo section).
 
-Slide copy is written as it appears on screen. **Say:** lines are speaker notes, not slide text.
+Slide copy is written as it appears on screen. **Say:** lines are speaker notes. **ASK:** lines are questions put to the audience — see the Yes Ladder near the end of this doc.
 
 ---
 
@@ -22,6 +23,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > Why you got denied — and what to do about it
 
 **Say:** Ninety minutes. By the end of tonight you're going to know exactly why your last denial happened, and exactly what your file needs before you apply to anything again.
+
+**ASK:** *"Before we start — type YES in the chat if you can see my screen and hear me clearly."*
+**Why:** The first ask must be trivially easy and it must succeed. It teaches the room that typing in the chat is what we do here. If the chat stays quiet, stop and fix it now — every later ask depends on this one landing.
 
 ---
 
@@ -47,6 +51,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > The denial costs you both.
 
 **Say:** Slow down here. This is the slide people feel. Nobody applies for a car loan because they want a car loan — they want to stop asking for rides, stop losing shifts, get home before their kids are asleep. Do not rush this slide.
+
+**ASK:** *"Type YES if a denial has ever cost you something that mattered more than the money."*
+**Why:** First emotional yes. Wait for it. Read two or three names out loud — that's what teaches the room that answering gets acknowledged.
 
 ---
 
@@ -79,7 +86,10 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > - Solid card, still stuck at a $500 limit, calling it progress
 > - You have cards. You still aren't fundable.
 
-**Say:** Put a 1 in the chat if any one of those is you. [Wait for it. Do not move until the chat fills.] That's most of the room.
+**Say:** [Wait. Do not move until the chat fills.] That's most of the room.
+
+**ASK:** *"Type YES if even one of those four is you."*
+**Why:** Highest-volume yes of the night. The wall of YES is the point, not the answer — it proves to every person that they aren't the only one.
 
 ---
 
@@ -89,6 +99,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > Same file. Same rules. Same machine.
 
 **Say:** Nobody's in the wrong room tonight. Underwriting doesn't read a file differently because of what you want at the end of it.
+
+**ASK:** *"Type 1 if you're here for personal credit, 2 if you're here for business funding, 3 if it's both."*
+**Why:** Diagnostic, not agreement — it tells you the room mix so you can weight your examples for the next hour. Say the split out loud once you see it.
 
 ---
 
@@ -139,7 +152,10 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 **SLIDE 14 — The question**
 > # Which one did they pull?
 
-**Say:** Think about your last denial. Right now. Which bureau did that lender pull? [Pause. Let it be uncomfortable.] Almost nobody in this room can answer that. And that is exactly the problem.
+**Say:** Think about your last denial. Right now. Which bureau did that lender pull? [Pause. Let it be uncomfortable.]
+
+**ASK:** *"Type YES if you have no idea which bureau your last denial pulled."*
+**Why:** Near-universal, and it's an admission rather than an agreement — which is stronger. Once they've typed it they've told themselves they have a gap. Follow with: "That's not your fault. Nobody ever told you it mattered." 
 
 ---
 
@@ -155,7 +171,10 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 >
 > This is called **credit decay.**
 
-**Say:** This is the part nobody tells you. It's not just that inquiries ding your score a few points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens quietly, in the background, whether you got approved or not.
+**Say:** This is the part nobody tells you. It's not just that inquiries ding your score a few points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens quietly, whether you got approved or not.
+
+**ASK:** *"Type YES if nobody has ever explained credit decay to you before tonight."*
+**Why:** Establishes you as the one who told them. This is the authority beat of Act 2.
 
 ---
 
@@ -188,6 +207,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > denied
 
 **Say:** This is why it feels like it's getting worse even though you're trying harder. You are trying harder. Every attempt is costing you the next one.
+
+**ASK:** *"Type YES if that's been your experience."*
+**Why:** They're now agreeing to your diagnosis of their own history. Everything after this is built on that yes.
 
 ---
 
@@ -227,6 +249,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 
 **Say:** Like a traffic light. If you can drive a car, you can read a credit file. That's not me being cute — that's genuinely the whole skill.
 
+**ASK:** *"Type YES if you can read a traffic light."*
+**Why:** Deliberately easy and a little funny. Resets the energy after eight heavy minutes and plants the belief that this is learnable — before you show them the ten lines.
+
 ---
 
 **SLIDE 26 — The ten lines**
@@ -241,7 +266,10 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > 9. Late payments?
 > 10. Bankruptcy?
 
-**Say:** Ten. That's it. That's what stands between you and every approval you've been denied. ⚠️ *Line 5 direction must be locked before stage — see the framework doc.*
+**Say:** Ten. That's it. That's what stands between you and every approval you've been denied.
+
+**ASK:** *"Type YES if you've never seen these ten questions written down anywhere before."*
+**Why:** The value moment. They just received something they didn't have — get them to say so out loud. ⚠️ *Line 5 direction must be locked before stage — see the framework doc.*
 
 ---
 
@@ -286,6 +314,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 
 **Say:** Same ten questions. Completely different life.
 
+**ASK:** *"Type YES if you want your file to look like that."*
+**Why:** The pivot from agreeing to *wanting*. Most important ask before the offer — the first time they state a desire instead of confirming a fact. Do not skip it, do not rush it.
+
 ---
 
 **SLIDE 32 — Transition**
@@ -306,6 +337,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > Three to get paid.
 
 **Say:** Some of you came here tonight for the first three. Nobody told you the last three existed.
+
+**ASK:** *"Type the number you came here for tonight — 1, 2, or 3."*
+**Why:** Primes them to hunt for their own number, which keeps all six avatars watching the rest of the act.
 
 ---
 
@@ -360,6 +394,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > The same tool that fixes your file
 > is a business.
 
+**ASK:** *"Type YES if you'd want to get paid doing this for other people."*
+**Why:** Opens the second tier and measures how operator-minded the room is. Big YES wall — slow down on 40 and 41. Thin — move through them and spend the time on 42.
+
 ---
 
 **SLIDE 50 — #4 Credit repair business**
@@ -404,6 +441,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 
 **Say:** Find yourself on this list. Most of you are on it twice.
 
+**ASK:** *"Type every number that applies to you. Not one — all of them."*
+**Why:** Someone typing "1, 3, 6" is telling you and themselves that this is worth more than one thing to them. That multiplies perceived value right before the stack.
+
 ---
 ## ACT 5 — THE OFFER (44–60 · 10 min)
 
@@ -436,6 +476,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 
 **Say:** Three levers. The third one is free — it just requires knowing something you didn't know an hour ago.
 
+**ASK:** *"Type YES if $8 a week is doable for you."*
+**Why:** The last micro-yes before money enters the room. They've just agreed the fix is affordable — that's the frame you want them holding when the price appears four slides later.
+
 ---
 
 **SLIDE 48 — Back to why**
@@ -452,6 +495,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 **SLIDE 49 — What you get**
 > All six.
 > One login.
+
+**ASK:** *"Type YES if you'd want all six of those in one place."*
+**Why:** Agreement on the bundle before it has a price. Now the stack is answering "how much," not "whether." 
 
 ---
 
@@ -493,6 +539,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 > 7 days, then $97/month
 
 **Say:** One dollar to get started. Seven days. After that it's $97 a month — your card gets charged $97 on [state the exact date]. No surprises, no small print. If it's not for you, cancel inside the seven days.
+
+**ASK:** *"Type YES if you're getting started tonight."*
+**Why:** The commitment ask. Every yes before this one was practice for this one. Wait through the silence — it always feels longer than it is.
 
 ---
 
@@ -540,6 +589,9 @@ Slide copy is written as it appears on screen. **Say:** lines are speaker notes,
 
 **Say:** Say it out loud. Have someone drop it in chat now, and again in five minutes.
 
+**ASK:** *"Type GOT IT when you see the link."*
+**Why:** Two jobs at once — confirms the link actually reached people, and puts visible evidence in the chat that others are moving. That's the most persuasive thing on screen at this moment.
+
 ---
 
 **SLIDE 60 — Close before the demo**
@@ -575,6 +627,13 @@ Beat order:
 13. **The referral link** — where it lives, how it tracks *(use case 6)*
 14. **A green file** — end on the fundable one
 
+**Ask three times during the demo, spaced out:**
+- After beat 3 (the Blueprint live): *"Type YES if you want to see your own ten lines."*
+- After beat 6 (the paydown calculator): *"Type YES if you thought that number would be higher."*
+- After beat 14 (the green file): *"Type YES if that was helpful tonight."*
+
+Thirty minutes is a long time to watch someone else's screen. These keep the room from drifting, and the last one warms them for the second ask.
+
 **Call the use-case number out loud as you hit each beat.** That's what ties the demo back to slide 43 and keeps all six avatars watching their own thing.
 
 **Rules:** no live pulls — files pre-pulled hours ahead. Full-resolution screenshots of every beat as backup. Everything anonymized. Never demo a module you know is broken. If the platform stalls, move to screenshots without announcing it. **Cut beats from the end, never the Blueprint.**
@@ -589,6 +648,8 @@ Beat order:
 > # $1 TO GET STARTED
 > 7 days, then $97/month · [URL]
 
+**ASK:** *"Type YES if you're in."*
+
 **Say:** This is the ask that actually converts the room, so don't rush past it into questions. Everyone who was undecided forty-five minutes ago just watched it work. Say the price, say the rebill date, say the link, and give them fifteen seconds of silence to click before you take the first question.
 
 ---
@@ -602,6 +663,44 @@ Beat order:
 > [$1 to get started · 7 days · then $97/month · URL]
 
 **Say:** Leave this up the entire time. Late arrivals can still read the Blueprint and still find the link.
+
+---
+
+## The Yes Ladder — every ask in order
+
+Each is easier to agree with than the one after it. That's the design: by the time you name the price, the room has said yes sixteen times.
+
+| # | Slide | The ask | What it gets you |
+|---|---|---|---|
+| 1 | 1 | Type YES if you can see my screen | Proves the chat works |
+| 2 | 4 | Type YES if a denial cost you something that mattered more than money | First emotional yes |
+| 3 | 8 | Type YES if even one of those four is you | The wall of YES |
+| 4 | 9 | Type 1, 2, or 3 — personal, business, or both | Room mix |
+| 5 | 14 | Type YES if you don't know which bureau your denial pulled | An admission |
+| 6 | 16 | Type YES if nobody explained credit decay to you | Your authority |
+| 7 | 20 | Type YES if that's been your experience | Agreement with your diagnosis |
+| 8 | 25 | Type YES if you can read a traffic light | Energy reset — "this is learnable" |
+| 9 | 26 | Type YES if you've never seen these ten written down | The value moment |
+| 10 | 29 | Red, yellow, or green? — line by line | Participation out loud, not typing |
+| 11 | 31 | Type YES if you want your file to look like that | **First stated desire** |
+| 12 | 33 | Type the number you came for | Self-identification |
+| 13 | 39 | Type YES if you'd want to get paid doing this | Operator temperature |
+| 14 | 43 | Type every number that applies | Multiplies perceived value |
+| 15 | 47 | Type YES if $8 a week is doable | Affordability, before price |
+| 16 | 49 | Type YES if you'd want all six in one place | Wants the bundle |
+| 17 | 54 | Type YES if you're getting started tonight | **The commitment** |
+| 18 | 59 | Type GOT IT when you see the link | Social proof of action |
+| 19–21 | demo | Three asks spaced through the demo | Attention |
+| 22 | 61 | Type YES if you're in | The second ask |
+
+### Rules that make it work
+
+- **Never ask something the room might honestly answer no to.** Every ask above has an obvious yes. One "no" moment breaks momentum you spent an hour building.
+- **Wait.** Count to five silently after every ask. The pause feels far longer to you than to them, and moving early teaches the room you don't actually want an answer.
+- **Read names out loud.** "Yes, Sharon. Yes, Peter. Thank you." Naming people is what turns a handful of replies into a wall of them — everyone else wants to be named too.
+- **Never stack two asks back to back.** Four minutes minimum between them, or they stop meaning anything.
+- **If the chat is cold at ask #1, stop and fix it.** Don't proceed hoping it warms up. Ask again, simpler: "Just type YES so I know you're with me."
+- **The escalation is deliberate:** can you hear me → do you recognize this pain → do you admit this gap → do you agree with my diagnosis → is this learnable → do you *want* this → is it affordable → are you in. Don't reorder it.
 
 ---
 
