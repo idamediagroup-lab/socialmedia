@@ -1,0 +1,5 @@
+deck/node_modules/
+deck/package-lock.json
+deck/pv-*.png
+deck/grid*.png
+deck/*.pdf
