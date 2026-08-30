@@ -208,8 +208,8 @@ Keep the same slide layout for 50–53 so the only thing changing between them i
 
 - **The ask is the trial, not the subscription.** $1 is a decision anyone can make from a stage. $97/month is a decision they make on day 6, after the Blueprint has already read their file.
 - **Say the $97/month out loud.** Never bury the recurring price — a surprise on day 8 costs more in refunds and reputation than it ever gains in conversions.
-- **Say "7 days" and the rebill date explicitly.** Both on the slide and in the room.
-- ⚠️ **The public site sells per-pull and unlimited plans with a free no-card account.** This $1/7-day → $97/month structure is a different offer. **Confirm the checkout link actually charges $1 and rebills at $97**, from a logged-out device, before going live.
+- **Say the rebill date, not just the length.** "7 days" is abstract; "your card is charged $97 on [date]" is not. Say it in the room and put it on slide 53.
+- ⚠️ **The public site sells per-pull and unlimited plans with a free no-card account.** This $1 → $97/month structure is a separate offer path, so the checkout behind tonight's link is not the one on the pricing page. **Test it logged-out before going live** and confirm it charges $1, runs 7 days, and rebills at $97 — the terms are settled, the link is what still needs proving.
 
 ---
 
@@ -241,7 +241,8 @@ This matters more with a personal-credit audience in the room than it did with a
 
 ## 9. Must-Verify Before Stage
 
-- ⚠️ Checkout charges $1, runs 7 days, rebills at $97/month — tested logged-out
+- ✅ **Terms confirmed: $1 to get started, 7 days, then rebilled at $97/month.**
+- ⚠️ Checkout link actually *does* that — tested from a logged-out device before going live
 - ⚠️ Blueprint line 5 direction
 - ⚠️ Current bank and product counts
 - ⚠️ Which report integrations are live today (MyFreeScoreNow confirmed; others were mid-build)
