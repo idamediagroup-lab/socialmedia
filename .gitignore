@@ -1,0 +1,12 @@
+# Client testimonial screenshots are deliberately NOT tracked.
+#
+# This repository is public. These images contain other people's personal and
+# financial data — a credit report including a public bankruptcy record, a bank
+# card approval, a cashier's cheque, and private message threads with named
+# individuals. Committing them would publish that data permanently into git
+# history, where a later delete does not remove it.
+#
+# The deck instead renders a labelled frame on each testimonial slide; the
+# images are dropped into those frames inside Canva, where they stay private.
+# Source of truth for the files is the owner's Drive folder "Presentation TSM".
+assets/testimonial-*
