@@ -679,46 +679,75 @@ insert_after("S10 ", dict(
           "Second, “helped thousands achieve financial freedom” is a results claim, and slide 13 "
           "promises the room no approval and no number. Decide which one you want the room to hear."))
 
-# -- social proof block, placed after the bundle ask and before the value stack --
-insert_after("Q15 ", dict(
-    label="T2 — Social proof (results)", bg=DARK, layout="testimonial",
-    kicker="WHAT PEOPLE ARE SAYING",
-    cards=[
-        dict(slot="TESTIMONIAL 3",
-             quote="Still a work in progress but we getting RESULTS. All personal info updated "
-                   "with the bureaus. And 13 inquires removed with 2 credit builders added to "
-                   "the profile..it's UP from here",
-             who="Ricardo Bey"),
-        dict(slot="TESTIMONIAL 4",
-             quote="A credit report showing prior inquiries returned as Deleted.",
-             who="Client credit report"),
-    ],
-    notes="Social proof, results. Drop the two screenshots into the framed slots.\n\n"
-          "⚠️ BEFORE STAGE — this slide carries the most risk in the deck. (1) The credit-report "
-          "screenshot also shows a public bankruptcy record with a court reference number; redact "
-          "it or use a different image. (2) Both images are another person's data — get written "
-          "permission to show them. (3) “13 inquiries removed” is a specific results claim, which "
-          "sits against slide 13 and against the deck's own no-earnings-claims guardrail. If you "
-          "keep it, say plainly that it is one person's result and not typical."))
+# -- social proof, placed after the bundle ask and before the value stack --
+# One screenshot per slide with the quote set large, so the room can read it even
+# when the phone screenshot is small on stream. Ordered safest first, so cutting
+# from the bottom removes the riskiest slides.
+TESTIMONIALS = [
+    ("testimonial-3.png", "Gerren Hansley",
+     "I love myself!!! Discovering you has made a life changing couple of events for me, "
+     "it won't be overnight but over life!!!! Thanks for a better n clearer understanding!!!", ""),
+    ("testimonial-4.png", "Rochelle Johnson",
+     "It was great. A lot of good options for people who are new to credit or needing to fix "
+     "their credit. I think it's fantastic. Thank for sharing it with me.", ""),
+    ("testimonial-12.png", "David",
+     "Hey Nick I just want to let you know I'm grateful since the first day I met you and the "
+     "team, from Vegas till now you really helped change my mindset and my financial situation "
+     "from the jump bro I was really down bad when we met", ""),
+    ("testimonial-6.png", "TransUnion investigation result",
+     "INVESTIGATION RESULTS - DELETED: The disputed item(s) was removed from your credit report.",
+     ""),
+    ("testimonial-1.png", "Client credit report",
+     "Three prior inquiries returned as Deleted and removed from the credit report.",
+     "⚠️ This screenshot also shows a public bankruptcy record that did NOT come off. The court "
+     "reference number is blurred, but the record is still visible and it argues against the "
+     "slide. Consider cropping to the three deleted inquiries, or cutting this one."),
+    ("testimonial-2.png", "Ricardo Bey",
+     "Still a work in progress but we getting RESULTS. All personal info updated with the "
+     "bureaus. And 13 inquires removed with 2 credit builders added to the profile..it's UP "
+     "from here",
+     "⚠️ Two problems. The message credits “the MINTERSHIP”, not Score Machine — as proof for "
+     "tonight's offer that is misleading. And “13 inquires removed” is a specific results claim "
+     "against slide 13's promise of no number."),
+    ("testimonial-7.png", "Keyana Matthews",
+     "I struggled with removing a $24k collection from my account for about 2 years. I paid "
+     "LexingtonLaw to remove it & they couldn't. Wealth builders has officially changed my "
+     "life. All from following the blueprint",
+     "⚠️ Highest-risk slide in the deck. It names a competitor as having failed, which carries "
+     "defamation risk with no upside, and it credits “Wealth builders”, not Score Machine. The "
+     "account and phone numbers in the screenshot are blurred. Recommend cutting it."),
+    ("testimonial-8.jpg", "Tracy Small",
+     "1 year anniversary with the wealth builders!!!!!! Got one of my dream whips ... WITH NO "
+     "MONEY DOWN!!!!",
+     "⚠️ Credits “the wealth builders”, not Score Machine. Licence plate is blurred; faces are "
+     "still visible, so get permission."),
+    ("testimonial-11.jpg", "Credit score: 826, Exceptional",
+     "Someone just became a member of the 800 club",
+     "⚠️ A specific score on screen, minutes after slide 13 promises the room no number."),
+    ("testimonial-10.jpg", "Takirra Haley",
+     "You have been approved. $25,000 credit limit, 8.99% APR, $0 annual fee.",
+     "⚠️ A specific approval and limit on screen, against slide 13's promise of no approval."),
+    ("testimonial-9.jpg", "Nicholas Minter",
+     "Quick lil $120k today w/ 1 inquiry",
+     "⚠️ A specific funding figure — the clearest earnings-style claim in the deck and the one "
+     "most likely to draw scrutiny."),
+    ("testimonial-5.png", "Client travel redemption",
+     "A round trip booked on points — 62,000 miles plus $11.20.",
+     "⚠️ An airline booking, not a credit or funding outcome. It proves nothing about the ten "
+     "Blueprint lines. Record locator is blurred."),
+]
 
-insert_after("Q15 ", dict(
-    label="T1 — Social proof (words)", bg=DARK, layout="testimonial",
-    kicker="WHAT PEOPLE ARE SAYING",
-    cards=[
-        dict(slot="TESTIMONIAL 1",
-             quote="I love myself!!! Discovering you has made a life changing couple of events "
-                   "for me, it won't be overnight but over life!!!! Thanks for a better n clearer "
-                   "understanding!!!",
-             who="Gerren Hansley"),
-        dict(slot="TESTIMONIAL 2",
-             quote="It was great. A lot of good options for people who are new to credit or "
-                   "needing to fix their credit. I think it's fantastic. Thank for sharing it with me.",
-             who="Rochelle Johnson"),
-    ],
-    notes="Social proof, words. Drop the two message screenshots into the framed slots. The pull "
-          "quotes are there so the room can read them even if the screenshots are small on stream.\n\n"
-          "⚠️ These are private message threads with named people. Get their permission before "
-          "showing them, or blur the names and avatars."))
+for _img, _who, _quote, _warn in reversed(TESTIMONIALS):
+    _n = ("Screenshot supplied by the host. The quote is set large beside it so the room can "
+          "read it even if the screenshot is small on stream.")
+    if _warn:
+        _n += "\n\n" + _warn
+    _n += ("\n\nGENERAL: every one of these is another person's private message or account. Get "
+           "written permission before showing them, and say plainly that individual results are "
+           "not typical.")
+    insert_after("Q15 ", dict(label=f"T — {_who}", bg=DARK, layout="testimonial",
+                              kicker="WHAT PEOPLE ARE SAYING", img=_img,
+                              who=_who, quote=_quote, notes=_n))
 
 # ─────────────────────────────────────────────────────────────
 # Original vector iconography (no stock art, no third-party assets)
@@ -962,24 +991,25 @@ def render(s):
         b.append(bureau_cards(s["names"]))
     elif L == "bio":
         b.append('<div class="bio">')
-        b.append('<div class="biophoto" data-slot="headshot">'
-                 '<span>[ HEADSHOT ]</span></div>')
+        b.append(f'<img class="biophoto" src="{BG_BASE}/headshot.jpg" alt="Host portrait">')
         b.append('<div class="biotext">')
         b.append(f'<h2 class="bioname">{esc(s["name"])}</h2>')
         for para in s["paras"]:
             b.append(f'<p class="biopara">{esc(para)}</p>')
         b.append('</div></div>')
     elif L == "testimonial":
-        b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
-        b.append('<div class="tgrid">')
-        for card in s["cards"]:
-            b.append('<div class="tcard">')
-            b.append(f'<div class="tshot" data-slot="{esc(card["slot"])}">'
-                     f'<span>[ {esc(card["slot"])} ]</span></div>')
-            b.append(f'<p class="tquote">{esc(card["quote"])}</p>')
-            b.append(f'<p class="twho">{esc(card["who"])}</p>')
-            b.append('</div>')
-        b.append('</div>')
+        # The screenshot is a framed slot, not a committed file: these images hold other
+        # people's financial data and the repo that feeds the importer is public.
+        # Drag each one into its frame inside Canva instead.
+        b.append('<div class="trow">')
+        b.append(f'<div class="tshot" data-slot="{esc(s["img"])}">'
+                 f'<span>DROP<br>{esc(s["img"])}<br>HERE</span></div>')
+        b.append('<div class="tbody">')
+        b.append(f'<p class="q-kicker tk">{esc(s["kicker"])}</p>')
+        for part in wrap_text(s["quote"], 40):
+            b.append(f'<p class="tquote">{esc(part)}</p>')
+        b.append(f'<p class="twho">{esc(s["who"])}</p>')
+        b.append('</div></div>')
     elif L == "question":
         b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
         for ln in wrap_text(s["text"], 34):
@@ -1030,22 +1060,21 @@ CSS = """
 .bic{width:70px;height:74px}
 .bname{font-family:'Archivo Black',Arial,sans-serif;font-size:36px;margin-top:12px}
 .bio{display:flex;gap:64px;align-items:center;width:1400px;text-align:left}
-.biophoto{width:400px;height:520px;flex:none;border-radius:20px;
-  border:5px dashed rgba(0,0,0,.30);display:flex;align-items:center;justify-content:center;
-  font-size:26px;font-weight:700;color:#8A8A8A;background:rgba(0,0,0,.05)}
-.page.dark .biophoto{border-color:rgba(255,255,255,.4);color:#B9B9B9;
-  background:rgba(255,255,255,.07)}
+.biophoto{width:400px;height:533px;flex:none;border-radius:20px;object-fit:cover;
+  box-shadow:0 0 0 4px rgba(0,0,0,.18)}
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
-.tgrid{display:flex;gap:56px;justify-content:center;width:1400px}
-.tcard{flex:1;display:flex;flex-direction:column;align-items:center}
-.tshot{width:100%;height:300px;border-radius:16px;border:5px dashed rgba(255,255,255,.4);
-  display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;
-  color:#B9B9B9;background:rgba(255,255,255,.07);margin-bottom:22px}
-.page.light .tshot{border-color:rgba(0,0,0,.30);color:#8A8A8A;background:rgba(0,0,0,.05)}
-.tquote{font-size:28px;line-height:1.42;font-weight:600;margin-bottom:14px}
-.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:26px;color:#FFB81C}
+.trow{display:flex;gap:70px;align-items:center;width:1400px;text-align:left}
+.tshot{height:700px;width:324px;flex:none;border-radius:14px;
+  border:5px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:22px;font-weight:700;line-height:1.7;color:#C9C9C9}
+.page.light .tshot{border-color:rgba(0,0,0,.30);background:rgba(0,0,0,.05);color:#8A8A8A}
+.tbody{flex:1}
+.q-kicker.tk{width:auto;text-align:left;margin-bottom:26px;font-size:30px;letter-spacing:5px}
+.tquote{font-size:38px;line-height:1.32;font-weight:700;width:auto}
+.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:30px;color:#FFB81C;margin-top:24px}
 .page.light .twho{color:#B07A00}
 
 :root{
@@ -1116,7 +1145,7 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
 def main():
     pages = []
     for s in S:
-        bgfile = "bg_dark.jpg" if s["bg"] == DARK else "bg_light.jpg"
+        bgfile = "bg_dark.jpg" if s["bg"] == DARK else "bg_light.png"
         pages.append(
             f'  <section class="page {s["bg"]}" data-document-role="page"\n'
             f'           data-label="{esc(s["label"])}"\n'
