@@ -1115,6 +1115,11 @@ def render(s):
     elif L == "iconlines":
         b.append(icon_row(s["icons"]))
         for ln in s["lines"]:
+            if ln == "":
+                continue
+            if "<" in ln:
+                b.append(f'<p class="t-line">{ln}</p>')
+                continue
             for part in wrap_text(ln, 46):
                 b.append(f'<p class="t-line">{esc(part)}</p>')
     elif L == "statgrid":
