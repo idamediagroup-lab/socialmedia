@@ -31,7 +31,7 @@ def act_for(label, previous):
         for lo, hi, name in ACTS:
             if lo <= n <= hi:
                 return name
-    if label.startswith("Social proof"):
+    if label.startswith("Social proof") or label.startswith("Proof"):
         return "SOCIAL PROOF"
     if label.startswith("Demo"):
         return "DEMO — LIVE SOFTWARE"
@@ -867,29 +867,34 @@ insert_after("S63 ", dict(
           "If the platform stalls, move to screenshots without announcing it. Cut beats from the "
           "end, never the Blueprint."))
 
-# Two slides of four screenshots, matching the layout the host built by hand. The
-# images themselves live in the Canva account already and are inserted after import;
-# only these eight exist there, so the remaining four testimonials are not shown.
+# One screenshot per slide, spaced through the deck so proof lands next to the point
+# it supports rather than in one block. Only these eight exist as assets in the Canva
+# account, so the remaining four testimonials are not shown. The images are inserted
+# after import; each slide leaves its left column clear for one.
 PROOF_SLIDES = [
-    ("Social proof — messages and removals",
-     ["Client credit report", "Ricardo Bey", "Gerren Hansley", "Rochelle Johnson"]),
-    ("Social proof — what changed",
-     ["Keyana Matthews", "TransUnion investigation result", "Client travel redemption",
-      "Tracy Small"]),
+    # anchor,  who,                              short description
+    ("Q3 ",  "Gerren Hansley",                 "A clearer read on his own file."),
+    ("S9 ",  "Rochelle Johnson",               "New to credit, and given options."),
+    ("S20 ", "Client credit report",           "Three inquiries disputed and deleted."),
+    ("S24 ", "TransUnion investigation result", "A disputed item off the report."),
+    ("Q10 ", "Ricardo Bey",                    "Bureaus updated. Inquiries removed."),
+    ("S39 ", "Keyana Matthews",                "A two-year collection finally cleared."),
+    ("S51 ", "Tracy Small",                    "One year in — and the car."),
+    ("S58 ", "Client travel redemption",       "A flight booked on points."),
 ]
 
-for _title, _whos in reversed(PROOF_SLIDES):
-    _detail = []
-    for _w in _whos:
-        _img, _who, _quote, _warn = BY_WHO[_w]
-        _detail.append(f'{_who} — "{_quote}"' + (("\n" + _warn) if _warn else ""))
-    _n = ("Four screenshots supplied by the host, shown full height.\n\n"
-          "FULL QUOTES AND CHECKS:\n\n" + "\n\n".join(_detail)
-          + "\n\nGENERAL: every one of these is another person's private message or account. "
-            "Get written permission before showing them, and say plainly that individual "
-            "results are not typical.")
-    insert_after("S52 ", dict(label=_title, bg=DARK, layout="proofshots",
-                              kicker="WHAT PEOPLE ARE SAYING", names=_whos, notes=_n))
+for _anchor, _w, _desc in PROOF_SLIDES:
+    _img, _who, _quote, _warn = BY_WHO[_w]
+    _n = ("Screenshot supplied by the host, placed here so the proof sits next to the point "
+          f"it supports.\n\nFULL QUOTE:\n{_who} — \"{_quote}\"")
+    if _warn:
+        _n += "\n\n" + _warn
+    _n += ("\n\nGENERAL: this is another person's private message or account. Get written "
+           "permission before showing it, and say plainly that individual results are not "
+           "typical.")
+    insert_after(_anchor, dict(label=f"Proof — {_who}", bg=DARK, layout="proofshot",
+                               kicker="WHAT PEOPLE ARE SAYING", who=_who,
+                               desc=_desc, quote=SHORT[_w], notes=_n))
 
 # ─────────────────────────────────────────────────────────────
 # Original vector iconography (no stock art, no third-party assets)
@@ -1139,16 +1144,20 @@ def render(s):
         for para in s["paras"]:
             b.append(f'<p class="biopara">{esc(para)}</p>')
         b.append('</div></div>')
-    elif L == "proofshots":
-        # The four screenshots are inserted into this page after import, straight from
-        # the assets already in the user's Canva account. The page carries the heading
-        # and the attributions; the middle band is left clear for the images.
-        b.append(f'<p class="q-kicker tk3">{esc(s["kicker"])}</p>')
-        b.append('<div class="shotspacer"></div>')
-        b.append('<div class="shotnames">')
-        for who in s["names"]:
-            b.append(f'<span class="shotname">{esc(who)}</span>')
-        b.append('</div>')
+    elif L == "proofshot":
+        # One screenshot per slide. The image itself is inserted after import from the
+        # assets already in the user's Canva account; the left column is left clear for
+        # it and the description sits alongside.
+        b.append('<div class="pshot">')
+        b.append('<div class="pslot"></div>')
+        b.append('<div class="pbody">')
+        b.append(f'<p class="q-kicker tk">{esc(s["kicker"])}</p>')
+        for part in wrap_text(s["desc"], 30):
+            b.append(f'<p class="pdesc">{esc(part)}</p>')
+        for part in wrap_text(s["quote"], 46):
+            b.append(f'<p class="pquote">{esc(part)}</p>')
+        b.append(f'<p class="twho">{esc(s["who"])}</p>')
+        b.append('</div></div>')
     elif L == "testimonial":
         # Finished quote cards, not empty photo frames. The screenshots hold other
         # people's financial data and the repo feeding the importer is public, so they
@@ -1289,11 +1298,13 @@ CSS = """
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
-.q-kicker.tk3{width:1440px;text-align:center;margin-bottom:0;font-size:32px;letter-spacing:6px}
-.shotspacer{height:640px}
-.shotnames{display:flex;width:1440px;justify-content:space-between}
-.shotname{width:323px;text-align:center;font-family:'Archivo Black',Arial,sans-serif;
-  font-size:23px;color:#FFB81C}
+.pshot{display:flex;gap:80px;align-items:center;width:1440px;text-align:left}
+.pslot{width:324px;height:640px;flex:none}
+.pbody{flex:1}
+.q-kicker.tk{width:auto;text-align:left;margin-bottom:24px;font-size:28px;letter-spacing:5px}
+.pdesc{font-family:'Archivo Black',Arial,sans-serif;font-size:52px;line-height:1.16}
+.pquote{font-size:27px;line-height:1.45;font-weight:600;margin-top:6px}
+.pquote:first-of-type{margin-top:28px}
 .page.light .shotname{color:#B07A00}
 
 .tgrid{display:flex;gap:52px;width:1440px;justify-content:center;align-items:stretch}
@@ -1379,16 +1390,22 @@ def main():
     pages, act = [], ACTS[0][2]
     for i, s in enumerate(S, 1):
         bgfile = "bg_dark.jpg" if s["bg"] == DARK else "bg_light.png"
-        act = act_for(s["label"], act)
+        # Proof slides are labelled SOCIAL PROOF but sit inside an act, so they must not
+        # carry their label forward to the slides that follow them.
+        if s["label"].startswith("Proof"):
+            shown = "SOCIAL PROOF"
+        else:
+            act = act_for(s["label"], act)
+            shown = act
         topic = topic_for(s)
         # Canva lists this in its page navigator, so lead with the act and topic.
-        page_title = f"{i:02d} · {act.split('—')[0].strip()} · {topic}"
+        page_title = f"{i:02d} · {shown.split('—')[0].strip()} · {topic}"
         pages.append(
             f'  <section class="page {s["bg"]}" data-document-role="page"\n'
             f'           data-label="{esc(page_title)}"\n'
             f'           data-speaker-notes="{esc(s["notes"])}">\n'
             f'    <img class="bg" src="{BG_BASE}/{bgfile}" alt="">\n'
-            f'    <p class="eyebrow">{esc(act)}</p>\n'
+            f'    <p class="eyebrow">{esc(shown)}</p>\n'
             f'    <p class="pagenum">{i}</p>\n'
             f'    <div class="safe">\n      {render(s)}\n    </div>\n'
             f'  </section>'
