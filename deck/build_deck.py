@@ -589,9 +589,10 @@ slide("S61 — How to start", LIGHT, "numbered",
       items=["Click the link", "Create your account — $1", "Upload your report tonight"])
 
 slide("S62 — The link", LIGHT, "placeholder",
-      text="[URL]",
+      text="GET STARTED HERE",
       notes="Say: Say it out loud. Have someone drop it in chat now, and again in five minutes.\n\n"
-            "⚠️ Replace [URL] with the live referral link before stage.")
+            "⚠️ Add your live referral link to this slide before stage — type it under the "
+            "heading, and drop it in the chat as well.")
 
 ask("Q17 — Ask 17 (after S62)", "TYPE IN THE CHAT",
     "Type GOT IT when you see the link.",
@@ -602,7 +603,7 @@ slide("S63 — Close before the demo", DARK, "close",
       lines=["You were never bad with credit.", "You were playing a game",
              "nobody showed you the rules to."],
       big="$1 TO GET STARTED",
-      sub="7 days, then $97/month · [URL]",
+      sub="7 days, then $97/month",
       notes="Say: Get started now, and then watch me use the exact thing you just got. Everybody else — "
             "watch anyway, and decide at the end.\n\n"
             "⚠️ THIS SLIDE STAYS VISIBLE OR PINNED IN CHAT FOR THE ENTIRE 30-MINUTE DEMO. The link "
@@ -628,7 +629,7 @@ ask("Q20 — Demo ask 3 (after demo beat 14)", "TYPE IN THE CHAT",
 slide("S64 — After the demo", DARK, "close",
       lines=["That's the whole thing."],
       big="$1 TO GET STARTED",
-      sub="7 days, then $97/month · [URL]",
+      sub="7 days, then $97/month",
       notes="Say: This is the ask that actually converts the room, so don't rush past it into questions. "
             "Everyone who was undecided forty-five minutes ago just watched it work. Say the price, say "
             "the rebill date, say the link, and give them fifteen seconds of silence to click before you "
@@ -646,7 +647,7 @@ slide("S65 — Q&A holding slide", DARK, "qa",
                  "More than four unsecured accounts in the last 12 months?",
                  "Under four inquiries?", "Collections?", "Charge-offs?",
                  "Late payments?", "Bankruptcy?"],
-      offer="$1 to get started · 7 days · then $97/month · [URL]",
+      offer="$1 to get started · 7 days · then $97/month",
       notes="Say: Leave this up the entire time. Late arrivals can still read the Blueprint and still "
             "find the link.")
 
@@ -721,7 +722,7 @@ mutate("S32 ", layout="blueprintlive",
 # -- the link slide, designed rather than a bare token on an empty page --
 mutate("S62 ", layout="link",
        kicker="GET STARTED HERE",
-       url="[URL]",
+       url="",
        foot="$1 today · 7 days · then $97/month")
 
 # -- the two files, built from the counts the script already states --
@@ -849,7 +850,7 @@ BY_WHO = {t[1]: t for t in TESTIMONIALS}
 insert_after("S63 ", dict(
     label="Demo — DEMO", bg=DARK, layout="demo",
     word="DEMO", sub="30 MINUTES · LIVE SOFTWARE",
-    offer="$1 to get started · 7 days, then $97/month · [URL]",
+    offer="$1 to get started · 7 days, then $97/month",
     notes="Hold this slide while you switch to the software, then keep the offer line "
           "visible or pinned in chat for the whole demo — the link never leaves the screen.\n\n"
           "BEAT ORDER: 1 upload a report · 2 full AI analysis · 3 the Blueprint on a real file · "
@@ -866,19 +867,29 @@ insert_after("S63 ", dict(
           "If the platform stalls, move to screenshots without announcing it. Cut beats from the "
           "end, never the Blueprint."))
 
-for _title, _whos in reversed(GROUPS):
-    _cards, _detail = [], []
+# Two slides of four screenshots, matching the layout the host built by hand. The
+# images themselves live in the Canva account already and are inserted after import;
+# only these eight exist there, so the remaining four testimonials are not shown.
+PROOF_SLIDES = [
+    ("Social proof — messages and removals",
+     ["Client credit report", "Ricardo Bey", "Gerren Hansley", "Rochelle Johnson"]),
+    ("Social proof — what changed",
+     ["Keyana Matthews", "TransUnion investigation result", "Client travel redemption",
+      "Tracy Small"]),
+]
+
+for _title, _whos in reversed(PROOF_SLIDES):
+    _detail = []
     for _w in _whos:
         _img, _who, _quote, _warn = BY_WHO[_w]
-        _cards.append(dict(img=_img, who=_who, quote=SHORT[_w]))
         _detail.append(f'{_who} — "{_quote}"' + (("\n" + _warn) if _warn else ""))
-    _n = ("Drop each screenshot into its frame inside Canva.\n\nFULL QUOTES AND CHECKS:\n\n"
-          + "\n\n".join(_detail)
+    _n = ("Four screenshots supplied by the host, shown full height.\n\n"
+          "FULL QUOTES AND CHECKS:\n\n" + "\n\n".join(_detail)
           + "\n\nGENERAL: every one of these is another person's private message or account. "
             "Get written permission before showing them, and say plainly that individual "
             "results are not typical.")
-    insert_after("S52 ", dict(label=_title, bg=DARK, layout="testimonial",
-                              kicker="WHAT PEOPLE ARE SAYING", cards=_cards, notes=_n))
+    insert_after("S52 ", dict(label=_title, bg=DARK, layout="proofshots",
+                              kicker="WHAT PEOPLE ARE SAYING", names=_whos, notes=_n))
 
 # ─────────────────────────────────────────────────────────────
 # Original vector iconography (no stock art, no third-party assets)
@@ -1128,6 +1139,16 @@ def render(s):
         for para in s["paras"]:
             b.append(f'<p class="biopara">{esc(para)}</p>')
         b.append('</div></div>')
+    elif L == "proofshots":
+        # The four screenshots are inserted into this page after import, straight from
+        # the assets already in the user's Canva account. The page carries the heading
+        # and the attributions; the middle band is left clear for the images.
+        b.append(f'<p class="q-kicker tk3">{esc(s["kicker"])}</p>')
+        b.append('<div class="shotspacer"></div>')
+        b.append('<div class="shotnames">')
+        for who in s["names"]:
+            b.append(f'<span class="shotname">{esc(who)}</span>')
+        b.append('</div>')
     elif L == "testimonial":
         # Finished quote cards, not empty photo frames. The screenshots hold other
         # people's financial data and the repo feeding the importer is public, so they
@@ -1144,7 +1165,10 @@ def render(s):
         b.append('</div>')
     elif L == "link":
         b.append(f'<p class="linkkick">{esc(s["kicker"])}</p>')
-        b.append(f'<div class="linkbox">{esc(s["url"])}</div>')
+        # An empty box would read as a blank slide, so the box only appears once a
+        # real link is set; otherwise the heading and price line carry the slide.
+        if s["url"]:
+            b.append(f'<div class="linkbox">{esc(s["url"])}</div>')
         b.append(f'<p class="linkfoot">{esc(s["foot"])}</p>')
     elif L == "demo":
         b.append(f'<p class="demoword">{esc(s["word"])}</p>')
@@ -1187,12 +1211,6 @@ def render(s):
 
 CSS = """
 
-/* Readability scrim: the brand backgrounds are busy at the edges, so every
-   text block sits on a soft panel that guarantees contrast without hiding art. */
-.scrim{position:absolute;z-index:1;left:150px;top:110px;width:1620px;height:840px;
-  border-radius:28px}
-.page.light .scrim{background:rgba(255,255,255,.80)}
-.page.dark  .scrim{background:rgba(6,7,9,.66)}
 
 /* Navigation furniture: act name top-left, slide number top-right. */
 .eyebrow{position:absolute;z-index:3;left:196px;top:132px;width:1200px;text-align:left;
@@ -1204,8 +1222,8 @@ CSS = """
 .page.dark .eyebrow{color:#FFB81C}
 .page.dark .pagenum{color:#9AA0A8}
 
-.linkkick{font-family:'Archivo Black',Arial,sans-serif;font-size:34px;letter-spacing:6px;
-  color:#B07A00;margin-bottom:40px}
+.linkkick{font-family:'Archivo Black',Arial,sans-serif;font-size:96px;letter-spacing:2px;
+  color:#16181C;margin-bottom:34px}
 .linkbox{width:1240px;padding:52px 40px;border-radius:20px;border:6px solid #16181C;
   font-family:'Archivo Black',Arial,sans-serif;font-size:76px;word-break:break-all}
 .linkfoot{font-size:34px;font-weight:700;margin-top:38px;color:#3A3A3A}
@@ -1271,6 +1289,13 @@ CSS = """
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
+.q-kicker.tk3{width:1440px;text-align:center;margin-bottom:0;font-size:32px;letter-spacing:6px}
+.shotspacer{height:640px}
+.shotnames{display:flex;width:1440px;justify-content:space-between}
+.shotname{width:323px;text-align:center;font-family:'Archivo Black',Arial,sans-serif;
+  font-size:23px;color:#FFB81C}
+.page.light .shotname{color:#B07A00}
+
 .tgrid{display:flex;gap:52px;width:1440px;justify-content:center;align-items:stretch}
 .tcard{width:445px;padding:44px 38px 40px;border-radius:20px;text-align:left;
   background:rgba(255,255,255,.07);border:3px solid rgba(255,255,255,.20);
@@ -1363,7 +1388,6 @@ def main():
             f'           data-label="{esc(page_title)}"\n'
             f'           data-speaker-notes="{esc(s["notes"])}">\n'
             f'    <img class="bg" src="{BG_BASE}/{bgfile}" alt="">\n'
-            f'    <div class="scrim"></div>\n'
             f'    <p class="eyebrow">{esc(act)}</p>\n'
             f'    <p class="pagenum">{i}</p>\n'
             f'    <div class="safe">\n      {render(s)}\n    </div>\n'
