@@ -10,7 +10,37 @@ so Canva's importer maps each one to a slide.
 """
 
 import html
+import re
 import sys
+
+# Act boundaries, keyed by the source script's slide numbers.
+ACTS = [(1, 14, "ACT 1 — WHAT THIS IS REALLY ABOUT"),
+        (15, 24, "ACT 2 — WHY YOU GOT DENIED"),
+        (25, 35, "ACT 3 — ELIGIBILITY FIRST"),
+        (36, 46, "ACT 4 — SIX WAYS PEOPLE USE THIS"),
+        (47, 63, "ACT 5 — THE OFFER"),
+        (64, 64, "THE SECOND ASK"),
+        (65, 65, "Q&A")]
+
+
+def act_for(label, previous):
+    """Act name for a slide. Asks and inserts inherit the act they sit in."""
+    m = re.match(r"S(\d+)", label)
+    if m:
+        n = int(m.group(1))
+        for lo, hi, name in ACTS:
+            if lo <= n <= hi:
+                return name
+    if label.startswith("Social proof"):
+        return "SOCIAL PROOF"
+    return previous
+
+
+def topic_for(s):
+    if s["layout"] == "question":
+        return "Audience ask"
+    label = s["label"]
+    return label.split("—", 1)[1].strip() if "—" in label else label
 
 # Raw base for background images. Pinned to a commit SHA at build time.
 BG_BASE = sys.argv[1] if len(sys.argv) > 1 else "ASSET_BASE_PLACEHOLDER"
@@ -25,10 +55,22 @@ def slide(label, bg, layout, notes="", **kw):
     S.append(dict(label=label, bg=bg, layout=layout, notes=notes, **kw))
 
 
-def ask(label, kicker, text, notes=""):
-    """A dedicated TYPE IN THE CHAT question slide."""
-    S.append(dict(label=label, bg=DARK, layout="question",
-                  kicker=kicker, text=text, notes=notes))
+def ask(label, kicker, text, notes="", own_slide=False):
+    """An audience ask.
+
+    Most asks are spoken over the slide already on screen, so they fold into that
+    slide's speaker notes. Only the four asks that carry real weight get a
+    full-screen prompt of their own.
+    """
+    if own_slide:
+        S.append(dict(label=label, bg=DARK, layout="question",
+                      kicker=kicker, text=text, notes=notes))
+        return
+    prev = S[-1]
+    block = f'ASK — say out loud, stay on this slide:\n"{text}"'
+    if notes:
+        block += "\n" + notes
+    prev["notes"] = (prev["notes"] + "\n\n" + block).strip()
 
 
 # ─────────────────────────────────────────────────────────────
@@ -96,7 +138,7 @@ slide("S8 — Let's see if I'm describing your situation", LIGHT, "bullets",
 ask("Q3 — Ask 3 (after S8)", "TYPE IN THE CHAT",
     "Type YES if even one of those four is you.",
     "Why: Highest-volume yes of the night. The wall of YES is the point, not the answer — it proves "
-    "to every person that they aren't the only one.")
+    "to every person that they aren't the only one.", own_slide=True)
 
 slide("S9 — Both rooms", LIGHT, "lines",
       lines=["Some of you are here for personal credit.",
@@ -335,7 +377,7 @@ slide("S34 — What green looks like", LIGHT, "lines",
 ask("Q10 — Ask 10 (after S34)", "TYPE IN THE CHAT",
     "Type YES if you want your file to look like that.",
     "Why: The pivot from agreeing to wanting. Most important ask before the offer — the first time they "
-    "state a desire instead of confirming a fact. Do not skip it, do not rush it.")
+    "state a desire instead of confirming a fact. Do not skip it, do not rush it.", own_slide=True)
 
 slide("S35 — Transition", LIGHT, "lines",
       lines=["The software does all of this", "in about a minute.", "",
@@ -516,7 +558,7 @@ slide("S57 — The offer", DARK, "price", strike="$247", big="$1 TO GET STARTED"
 ask("Q16 — Ask 16 (after S57)", "TYPE IN THE CHAT",
     "Type YES if you're getting started tonight.",
     "Why: The commitment ask. Every yes before this one was practice for this one. Wait through the "
-    "silence — it always feels longer than it is.")
+    "silence — it always feels longer than it is.", own_slide=True)
 
 slide("S58 — What happens in those 7 days", LIGHT, "lines",
       lines=["Tonight: upload your report", "Tonight: run the Blueprint", "Tonight: see your ten lines",
@@ -592,7 +634,7 @@ slide("S64 — After the demo", DARK, "close",
 
 ask("Q21 — Ask 21 (after S64)", "TYPE IN THE CHAT",
     "Type YES if you're in.",
-    "Why: The second ask. Fifteen seconds of silence after the link.")
+    "Why: The second ask. Fifteen seconds of silence after the link.", own_slide=True)
 
 slide("S65 — Q&A holding slide", DARK, "qa",
       text="Questions.",
@@ -737,17 +779,53 @@ TESTIMONIALS = [
      "Blueprint lines. Record locator is blurred."),
 ]
 
-for _img, _who, _quote, _warn in reversed(TESTIMONIALS):
-    _n = ("Screenshot supplied by the host. The quote is set large beside it so the room can "
-          "read it even if the screenshot is small on stream.")
-    if _warn:
-        _n += "\n\n" + _warn
-    _n += ("\n\nGENERAL: every one of these is another person's private message or account. Get "
-           "written permission before showing them, and say plainly that individual results are "
-           "not typical.")
-    insert_after("Q15 ", dict(label=f"T — {_who}", bg=DARK, layout="testimonial",
-                              kicker="WHAT PEOPLE ARE SAYING", img=_img,
-                              who=_who, quote=_quote, notes=_n))
+# Trimmed for the three-up layout. The full quote stays in the speaker notes.
+SHORT = {
+    "Gerren Hansley": "Discovering you has made a life changing couple of events for me… "
+                      "Thanks for a better n clearer understanding!!!",
+    "Rochelle Johnson": "A lot of good options for people who are new to credit or needing to "
+                        "fix their credit. I think it's fantastic.",
+    "David": "You really helped change my mindset and my financial situation from the jump.",
+    "TransUnion investigation result": "INVESTIGATION RESULTS — DELETED: the disputed item was "
+                                       "removed from your credit report.",
+    "Client credit report": "Three prior inquiries returned as Deleted.",
+    "Ricardo Bey": "13 inquires removed with 2 credit builders added to the profile.. "
+                   "it's UP from here",
+    "Keyana Matthews": "I struggled with removing a $24k collection for about 2 years… "
+                       "following the blueprint changed my life.",
+    "Tracy Small": "Got one of my dream whips … WITH NO MONEY DOWN!!!!",
+    "Credit score: 826, Exceptional": "Someone just became a member of the 800 club",
+    "Takirra Haley": "You have been approved. $25,000 credit limit, 8.99% APR.",
+    "Nicholas Minter": "Quick lil $120k today w/ 1 inquiry",
+    "Client travel redemption": "A round trip booked on points — 62,000 miles plus $11.20.",
+}
+
+# Grouped safest-first, so cutting from the last slide drops the riskiest claims.
+GROUPS = [
+    ("Social proof — in their words",
+     ["Gerren Hansley", "Rochelle Johnson", "David"]),
+    ("Social proof — items removed",
+     ["TransUnion investigation result", "Client credit report", "Ricardo Bey"]),
+    ("Social proof — what changed",
+     ["Keyana Matthews", "Tracy Small", "Credit score: 826, Exceptional"]),
+    ("Social proof — approvals and funding",
+     ["Takirra Haley", "Nicholas Minter", "Client travel redemption"]),
+]
+BY_WHO = {t[1]: t for t in TESTIMONIALS}
+
+for _title, _whos in reversed(GROUPS):
+    _cards, _detail = [], []
+    for _w in _whos:
+        _img, _who, _quote, _warn = BY_WHO[_w]
+        _cards.append(dict(img=_img, who=_who, quote=SHORT[_w]))
+        _detail.append(f'{_who} — "{_quote}"' + (("\n" + _warn) if _warn else ""))
+    _n = ("Drop each screenshot into its frame inside Canva.\n\nFULL QUOTES AND CHECKS:\n\n"
+          + "\n\n".join(_detail)
+          + "\n\nGENERAL: every one of these is another person's private message or account. "
+            "Get written permission before showing them, and say plainly that individual "
+            "results are not typical.")
+    insert_after("S52 ", dict(label=_title, bg=DARK, layout="testimonial",
+                              kicker="WHAT PEOPLE ARE SAYING", cards=_cards, notes=_n))
 
 # ─────────────────────────────────────────────────────────────
 # Original vector iconography (no stock art, no third-party assets)
@@ -998,18 +1076,18 @@ def render(s):
             b.append(f'<p class="biopara">{esc(para)}</p>')
         b.append('</div></div>')
     elif L == "testimonial":
-        # The screenshot is a framed slot, not a committed file: these images hold other
-        # people's financial data and the repo that feeds the importer is public.
-        # Drag each one into its frame inside Canva instead.
-        b.append('<div class="trow">')
-        b.append(f'<div class="tshot" data-slot="{esc(s["img"])}">'
-                 f'<span>DROP<br>{esc(s["img"])}<br>HERE</span></div>')
-        b.append('<div class="tbody">')
-        b.append(f'<p class="q-kicker tk">{esc(s["kicker"])}</p>')
-        for part in wrap_text(s["quote"], 40):
-            b.append(f'<p class="tquote">{esc(part)}</p>')
-        b.append(f'<p class="twho">{esc(s["who"])}</p>')
-        b.append('</div></div>')
+        # Screenshots are framed slots, not committed files: they hold other people's
+        # financial data and the repo feeding the importer is public. Drag each one
+        # into its frame inside Canva instead.
+        b.append('<div class="tgrid">')
+        for c in s["cards"]:
+            b.append('<div class="tcard">')
+            b.append(f'<div class="tshot" data-slot="{esc(c["img"])}">'
+                     f'<span>DROP<br>{esc(c["img"])}<br>HERE</span></div>')
+            b.append(f'<p class="tquote">{esc(c["quote"])}</p>')
+            b.append(f'<p class="twho">{esc(c["who"])}</p>')
+            b.append('</div>')
+        b.append('</div>')
     elif L == "question":
         b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
         for ln in wrap_text(s["text"], 34):
@@ -1029,6 +1107,16 @@ CSS = """
   border-radius:28px}
 .page.light .scrim{background:rgba(255,255,255,.80)}
 .page.dark  .scrim{background:rgba(6,7,9,.66)}
+
+/* Navigation furniture: act name top-left, slide number top-right. */
+.eyebrow{position:absolute;z-index:3;left:196px;top:132px;width:1200px;text-align:left;
+  font-family:'Archivo Black',Arial,sans-serif;font-size:23px;letter-spacing:4px}
+.pagenum{position:absolute;z-index:3;right:196px;top:132px;
+  font-family:'Archivo Black',Arial,sans-serif;font-size:23px;opacity:.55}
+.page.light .eyebrow{color:#8A8F96}
+.page.light .pagenum{color:#8A8F96}
+.page.dark .eyebrow{color:#FFB81C}
+.page.dark .pagenum{color:#9AA0A8}
 
 .ic{width:96px;height:100px;flex:none}
 .page.light .ic{fill:#16181C;stroke:#16181C}
@@ -1065,16 +1153,15 @@ CSS = """
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
-.trow{display:flex;gap:70px;align-items:center;width:1400px;text-align:left}
-.tshot{height:700px;width:324px;flex:none;border-radius:14px;
-  border:5px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
+.tgrid{display:flex;gap:60px;width:1440px;justify-content:center;align-items:flex-start}
+.tcard{width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.tshot{width:250px;height:400px;flex:none;border-radius:12px;
+  border:4px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
   display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:22px;font-weight:700;line-height:1.7;color:#C9C9C9}
+  font-size:18px;font-weight:700;line-height:1.7;color:#C9C9C9}
 .page.light .tshot{border-color:rgba(0,0,0,.30);background:rgba(0,0,0,.05);color:#8A8A8A}
-.tbody{flex:1}
-.q-kicker.tk{width:auto;text-align:left;margin-bottom:26px;font-size:30px;letter-spacing:5px}
-.tquote{font-size:38px;line-height:1.32;font-weight:700;width:auto}
-.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:30px;color:#FFB81C;margin-top:24px}
+.tquote{font-size:25px;line-height:1.38;font-weight:600;margin-top:24px;width:440px}
+.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:24px;color:#FFB81C;margin-top:16px}
 .page.light .twho{color:#B07A00}
 
 :root{
@@ -1085,7 +1172,7 @@ CSS = """
 body{background:#20232A;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
 .page{position:relative;width:1920px;height:1080px;overflow:hidden;margin:0 auto 40px;background:var(--paper)}
 .bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;z-index:0}
-.safe{position:absolute;z-index:2;left:240px;top:150px;width:1440px;height:760px;
+.safe{position:absolute;z-index:2;left:240px;top:196px;width:1440px;height:700px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .page.light .safe{color:var(--ink)}
 .page.dark .safe{color:#FFFFFF}
@@ -1143,15 +1230,21 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
 
 
 def main():
-    pages = []
-    for s in S:
+    pages, act = [], ACTS[0][2]
+    for i, s in enumerate(S, 1):
         bgfile = "bg_dark.jpg" if s["bg"] == DARK else "bg_light.png"
+        act = act_for(s["label"], act)
+        topic = topic_for(s)
+        # Canva lists this in its page navigator, so lead with the act and topic.
+        page_title = f"{i:02d} · {act.split('—')[0].strip()} · {topic}"
         pages.append(
             f'  <section class="page {s["bg"]}" data-document-role="page"\n'
-            f'           data-label="{esc(s["label"])}"\n'
+            f'           data-label="{esc(page_title)}"\n'
             f'           data-speaker-notes="{esc(s["notes"])}">\n'
             f'    <img class="bg" src="{BG_BASE}/{bgfile}" alt="">\n'
             f'    <div class="scrim"></div>\n'
+            f'    <p class="eyebrow">{esc(act)}</p>\n'
+            f'    <p class="pagenum">{i}</p>\n'
             f'    <div class="safe">\n      {render(s)}\n    </div>\n'
             f'  </section>'
         )

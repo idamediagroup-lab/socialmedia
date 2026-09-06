@@ -12,6 +12,16 @@
 .page.light .scrim{background:rgba(255,255,255,.80)}
 .page.dark  .scrim{background:rgba(6,7,9,.66)}
 
+/* Navigation furniture: act name top-left, slide number top-right. */
+.eyebrow{position:absolute;z-index:3;left:196px;top:132px;width:1200px;text-align:left;
+  font-family:'Archivo Black',Arial,sans-serif;font-size:23px;letter-spacing:4px}
+.pagenum{position:absolute;z-index:3;right:196px;top:132px;
+  font-family:'Archivo Black',Arial,sans-serif;font-size:23px;opacity:.55}
+.page.light .eyebrow{color:#8A8F96}
+.page.light .pagenum{color:#8A8F96}
+.page.dark .eyebrow{color:#FFB81C}
+.page.dark .pagenum{color:#9AA0A8}
+
 .ic{width:96px;height:100px;flex:none}
 .page.light .ic{fill:#16181C;stroke:#16181C}
 .page.dark  .ic{fill:#FFFFFF;stroke:#FFFFFF}
@@ -47,16 +57,15 @@
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
-.trow{display:flex;gap:70px;align-items:center;width:1400px;text-align:left}
-.tshot{height:700px;width:324px;flex:none;border-radius:14px;
-  border:5px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
+.tgrid{display:flex;gap:60px;width:1440px;justify-content:center;align-items:flex-start}
+.tcard{width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.tshot{width:250px;height:400px;flex:none;border-radius:12px;
+  border:4px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
   display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:22px;font-weight:700;line-height:1.7;color:#C9C9C9}
+  font-size:18px;font-weight:700;line-height:1.7;color:#C9C9C9}
 .page.light .tshot{border-color:rgba(0,0,0,.30);background:rgba(0,0,0,.05);color:#8A8A8A}
-.tbody{flex:1}
-.q-kicker.tk{width:auto;text-align:left;margin-bottom:26px;font-size:30px;letter-spacing:5px}
-.tquote{font-size:38px;line-height:1.32;font-weight:700;width:auto}
-.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:30px;color:#FFB81C;margin-top:24px}
+.tquote{font-size:25px;line-height:1.38;font-weight:600;margin-top:24px;width:440px}
+.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:24px;color:#FFB81C;margin-top:16px}
 .page.light .twho{color:#B07A00}
 
 :root{
@@ -67,7 +76,7 @@
 body{background:#20232A;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
 .page{position:relative;width:1920px;height:1080px;overflow:hidden;margin:0 auto 40px;background:var(--paper)}
 .bg{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;z-index:0}
-.safe{position:absolute;z-index:2;left:240px;top:150px;width:1440px;height:760px;
+.safe{position:absolute;z-index:2;left:240px;top:196px;width:1440px;height:700px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .page.light .safe{color:var(--ink)}
 .page.dark .safe{color:#FFFFFF}
@@ -125,42 +134,40 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
 </head>
 <body>
   <section class="page dark" data-document-role="page"
-           data-label="S1 — Title"
-           data-speaker-notes="Say: Ninety minutes. By the end of tonight you&#x27;re going to know exactly why your last denial happened, and exactly what your file needs before you apply to anything again.">
+           data-label="01 · ACT 1 · Title"
+           data-speaker-notes="Say: Ninety minutes. By the end of tonight you&#x27;re going to know exactly why your last denial happened, and exactly what your file needs before you apply to anything again.
+
+ASK — say out loud, stay on this slide:
+&quot;Before we start — type YES in the chat if you can see my screen and hear me clearly.&quot;
+Why: The first ask must be trivially easy and it must succeed. It teaches the room that typing in the chat is what we do here. If the chat stays quiet, stop and fix it now — every later ask depends on this one landing.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">1</p>
     <div class="safe">
       <h1 class="t-title">THE SCORE MACHINE</h1>
       <p class="t-sub">Why you got denied — and what to do about it</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q1 — Ask 1 (after S1)"
-           data-speaker-notes="Why: The first ask must be trivially easy and it must succeed. It teaches the room that typing in the chat is what we do here. If the chat stays quiet, stop and fix it now — every later ask depends on this one landing.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Before we start — type YES in the</p>
-      <p class="q-text">chat if you can see my screen and</p>
-      <p class="q-text">hear me clearly.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S2 — The hook"
+           data-label="02 · ACT 1 · The hook"
            data-speaker-notes="Say: Nothing. Three full seconds of silence. Let it sit before you move.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">2</p>
     <div class="safe">
       <h1 class="t-state">You didn&#x27;t get turned down</h1>
       <h1 class="t-state">for the reason you think.</h1>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S3 — The house"
+           data-label="03 · ACT 1 · The house"
            data-speaker-notes="Say: Some of you know exactly what that phone call sounds like.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">3</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M12 56 L48 24 L84 56 V88 H60 V66 H36 V88 H12 Z"/></g></svg></div>
       <p class="t-line">You found the house.</p>
@@ -169,12 +176,18 @@ h1,h2,h3{font-family:'Archivo Black','Arial Black',Arial,sans-serif;font-weight:
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S4 — The car"
+           data-label="04 · ACT 1 · The car"
            data-speaker-notes="Say: Slow down here. This is the slide people feel. Nobody applies for a car loan because they want a car loan — they want to stop asking for rides, stop losing shifts, get home before their kids are asleep. Do not rush this slide.
 
-PACING: One of only two slow slides in Act 1. Never cut this slide.">
+PACING: One of only two slow slides in Act 1. Never cut this slide.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if a denial has ever cost you something that mattered more than the money.&quot;
+Why: First emotional yes. Wait for it. Read two or three names out loud — that&#x27;s what teaches the room that answering gets acknowledged.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">4</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M14 62 L22 40 H74 L82 62 V78 H70 V70 H26 V78 H14 Z"/><circle cx="32" cy="76" r="8"/><circle cx="64" cy="76" r="8"/></g></svg></div>
       <p class="t-line">You need the car to get to work.</p>
@@ -182,23 +195,13 @@ PACING: One of only two slow slides in Act 1. Never cut this slide.">
       <p class="t-line">The denial costs you both.</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q2 — Ask 2 (after S4)"
-           data-speaker-notes="Why: First emotional yes. Wait for it. Read two or three names out loud — that&#x27;s what teaches the room that answering gets acknowledged.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if a denial has ever cost</p>
-      <p class="q-text">you something that mattered more</p>
-      <p class="q-text">than the money.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S5 — The contract"
+           data-label="05 · ACT 1 · The contract"
            data-speaker-notes="Say: And for the business owners in here — same feeling, different shape. You weren&#x27;t short on skill. You were short on cash for ninety days.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">5</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M24 12 H62 L76 26 V88 H24 Z"/><path d="M36 40 H64 M36 54 H64 M36 68 H54" stroke-width="5" fill="none"/></g></svg></div>
       <p class="t-line">The contract was yours.</p>
@@ -207,10 +210,12 @@ PACING: One of only two slow slides in Act 1. Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S6 — The reframe"
+           data-label="06 · ACT 1 · The reframe"
            data-speaker-notes="Say: Nobody has ever laid in bed at night wishing their score was higher for its own sake. You want the house. You want the truck. You want the line of credit. The score is just the door.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">6</p>
     <div class="safe">
       <h1 class="t-state">NOBODY WANTS A CREDIT</h1>
       <h1 class="t-state">SCORE.</h1>
@@ -218,29 +223,35 @@ PACING: One of only two slow slides in Act 1. Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S7 — What this class actually is"
+           data-label="07 · ACT 1 · What this class actually is"
            data-speaker-notes="PACING: Cuttable if running long.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">7</p>
     <div class="safe">
       <p class="t-line">This isn't a class about credit.</p>
       <p class="t-line">It's a class about approvals.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S8 — Let&#x27;s see if I&#x27;m describing your situation"
+           data-label="08 · ACT 1 · Let&#x27;s see if I&#x27;m describing your situation"
            data-speaker-notes="Say: [Wait. Do not move until the chat fills.] That&#x27;s most of the room.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">8</p>
     <div class="safe">
       <ul class="t-ul"><li>Denied — and the letter never really told you why</li><li>Your score is “fine.” 640. 700. Still denied.</li><li>Solid card, still stuck at a $500 limit, calling it progress</li><li>You have cards. You still aren&#x27;t fundable.</li></ul>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q3 — Ask 3 (after S8)"
+           data-label="09 · ACT 1 · Audience ask"
            data-speaker-notes="Why: Highest-volume yes of the night. The wall of YES is the point, not the answer — it proves to every person that they aren&#x27;t the only one.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">9</p>
     <div class="safe">
       <p class="q-kicker">TYPE IN THE CHAT</p>
       <p class="q-text">Type YES if even one of those four</p>
@@ -248,30 +259,24 @@ PACING: One of only two slow slides in Act 1. Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S9 — Both rooms"
-           data-speaker-notes="Say: Nobody&#x27;s in the wrong room tonight. Underwriting doesn&#x27;t read a file differently because of what you want at the end of it.">
+           data-label="10 · ACT 1 · Both rooms"
+           data-speaker-notes="Say: Nobody&#x27;s in the wrong room tonight. Underwriting doesn&#x27;t read a file differently because of what you want at the end of it.
+
+ASK — say out loud, stay on this slide:
+&quot;Type 1 if you&#x27;re here for personal credit, 2 if you&#x27;re here for business funding, 3 if it&#x27;s both.&quot;
+Why: Diagnostic, not agreement — it tells you the room mix so you can weight your examples for the next hour. Say the split out loud once you see it.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">10</p>
     <div class="safe">
       <p class="t-line">Some of you are here for personal credit.</p>
       <p class="t-line">Some of you are here for business funding.</p>
       <p class="t-line">Same file. Same rules. Same machine.</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q4 — Ask 4 (after S9)"
-           data-speaker-notes="Why: Diagnostic, not agreement — it tells you the room mix so you can weight your examples for the next hour. Say the split out loud once you see it.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type 1 if you&#x27;re here for personal</p>
-      <p class="q-text">credit, 2 if you&#x27;re here for</p>
-      <p class="q-text">business funding, 3 if it&#x27;s both.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S10 — Who I am"
+           data-label="11 · ACT 1 · Who I am"
            data-speaker-notes="Say: Quick word on who&#x27;s talking to you. I run a marketing company — Get AI Leads Now. Credit isn&#x27;t my industry. I&#x27;m on this call because of what this tool did inside my business and my clients&#x27; businesses, and I want to show it to you from the business owner&#x27;s side of the desk, not the software company&#x27;s side.
 
 LANGUAGE DISCIPLINE FOR THE WHOLE NIGHT: always “they” and “Score Machine.” Never “we,” “our software,” “our team.” You&#x27;re a customer telling the room what the product did for you. That&#x27;s the position, and one slip into “we” costs it.
@@ -279,6 +284,8 @@ LANGUAGE DISCIPLINE FOR THE WHOLE NIGHT: always “they” and “Score Machine.
 PACING: Never cut this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">11</p>
     <div class="safe">
       <p class="t-line">[Your name]</p>
       <p class="t-line">Owner — Get AI Leads Now</p>
@@ -288,12 +295,14 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S10a — Bio"
+           data-label="12 · ACT 1 · Bio"
            data-speaker-notes="Host bio, supplied verbatim. Drop your headshot into the framed slot on the left.
 
 ⚠️ Two things to check before stage. First, this bio is third person while slides 10-12 are first person — read it in your own voice rather than reading it off the slide. Second, “helped thousands achieve financial freedom” is a results claim, and slide 13 promises the room no approval and no number. Decide which one you want the room to hear.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">12</p>
     <div class="safe">
       <div class="bio">
       <img class="biophoto" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/headshot.jpg" alt="Host portrait">
@@ -306,7 +315,7 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S11 — The three ways I make money with it"
+           data-label="13 · ACT 1 · The three ways I make money with it"
            data-speaker-notes="Say: I want to be straight with you about all three, especially the last one. I get paid when someone signs up through my link — including anybody who signs up tonight. I&#x27;m telling you that up front because I&#x27;d rather you hear it from me than wonder about it later, and honestly, it&#x27;s the whole point: number three is a business model, and it&#x27;s available to every person on this call.
 
 WHY THIS SLIDE MATTERS: the disclosure is required if you earn on referrals, and delivering it yourself, early, in your own words converts a liability into proof. You&#x27;re not hiding the affiliate model — you&#x27;re demonstrating it live. This also plants Act 4&#x27;s second tier fifteen minutes before it arrives.
@@ -316,12 +325,14 @@ ON THE MARKETING RELATIONSHIP: you don&#x27;t need to volunteer that your compan
 PACING: Slow slide. Never cut.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">13</p>
     <div class="safe">
       <ol class="t-ol"><li><b>On my own file</b> — I know where I stand before I ever apply</li><li><b>For my clients</b> — I help them get funded, and I charge for that</li><li><b>By referring it</b> — I earn when people I send use it. Including tonight.</li></ol>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S12 — What changed in my business"
+           data-label="14 · ACT 1 · What changed in my business"
            data-speaker-notes="Say: I didn&#x27;t have to become a credit expert. I didn&#x27;t have to go get certified in anything. I already had the clients — what I didn&#x27;t have was something useful to say when they brought me a funding problem. Now I do, and it&#x27;s a line of revenue that didn&#x27;t exist in my business a year ago. And that&#x27;s the last I&#x27;ll say about me. I only told you that because most of the room is going to spend tonight thinking about their own credit file — and some of you should be thinking about both.
 
 ⚠️ FILL THIS WITH YOUR OWN TRUE SPECIFICS BEFORE STAGE — what you actually offer clients now, and what actually changed. Do not put a revenue figure on this slide. “A line of revenue that didn&#x27;t exist” is honest and persuasive; a dollar amount is an earnings claim and invites a very different set of problems.
@@ -331,6 +342,8 @@ Why: The host block must end pointed at them, not at you. Three slides about you
 PACING: Cut this slide first if the host block runs long — but never 10 or 11.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">14</p>
     <div class="safe">
       <p class="t-line">Before: a client asked me about funding and I</p>
       <p class="t-line">had nothing to hand them.</p>
@@ -345,10 +358,12 @@ PACING: Cut this slide first if the host block runs long — but never 10 or 11.
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S13 — Let me be straight with you"
+           data-label="15 · ACT 1 · Let me be straight with you"
            data-speaker-notes="Say: I&#x27;m not going to stand up here and guarantee you an approval or tell you your score is going up 100 points. Nobody honest can promise you that. What I can do is show you the ten questions every lender is asking about your file, and then show you your own answers.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">15</p>
     <div class="safe">
       <div class="t-cols">
       <div class="t-col"><h3>What this is:</h3><ul><li>Exactly how underwriting reads your file</li><li>The software that does it in about a minute</li></ul></div>
@@ -357,31 +372,37 @@ PACING: Cut this slide first if the host block runs long — but never 10 or 11.
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S14 — The chain"
+           data-label="16 · ACT 1 · The chain"
            data-speaker-notes="Say: That&#x27;s the whole ninety minutes on one slide. Screenshot it. Everything from here just fills it in.
 
 PACING: Needs silence after it.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 1 — WHAT THIS IS REALLY ABOUT</p>
+    <p class="pagenum">16</p>
     <div class="safe">
       <ol class="t-ol"><li>You got denied</li><li>Because inquiries quietly lowered your ceiling</li><li>Because you applied without knowing if you were eligible</li><li>Eligibility can be known <b>before</b> you apply</li><li>If you're not eligible — the file gets fixed</li><li>Once you are — the bank and the bureau decide where you apply</li></ol>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S15 — The pivot"
+           data-label="17 · ACT 2 · The pivot"
            data-speaker-notes="Say: A score gets you considered. It does not get you approved. Those are two different events and almost nobody is taught the difference.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">17</p>
     <div class="safe">
       <h1 class="t-state">A score is not an</h1>
       <h1 class="t-state">approval.</h1>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S16 — Three files"
+           data-label="18 · ACT 2 · Three files"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">18</p>
     <div class="safe">
       <p class="t-line">You don't have a credit score.</p>
       <p class="t-line">You have three files.</p>
@@ -390,42 +411,45 @@ PACING: Needs silence after it.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S17 — The question"
+           data-label="19 · ACT 2 · The question"
            data-speaker-notes="Say: Think about your last denial. Right now. Which bureau did that lender pull? [Pause. Let it be uncomfortable.]
 
-PACING: Needs silence after it. Never cut this slide.">
+PACING: Needs silence after it. Never cut this slide.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if you have no idea which bureau your last denial pulled.&quot;
+Why: Near-universal, and it&#x27;s an admission rather than an agreement — which is stronger. Once they&#x27;ve typed it they&#x27;ve told themselves they have a gap. Follow with: “That&#x27;s not your fault. Nobody ever told you it mattered.”">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">19</p>
     <div class="safe">
       <h1 class="t-state">Which one did they pull?</h1>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q5 — Ask 5 (after S17)"
-           data-speaker-notes="Why: Near-universal, and it&#x27;s an admission rather than an agreement — which is stronger. Once they&#x27;ve typed it they&#x27;ve told themselves they have a gap. Follow with: “That&#x27;s not your fault. Nobody ever told you it mattered.”">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you have no idea which</p>
-      <p class="q-text">bureau your last denial pulled.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S18 — Why it matters"
+           data-label="20 · ACT 2 · Why it matters"
            data-speaker-notes="PACING: Cuttable if running long.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">20</p>
     <div class="safe">
       <p class="t-line">Your best file doesn't get you approved.</p>
       <p class="t-line">The one they pulled does.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S19 — Credit decay"
-           data-speaker-notes="Say: This is the part nobody tells you. It&#x27;s not just that inquiries ding your score a few points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens quietly, whether you got approved or not.">
+           data-label="21 · ACT 2 · Credit decay"
+           data-speaker-notes="Say: This is the part nobody tells you. It&#x27;s not just that inquiries ding your score a few points. Inquiries lower the dollar amount a bank is willing to hand you — and that happens quietly, whether you got approved or not.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if nobody has ever explained credit decay to you before tonight.&quot;
+Why: Establishes you as the one who told them. This is the authority beat of Act 2.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">21</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M16 28 L38 52 L54 40 L82 74" stroke-width="8" fill="none"/><path d="M62 74 H82 V54" stroke-width="8" fill="none"/></g></svg></div>
       <p class="t-line">Every application leaves an inquiry.</p>
@@ -434,25 +458,15 @@ PACING: Needs silence after it. Never cut this slide.">
       <p class="t-line">This is called &lt;b&gt;credit decay.&lt;/b&gt;</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q6 — Ask 6 (after S19)"
-           data-speaker-notes="Why: Establishes you as the one who told them. This is the authority beat of Act 2.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if nobody has ever</p>
-      <p class="q-text">explained credit decay to you</p>
-      <p class="q-text">before tonight.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S20 — What decay looks like"
+           data-label="22 · ACT 2 · What decay looks like"
            data-speaker-notes="Say: Negative five thousand. This person isn&#x27;t getting a smaller approval — they&#x27;re not getting anything, from anyone, and their credit score never told them that. They&#x27;d have kept applying.
 
 PACING: Never cut this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">22</p>
     <div class="safe">
       <p class="t-kicker">Real file. 14 inquiries.</p>
       <svg class="tally" viewBox="0 0 464 74" role="img" aria-label="Fourteen inquiries on one credit file"><rect x="0" y="0" width="22" height="74" rx="4"/><rect x="34" y="0" width="22" height="74" rx="4"/><rect x="68" y="0" width="22" height="74" rx="4"/><rect x="102" y="0" width="22" height="74" rx="4"/><rect x="136" y="0" width="22" height="74" rx="4"/><rect x="170" y="0" width="22" height="74" rx="4"/><rect x="204" y="0" width="22" height="74" rx="4"/><rect x="238" y="0" width="22" height="74" rx="4"/><rect x="272" y="0" width="22" height="74" rx="4"/><rect x="306" y="0" width="22" height="74" rx="4"/><rect x="340" y="0" width="22" height="74" rx="4"/><rect x="374" y="0" width="22" height="74" rx="4"/><rect x="408" y="0" width="22" height="74" rx="4"/><rect x="442" y="0" width="22" height="74" rx="4"/></svg>
@@ -460,20 +474,24 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S21 — The line"
+           data-label="23 · ACT 2 · The line"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">23</p>
     <div class="safe">
       <h1 class="t-state">Forget about points.</h1>
       <p class="t-statsub">It's about money.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S22 — So what actually happened"
+           data-label="24 · ACT 2 · So what actually happened"
            data-speaker-notes="PACING: Cuttable if running long.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">24</p>
     <div class="safe">
       <p class="t-line">You applied.</p>
       <p class="t-line">You didn't know if you qualified.</p>
@@ -482,42 +500,41 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S23 — The spiral"
-           data-speaker-notes="Say: This is why it feels like it&#x27;s getting worse even though you&#x27;re trying harder. You are trying harder. Every attempt is costing you the next one.">
+           data-label="25 · ACT 2 · The spiral"
+           data-speaker-notes="Say: This is why it feels like it&#x27;s getting worse even though you&#x27;re trying harder. You are trying harder. Every attempt is costing you the next one.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if that&#x27;s been your experience.&quot;
+Why: They&#x27;re now agreeing to your diagnosis of their own history. Everything after this is built on that yes.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">25</p>
     <div class="safe">
       <p class="t-line">Denied → inquiry → lower ceiling →</p>
       <p class="t-line">denied → inquiry → lower ceiling →</p>
       <p class="t-line">denied</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q7 — Ask 7 (after S23)"
-           data-speaker-notes="Why: They&#x27;re now agreeing to your diagnosis of their own history. Everything after this is built on that yes.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if that&#x27;s been your</p>
-      <p class="q-text">experience.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S24 — The turn"
+           data-label="26 · ACT 2 · The turn"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 2 — WHY YOU GOT DENIED</p>
+    <p class="pagenum">26</p>
     <div class="safe">
       <h1 class="t-state">There is a way to know</h1>
       <h1 class="t-state">first.</h1>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S25 — Eligibility is the whole game"
+           data-label="27 · ACT 3 · Eligibility is the whole game"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">27</p>
     <div class="safe">
       <p class="t-line">The question is never “what's my score?”</p>
       <p class="t-line spacer">&nbsp;</p>
@@ -525,10 +542,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S26 — How it starts"
+           data-label="28 · ACT 3 · How it starts"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">28</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><rect x="20" y="12" width="56" height="76" rx="5"/><rect x="32" y="56" width="8" height="18"/><rect x="44" y="44" width="8" height="30"/><rect x="56" y="32" width="8" height="42"/></g></svg></div>
       <p class="t-line">Upload your credit report.</p>
@@ -537,20 +556,28 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S27 — The Blueprint"
+           data-label="29 · ACT 3 · The Blueprint"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">29</p>
     <div class="safe">
       <h1 class="t-state">THE UNDERWRITING BLUEPRINT</h1>
       <p class="t-statsub">Ten questions.<br>Every lender asks them.<br>Almost nobody has ever seen them written down.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S28 — The legend"
-           data-speaker-notes="Say: Like a traffic light. If you can drive a car, you can read a credit file. That&#x27;s not me being cute — that&#x27;s genuinely the whole skill.">
+           data-label="30 · ACT 3 · The legend"
+           data-speaker-notes="Say: Like a traffic light. If you can drive a car, you can read a credit file. That&#x27;s not me being cute — that&#x27;s genuinely the whole skill.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if you can read a traffic light.&quot;
+Why: Deliberately easy and a little funny. Resets the energy after eight heavy minutes and plants the belief that this is learnable — before you show them the ten lines.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">30</p>
     <div class="safe">
       <div class="t-legend">
       <div class="t-legrow"><span class="chip" style="background:#D7191C"></span><span class="t-leglab">RED = STOP</span></div>
@@ -559,63 +586,50 @@ PACING: Never cut this slide.">
       </div>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q8 — Ask 8 (after S28)"
-           data-speaker-notes="Why: Deliberately easy and a little funny. Resets the energy after eight heavy minutes and plants the belief that this is learnable — before you show them the ten lines.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you can read a traffic</p>
-      <p class="q-text">light.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S29 — The ten lines"
+           data-label="31 · ACT 3 · The ten lines"
            data-speaker-notes="Say: Ten. That&#x27;s it. That&#x27;s what stands between you and every approval you&#x27;ve been denied.
 
-PACING: The longest single slide in the deck. Never cut.">
+PACING: The longest single slide in the deck. Never cut.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if you&#x27;ve never seen these ten questions written down anywhere before.&quot;
+Why: The value moment. They just received something they didn&#x27;t have — get them to say so out loud.
+
+⚠️ Line 5 direction must be locked before stage — see the framework doc.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">31</p>
     <div class="safe">
       <ol class="t-ten"><li>700 credit score?</li><li>Under 30% utilization?</li><li>Five open primary cards, two years of good history?</li><li>Three primary cards, three years old, $5,000 limit?</li><li>More than four unsecured accounts in the last 12 months?</li><li>Under four inquiries?</li><li>Collections?</li><li>Charge-offs?</li><li>Late payments?</li><li>Bankruptcy?</li></ol>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q9 — Ask 9 (after S29)"
-           data-speaker-notes="Why: The value moment. They just received something they didn&#x27;t have — get them to say so out loud.
-
-⚠️ Line 5 direction must be locked before stage — see the framework doc.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you&#x27;ve never seen</p>
-      <p class="q-text">these ten questions written down</p>
-      <p class="q-text">anywhere before.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S30 — The question it answers"
+           data-label="32 · ACT 3 · The question it answers"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">32</p>
     <div class="safe">
       <h1 class="t-state">→ Are you eligible?</h1>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S31 — Let&#x27;s read one together"
+           data-label="33 · ACT 3 · Let&#x27;s read one together"
            data-speaker-notes="Say: I&#x27;m going to read you the line. You tell me red, yellow, or green. Don&#x27;t be shy — you already know how to do this, you just haven&#x27;t been allowed to before.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">33</p>
     <div class="safe">
       <p class="t-line">Let's read a real file.</p>
       <p class="t-line">You call it.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S32 — The file (red)"
+           data-label="34 · ACT 3 · The file (red)"
            data-speaker-notes="Say: Walk it one line at a time. Let the room answer each one out loud. Do not answer for them.
 
 ASK (spoken, not typed — Yes Ladder #10): Red, yellow, or green? — line by line. Gets participation out loud rather than in the chat.
@@ -623,17 +637,21 @@ ASK (spoken, not typed — Yes Ladder #10): Red, yellow, or green? — line by l
 ⚠️ Drop the real anonymized file art onto this slide before stage.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">34</p>
     <div class="safe">
       <p class="t-ph">[Ten lines, marked red/yellow/green from a real anonymized file]</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S33 — The verdict"
+           data-label="35 · ACT 3 · The verdict"
            data-speaker-notes="Say: That&#x27;s the difference between how you felt walking in here and how you feel now. “Bad credit” is a feeling. Four red lines is a to-do list.
 
 PACING: Never cut this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">35</p>
     <div class="safe">
       <p class="t-line">Not eligible.</p>
       <p class="t-line">And now you know exactly why.</p>
@@ -643,10 +661,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S34 — What green looks like"
+           data-label="36 · ACT 3 · What green looks like"
            data-speaker-notes="Say: Same ten questions. Completely different life.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">36</p>
     <div class="safe">
       <p class="t-kicker">A real approved file:</p>
       <div class="tiles"><div class="tile"><div class="tval">1</div><div class="tlab">inquiry</div></div><div class="tile"><div class="tval">0</div><div class="tlab">collections</div></div><div class="tile"><div class="tval">2%</div><div class="tlab">utilization</div></div></div>
@@ -655,10 +675,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q10 — Ask 10 (after S34)"
+           data-label="37 · ACT 3 · Audience ask"
            data-speaker-notes="Why: The pivot from agreeing to wanting. Most important ask before the offer — the first time they state a desire instead of confirming a fact. Do not skip it, do not rush it.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">37</p>
     <div class="safe">
       <p class="q-kicker">TYPE IN THE CHAT</p>
       <p class="q-text">Type YES if you want your file to</p>
@@ -666,10 +688,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S35 — Transition"
+           data-label="38 · ACT 3 · Transition"
            data-speaker-notes="Say: I&#x27;m going to show it to you live before we&#x27;re done tonight. But first I need you to understand what this actually is, because most of the room only knows about one-sixth of it.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 3 — ELIGIBILITY FIRST</p>
+    <p class="pagenum">38</p>
     <div class="safe">
       <p class="t-line">The software does all of this</p>
       <p class="t-line">in about a minute.</p>
@@ -679,40 +703,39 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S36 — The six"
-           data-speaker-notes="Say: Some of you came here tonight for the first three. Nobody told you the last three existed.">
+           data-label="39 · ACT 4 · The six"
+           data-speaker-notes="Say: Some of you came here tonight for the first three. Nobody told you the last three existed.
+
+ASK — say out loud, stay on this slide:
+&quot;Type the number you came here for tonight — 1, 2, or 3.&quot;
+Why: Primes them to hunt for their own number, which keeps all six avatars watching the rest of the act.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">39</p>
     <div class="safe">
       <h1 class="t-state">Six ways people use this.</h1>
       <p class="t-statsub">Three on yourself.<br>Three to get paid.</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q11 — Ask 11 (after S36)"
-           data-speaker-notes="Why: Primes them to hunt for their own number, which keeps all six avatars watching the rest of the act.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type the number you came here for</p>
-      <p class="q-text">tonight — 1, 2, or 3.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S37 — Tier one"
+           data-label="40 · ACT 4 · Tier one"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">40</p>
     <div class="safe">
       <h2 class="t-head">FIRST — USE IT ON YOURSELF</h2>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S38 — #1 Analyze"
+           data-label="41 · ACT 4 · #1 Analyze"
            data-speaker-notes="Say: This is the one everybody needs and nobody has. Your score is a summary. Your factors are the reasons. Lenders read the reasons.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">41</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><rect x="20" y="12" width="56" height="76" rx="5"/><rect x="32" y="56" width="8" height="18"/><rect x="44" y="44" width="8" height="30"/><rect x="56" y="32" width="8" height="42"/></g></svg></div>
       <h2 class="t-uc">1. ANALYZE YOUR PROFILE</h2>
@@ -723,10 +746,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S39 — #2 Improve"
+           data-label="42 · ACT 4 · #2 Improve"
            data-speaker-notes="Say: Template letters get template responses. The bureaus have seen the same letter ten thousand times — that&#x27;s how you end up with stall letters. These are written per account, per bureau, per situation.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">42</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><rect x="10" y="26" width="76" height="48" rx="5"/><path d="M10 30 L48 56 L86 30" stroke-width="6" fill="none"/></g></svg></div>
       <h2 class="t-uc">2. IMPROVE YOUR PROFILE</h2>
@@ -737,10 +762,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S40 — #3 Funding recommendations"
+           data-label="43 · ACT 4 · #3 Funding recommendations"
            data-speaker-notes="Say: Remember slide seventeen — you couldn&#x27;t tell me which bureau your last denial pulled. This is the slide that fixes that permanently.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">43</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M48 14 L86 34 H10 Z"/><rect x="20" y="42" width="9" height="30"/><rect x="43" y="42" width="9" height="30"/><rect x="66" y="42" width="9" height="30"/><rect x="12" y="78" width="72" height="9"/></g></svg></div>
       <h2 class="t-uc">3. KNOW WHERE TO APPLY</h2>
@@ -749,12 +776,14 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S41 — The turn"
+           data-label="44 · ACT 4 · The turn"
            data-speaker-notes="Say: Beat. Then move.
 
 PACING: Gets a beat.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">44</p>
     <div class="safe">
       <h1 class="t-state">Now — here&#x27;s what most</h1>
       <h1 class="t-state">people in this room don&#x27;t</h1>
@@ -762,33 +791,28 @@ PACING: Gets a beat.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S42 — Tier two"
-           data-speaker-notes="">
+           data-label="45 · ACT 4 · Tier two"
+           data-speaker-notes="ASK — say out loud, stay on this slide:
+&quot;Type YES if you&#x27;d want to get paid doing this for other people.&quot;
+Why: Opens the second tier and measures how operator-minded the room is. Big YES wall — slow down on the next two slides. Thin — move through them and spend the time on the funding-business slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">45</p>
     <div class="safe">
       <h2 class="t-head">THEN — USE IT TO GET PAID</h2>
       <p class="t-statsub">The same tool that fixes your file<br>is a business.</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q12 — Ask 12 (after S42)"
-           data-speaker-notes="Why: Opens the second tier and measures how operator-minded the room is. Big YES wall — slow down on the next two slides. Thin — move through them and spend the time on the funding-business slide.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you&#x27;d want to get paid</p>
-      <p class="q-text">doing this for other people.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S43 — #4 Credit repair business"
+           data-label="46 · ACT 4 · #4 Credit repair business"
            data-speaker-notes="Say: The consultation sells itself. You don&#x27;t have to convince anyone they need help — you show them their own file and ask one question: do you want help with this?
 
 ⚠️ Be straight about what this takes: credit repair is a regulated business with state requirements. The software is the engine, not the license. Say it out loud on this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">46</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><circle cx="34" cy="34" r="13"/><circle cx="66" cy="38" r="10"/><path d="M12 78 a22 22 0 0 1 44 0 Z"/><path d="M56 78 a16 16 0 0 1 32 0 Z"/></g></svg></div>
       <h2 class="t-uc">4. LAUNCH A CREDIT REPAIR BUSINESS</h2>
@@ -798,12 +822,14 @@ PACING: Gets a beat.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S44 — #5 Funding business"
+           data-label="47 · ACT 4 · #5 Funding business"
            data-speaker-notes="Say: This is what people charge ten and fifteen percent for. The hard part was never the paperwork — it was knowing whether the file could get approved before you burned an inquiry finding out.
 
 ⚠️ No earnings claims. If you show the arithmetic of a percentage fee, say plainly that it&#x27;s arithmetic on an example, not a typical result.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">47</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><rect x="12" y="32" width="72" height="50" rx="6"/><path d="M36 32 V22 H60 V32" stroke-width="6" fill="none"/></g></svg></div>
       <h2 class="t-uc">5. LAUNCH A FUNDING BUSINESS</h2>
@@ -813,12 +839,14 @@ PACING: Gets a beat.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S45 — #6 Refer it"
+           data-label="48 · ACT 4 · #6 Refer it"
            data-speaker-notes="Say: You don&#x27;t have to run a single client file to benefit from this. If all you ever do is send it to the people in your circle who keep getting denied, that&#x27;s a real thing.
 
 ⚠️ The referral program is a referral program. Describe how it works. Don&#x27;t project what anyone will earn from it.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">48</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><path d="M40 34 H30 a18 18 0 0 0 0 36 h10 M56 34 h10 a18 18 0 0 1 0 36 H56" stroke-width="8" fill="none"/><path d="M34 52 H62" stroke-width="8" fill="none"/></g></svg></div>
       <h2 class="t-uc">6. REFER IT</h2>
@@ -828,52 +856,53 @@ PACING: Gets a beat.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S46 — All six"
+           data-label="49 · ACT 4 · All six"
            data-speaker-notes="Say: Find yourself on this list. Most of you are on it twice.
 
-PACING: Never cut this slide.">
+PACING: Never cut this slide.
+
+ASK — say out loud, stay on this slide:
+&quot;Type every number that applies to you. Not one — all of them.&quot;
+Why: Someone typing “1, 3, 6” is telling you and themselves that this is worth more than one thing to them. That multiplies perceived value right before the stack.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 4 — SIX WAYS PEOPLE USE THIS</p>
+    <p class="pagenum">49</p>
     <div class="safe">
       <ol class="t-ol"><li>Analyze your profile</li><li>Improve it with AI disputes</li><li>Know where to apply</li><li>Launch a credit repair business</li><li>Launch a funding business</li><li>Refer it and earn</li></ol>
       <p class="t-footer">One login.</p>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q13 — Ask 13 (after S46)"
-           data-speaker-notes="Why: Someone typing “1, 3, 6” is telling you and themselves that this is worth more than one thing to them. That multiplies perceived value right before the stack.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type every number that applies to</p>
-      <p class="q-text">you. Not one — all of them.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S47 — The two files"
+           data-label="50 · ACT 5 · The two files"
            data-speaker-notes="⚠️ Drop the two file comparisons onto this slide before stage.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">50</p>
     <div class="safe">
       <p class="t-ph">[Red file] · [Green file]</p>
       <p class="t-line">Same ten questions.</p>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S48 — The question"
+           data-label="51 · ACT 5 · The question"
            data-speaker-notes="Say: Be honest with yourself. Most of this room is the file on the left. That&#x27;s not a character flaw — it&#x27;s a starting point, and now it&#x27;s a measurable one.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">51</p>
     <div class="safe">
       <h1 class="t-state">Which one are you?</h1>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S49 — The good news"
+           data-label="52 · ACT 5 · The good news"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">52</p>
     <div class="safe">
       <p class="t-line">The gap between those two files</p>
       <p class="t-line">isn't willpower.</p>
@@ -882,30 +911,27 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S50 — Three levers"
-           data-speaker-notes="Say: Three levers. The third one is free — it just requires knowing something you didn&#x27;t know an hour ago.">
+           data-label="53 · ACT 5 · Three levers"
+           data-speaker-notes="Say: Three levers. The third one is free — it just requires knowing something you didn&#x27;t know an hour ago.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if $8 a week is doable for you.&quot;
+Why: The last micro-yes before money enters the room. They&#x27;ve just agreed the fix is affordable — that&#x27;s the frame you want them holding when the price appears four slides later.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">53</p>
     <div class="safe">
       <ol class="t-ol"><li>Pay down what's high — often $7–8 a week</li><li>Remove what shouldn't be there</li><li>Only apply where you're actually eligible</li></ol>
     </div>
   </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q14 — Ask 14 (after S50)"
-           data-speaker-notes="Why: The last micro-yes before money enters the room. They&#x27;ve just agreed the fix is affordable — that&#x27;s the frame you want them holding when the price appears four slides later.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if $8 a week is doable</p>
-      <p class="q-text">for you.</p>
-    </div>
-  </section>
   <section class="page light" data-document-role="page"
-           data-label="S51 — Back to why"
+           data-label="54 · ACT 5 · Back to why"
            data-speaker-notes="Say: Because that&#x27;s what this was always about. Not the score.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">54</p>
     <div class="safe">
       <p class="t-line">The house.</p>
       <p class="t-line">The car.</p>
@@ -915,283 +941,184 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S52 — What you get"
-           data-speaker-notes="">
+           data-label="55 · ACT 5 · What you get"
+           data-speaker-notes="ASK — say out loud, stay on this slide:
+&quot;Type YES if you&#x27;d want all six of those in one place.&quot;
+Why: Agreement on the bundle before it has a price. Now the stack is answering “how much,” not “whether.”">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">55</p>
     <div class="safe">
       <h1 class="t-state">All six.</h1>
       <p class="t-statsub">One login.</p>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q15 — Ask 15 (after S52)"
-           data-speaker-notes="Why: Agreement on the bundle before it has a price. Now the stack is answering “how much,” not “whether.”">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you&#x27;d want all six of</p>
-      <p class="q-text">those in one place.</p>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Gerren Hansley"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
+           data-label="56 · SOCIAL PROOF · in their words"
+           data-speaker-notes="Drop each screenshot into its frame inside Canva.
+
+FULL QUOTES AND CHECKS:
+
+Gerren Hansley — &quot;I love myself!!! Discovering you has made a life changing couple of events for me, it won&#x27;t be overnight but over life!!!! Thanks for a better n clearer understanding!!!&quot;
+
+Rochelle Johnson — &quot;It was great. A lot of good options for people who are new to credit or needing to fix their credit. I think it&#x27;s fantastic. Thank for sharing it with me.&quot;
+
+David — &quot;Hey Nick I just want to let you know I&#x27;m grateful since the first day I met you and the team, from Vegas till now you really helped change my mindset and my financial situation from the jump bro I was really down bad when we met&quot;
 
 GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">SOCIAL PROOF</p>
+    <p class="pagenum">56</p>
     <div class="safe">
-      <div class="trow">
+      <div class="tgrid">
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-3.png"><span>DROP<br>testimonial-3.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">I love myself!!! Discovering you has</p>
-      <p class="tquote">made a life changing couple of events</p>
-      <p class="tquote">for me, it won&#x27;t be overnight but over</p>
-      <p class="tquote">life!!!! Thanks for a better n clearer</p>
-      <p class="tquote">understanding!!!</p>
+      <p class="tquote">Discovering you has made a life changing couple of events for me… Thanks for a better n clearer understanding!!!</p>
       <p class="twho">Gerren Hansley</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Rochelle Johnson"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
+      </div>
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-4.png"><span>DROP<br>testimonial-4.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">It was great. A lot of good options for</p>
-      <p class="tquote">people who are new to credit or needing</p>
-      <p class="tquote">to fix their credit. I think it&#x27;s</p>
-      <p class="tquote">fantastic. Thank for sharing it with me.</p>
+      <p class="tquote">A lot of good options for people who are new to credit or needing to fix their credit. I think it&#x27;s fantastic.</p>
       <p class="twho">Rochelle Johnson</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — David"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
+      </div>
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-12.png"><span>DROP<br>testimonial-12.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">Hey Nick I just want to let you know I&#x27;m</p>
-      <p class="tquote">grateful since the first day I met you</p>
-      <p class="tquote">and the team, from Vegas till now you</p>
-      <p class="tquote">really helped change my mindset and my</p>
-      <p class="tquote">financial situation from the jump bro I</p>
-      <p class="tquote">was really down bad when we met</p>
+      <p class="tquote">You really helped change my mindset and my financial situation from the jump.</p>
       <p class="twho">David</p>
-      </div></div>
+      </div>
+      </div>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="T — TransUnion investigation result"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
+           data-label="57 · SOCIAL PROOF · items removed"
+           data-speaker-notes="Drop each screenshot into its frame inside Canva.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-6.png"><span>DROP<br>testimonial-6.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">INVESTIGATION RESULTS - DELETED: The</p>
-      <p class="tquote">disputed item(s) was removed from your</p>
-      <p class="tquote">credit report.</p>
-      <p class="twho">TransUnion investigation result</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Client credit report"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
+FULL QUOTES AND CHECKS:
 
+TransUnion investigation result — &quot;INVESTIGATION RESULTS - DELETED: The disputed item(s) was removed from your credit report.&quot;
+
+Client credit report — &quot;Three prior inquiries returned as Deleted and removed from the credit report.&quot;
 ⚠️ This screenshot also shows a public bankruptcy record that did NOT come off. The court reference number is blurred, but the record is still visible and it argues against the slide. Consider cropping to the three deleted inquiries, or cutting this one.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-1.png"><span>DROP<br>testimonial-1.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">Three prior inquiries returned as</p>
-      <p class="tquote">Deleted and removed from the credit</p>
-      <p class="tquote">report.</p>
-      <p class="twho">Client credit report</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Ricardo Bey"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
+Ricardo Bey — &quot;Still a work in progress but we getting RESULTS. All personal info updated with the bureaus. And 13 inquires removed with 2 credit builders added to the profile..it&#x27;s UP from here&quot;
 ⚠️ Two problems. The message credits “the MINTERSHIP”, not Score Machine — as proof for tonight&#x27;s offer that is misleading. And “13 inquires removed” is a specific results claim against slide 13&#x27;s promise of no number.
 
 GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">SOCIAL PROOF</p>
+    <p class="pagenum">57</p>
     <div class="safe">
-      <div class="trow">
+      <div class="tgrid">
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-6.png"><span>DROP<br>testimonial-6.png<br>HERE</span></div>
+      <p class="tquote">INVESTIGATION RESULTS — DELETED: the disputed item was removed from your credit report.</p>
+      <p class="twho">TransUnion investigation result</p>
+      </div>
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-1.png"><span>DROP<br>testimonial-1.png<br>HERE</span></div>
+      <p class="tquote">Three prior inquiries returned as Deleted.</p>
+      <p class="twho">Client credit report</p>
+      </div>
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-2.png"><span>DROP<br>testimonial-2.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">Still a work in progress but we getting</p>
-      <p class="tquote">RESULTS. All personal info updated with</p>
-      <p class="tquote">the bureaus. And 13 inquires removed</p>
-      <p class="tquote">with 2 credit builders added to the</p>
-      <p class="tquote">profile..it&#x27;s UP from here</p>
+      <p class="tquote">13 inquires removed with 2 credit builders added to the profile.. it&#x27;s UP from here</p>
       <p class="twho">Ricardo Bey</p>
-      </div></div>
+      </div>
+      </div>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="T — Keyana Matthews"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
+           data-label="58 · SOCIAL PROOF · what changed"
+           data-speaker-notes="Drop each screenshot into its frame inside Canva.
 
+FULL QUOTES AND CHECKS:
+
+Keyana Matthews — &quot;I struggled with removing a $24k collection from my account for about 2 years. I paid LexingtonLaw to remove it &amp; they couldn&#x27;t. Wealth builders has officially changed my life. All from following the blueprint&quot;
 ⚠️ Highest-risk slide in the deck. It names a competitor as having failed, which carries defamation risk with no upside, and it credits “Wealth builders”, not Score Machine. The account and phone numbers in the screenshot are blurred. Recommend cutting it.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-7.png"><span>DROP<br>testimonial-7.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">I struggled with removing a $24k</p>
-      <p class="tquote">collection from my account for about 2</p>
-      <p class="tquote">years. I paid LexingtonLaw to remove it</p>
-      <p class="tquote">&amp; they couldn&#x27;t. Wealth builders has</p>
-      <p class="tquote">officially changed my life. All from</p>
-      <p class="tquote">following the blueprint</p>
-      <p class="twho">Keyana Matthews</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Tracy Small"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
+Tracy Small — &quot;1 year anniversary with the wealth builders!!!!!! Got one of my dream whips ... WITH NO MONEY DOWN!!!!&quot;
 ⚠️ Credits “the wealth builders”, not Score Machine. Licence plate is blurred; faces are still visible, so get permission.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-8.jpg"><span>DROP<br>testimonial-8.jpg<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">1 year anniversary with the wealth</p>
-      <p class="tquote">builders!!!!!! Got one of my dream whips</p>
-      <p class="tquote">... WITH NO MONEY DOWN!!!!</p>
-      <p class="twho">Tracy Small</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Credit score: 826, Exceptional"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
+Credit score: 826, Exceptional — &quot;Someone just became a member of the 800 club&quot;
 ⚠️ A specific score on screen, minutes after slide 13 promises the room no number.
 
 GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">SOCIAL PROOF</p>
+    <p class="pagenum">58</p>
     <div class="safe">
-      <div class="trow">
+      <div class="tgrid">
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-7.png"><span>DROP<br>testimonial-7.png<br>HERE</span></div>
+      <p class="tquote">I struggled with removing a $24k collection for about 2 years… following the blueprint changed my life.</p>
+      <p class="twho">Keyana Matthews</p>
+      </div>
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-8.jpg"><span>DROP<br>testimonial-8.jpg<br>HERE</span></div>
+      <p class="tquote">Got one of my dream whips … WITH NO MONEY DOWN!!!!</p>
+      <p class="twho">Tracy Small</p>
+      </div>
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-11.jpg"><span>DROP<br>testimonial-11.jpg<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">Someone just became a member of the 800</p>
-      <p class="tquote">club</p>
+      <p class="tquote">Someone just became a member of the 800 club</p>
       <p class="twho">Credit score: 826, Exceptional</p>
-      </div></div>
+      </div>
+      </div>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="T — Takirra Haley"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
+           data-label="59 · SOCIAL PROOF · approvals and funding"
+           data-speaker-notes="Drop each screenshot into its frame inside Canva.
 
+FULL QUOTES AND CHECKS:
+
+Takirra Haley — &quot;You have been approved. $25,000 credit limit, 8.99% APR, $0 annual fee.&quot;
 ⚠️ A specific approval and limit on screen, against slide 13&#x27;s promise of no approval.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-10.jpg"><span>DROP<br>testimonial-10.jpg<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">You have been approved. $25,000 credit</p>
-      <p class="tquote">limit, 8.99% APR, $0 annual fee.</p>
-      <p class="twho">Takirra Haley</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Nicholas Minter"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
+Nicholas Minter — &quot;Quick lil $120k today w/ 1 inquiry&quot;
 ⚠️ A specific funding figure — the clearest earnings-style claim in the deck and the one most likely to draw scrutiny.
 
-GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <div class="trow">
-      <div class="tshot" data-slot="testimonial-9.jpg"><span>DROP<br>testimonial-9.jpg<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">Quick lil $120k today w/ 1 inquiry</p>
-      <p class="twho">Nicholas Minter</p>
-      </div></div>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="T — Client travel redemption"
-           data-speaker-notes="Screenshot supplied by the host. The quote is set large beside it so the room can read it even if the screenshot is small on stream.
-
+Client travel redemption — &quot;A round trip booked on points — 62,000 miles plus $11.20.&quot;
 ⚠️ An airline booking, not a credit or funding outcome. It proves nothing about the ten Blueprint lines. Record locator is blurred.
 
 GENERAL: every one of these is another person&#x27;s private message or account. Get written permission before showing them, and say plainly that individual results are not typical.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">SOCIAL PROOF</p>
+    <p class="pagenum">59</p>
     <div class="safe">
-      <div class="trow">
+      <div class="tgrid">
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-10.jpg"><span>DROP<br>testimonial-10.jpg<br>HERE</span></div>
+      <p class="tquote">You have been approved. $25,000 credit limit, 8.99% APR.</p>
+      <p class="twho">Takirra Haley</p>
+      </div>
+      <div class="tcard">
+      <div class="tshot" data-slot="testimonial-9.jpg"><span>DROP<br>testimonial-9.jpg<br>HERE</span></div>
+      <p class="tquote">Quick lil $120k today w/ 1 inquiry</p>
+      <p class="twho">Nicholas Minter</p>
+      </div>
+      <div class="tcard">
       <div class="tshot" data-slot="testimonial-5.png"><span>DROP<br>testimonial-5.png<br>HERE</span></div>
-      <div class="tbody">
-      <p class="q-kicker tk">WHAT PEOPLE ARE SAYING</p>
-      <p class="tquote">A round trip booked on points — 62,000</p>
-      <p class="tquote">miles plus $11.20.</p>
+      <p class="tquote">A round trip booked on points — 62,000 miles plus $11.20.</p>
       <p class="twho">Client travel redemption</p>
-      </div></div>
+      </div>
+      </div>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S53 — The value stack"
+           data-label="60 · ACT 5 · The value stack"
            data-speaker-notes="Say: Name each line as it appears and tie it back to the use case it powers. Nothing here should be new information by now.
 
 ⚠️ The script calls for this to build one line at a time. The import lands it as one chart — duplicate this slide seven times in Canva and delete bars upward if you want the build back.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">60</p>
     <div class="safe">
       <svg class="chart" viewBox="0 0 1440 660" role="img" aria-label="Value stack, seven components by dollar value">
 <text class="c-lab" x="760" y="63.0" text-anchor="end">Full AI Credit File Analysis — five AIs read your report</text>
@@ -1219,12 +1146,14 @@ GENERAL: every one of these is another person&#x27;s private message or account.
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="S54 — The total"
+           data-label="61 · ACT 5 · The total"
            data-speaker-notes="Say: Let it sit. Say nothing for a beat.
 
 PACING: Slides 54–57 are one motion — no pause except after this one.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">61</p>
     <div class="safe">
       <p class="t-strike">&nbsp;</p>
       <p class="t-big">$997</p>
@@ -1232,10 +1161,12 @@ PACING: Slides 54–57 are one motion — no pause except after this one.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="S55 — $497"
+           data-label="62 · ACT 5 · $497"
            data-speaker-notes="PACING: One motion with 54, 56, 57. No pause.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">62</p>
     <div class="safe">
       <p class="t-strike">$997</p>
       <p class="t-big">$497</p>
@@ -1243,10 +1174,12 @@ PACING: Slides 54–57 are one motion — no pause except after this one.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="S56 — $247"
+           data-label="63 · ACT 5 · $247"
            data-speaker-notes="PACING: One motion with 54, 55, 57. No pause.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">63</p>
     <div class="safe">
       <p class="t-strike">$497</p>
       <p class="t-big">$247</p>
@@ -1254,12 +1187,14 @@ PACING: Slides 54–57 are one motion — no pause except after this one.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="S57 — The offer"
+           data-label="64 · ACT 5 · The offer"
            data-speaker-notes="Say: One dollar to get started. Seven days. After that it&#x27;s $97 a month — your card gets charged $97 on [state the exact date]. No surprises, no small print. If it&#x27;s not for you, cancel inside the seven days.
 
 PACING: Never cut this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">64</p>
     <div class="safe">
       <p class="t-strike">$247</p>
       <p class="t-big">$1 TO GET STARTED</p>
@@ -1267,10 +1202,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q16 — Ask 16 (after S57)"
+           data-label="65 · ACT 5 · Audience ask"
            data-speaker-notes="Why: The commitment ask. Every yes before this one was practice for this one. Wait through the silence — it always feels longer than it is.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">65</p>
     <div class="safe">
       <p class="q-kicker">TYPE IN THE CHAT</p>
       <p class="q-text">Type YES if you&#x27;re getting started</p>
@@ -1278,10 +1215,12 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S58 — What happens in those 7 days"
+           data-label="66 · ACT 5 · What happens in those 7 days"
            data-speaker-notes="Say: The trial isn&#x27;t “poke around and see.” You have one job in seven days: find out what your own ten lines actually say.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">66</p>
     <div class="safe">
       <div class="icrow"><svg class="ic" viewBox="0 0 96 100" aria-hidden="true"><g><rect x="12" y="24" width="72" height="62" rx="6"/><path d="M12 42 H84" stroke-width="6" fill="none"/><rect x="28" y="12" width="7" height="20" rx="3"/><rect x="61" y="12" width="7" height="20" rx="3"/></g></svg></div>
       <p class="t-line">Tonight: upload your report</p>
@@ -1292,60 +1231,76 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S59 — Who this is for"
+           data-label="67 · ACT 5 · Who this is for"
            data-speaker-notes="Say: Read all six out loud, slowly. Every person in the room should hear their own line. This is the slide where the six avatars each decide it&#x27;s for them.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">67</p>
     <div class="safe">
       <ul class="t-ul"><li>You&#x27;ve been denied and never got a real answer</li><li>You&#x27;re about to apply for something that matters</li><li>You&#x27;re fixing your file and want the work tracked</li><li>You want to start a credit repair business</li><li>You want to start a funding business</li><li>You want to refer it and earn</li></ul>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S60 — Who this isn&#x27;t for"
+           data-label="68 · ACT 5 · Who this isn&#x27;t for"
            data-speaker-notes="Say: I&#x27;d rather you not start than start expecting a miracle. This is a tool. A very good one. It isn&#x27;t magic, and it isn&#x27;t a license — if you&#x27;re building a business on it, you still have to build the business.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">68</p>
     <div class="safe">
       <ul class="t-ul"><li>Anyone looking for a guaranteed approval</li><li>Anyone who wants someone else to care about their file more than they do</li></ul>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S61 — How to start"
+           data-label="69 · ACT 5 · How to start"
            data-speaker-notes="">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">69</p>
     <div class="safe">
       <div class="flow"><div class="fstep"><span class="fnum">1</span><span class="ftxt">Click the link</span></div><span class="farrow">&#9654;</span><div class="fstep"><span class="fnum">2</span><span class="ftxt">Create your account — $1</span></div><span class="farrow">&#9654;</span><div class="fstep"><span class="fnum">3</span><span class="ftxt">Upload your report tonight</span></div></div>
     </div>
   </section>
   <section class="page light" data-document-role="page"
-           data-label="S62 — The link"
+           data-label="70 · ACT 5 · The link"
            data-speaker-notes="Say: Say it out loud. Have someone drop it in chat now, and again in five minutes.
 
-⚠️ Replace [URL] with the live referral link before stage.">
+⚠️ Replace [URL] with the live referral link before stage.
+
+ASK — say out loud, stay on this slide:
+&quot;Type GOT IT when you see the link.&quot;
+Why: Two jobs at once — confirms the link actually reached people, and puts visible evidence in the chat that others are moving. That&#x27;s the most persuasive thing on screen at this moment.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_light.png" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">70</p>
     <div class="safe">
       <p class="t-ph">[URL]</p>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q17 — Ask 17 (after S62)"
-           data-speaker-notes="Why: Two jobs at once — confirms the link actually reached people, and puts visible evidence in the chat that others are moving. That&#x27;s the most persuasive thing on screen at this moment.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type GOT IT when you see the link.</p>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="S63 — Close before the demo"
+           data-label="71 · ACT 5 · Close before the demo"
            data-speaker-notes="Say: Get started now, and then watch me use the exact thing you just got. Everybody else — watch anyway, and decide at the end.
 
-⚠️ THIS SLIDE STAYS VISIBLE OR PINNED IN CHAT FOR THE ENTIRE 30-MINUTE DEMO. The link never leaves the screen.">
+⚠️ THIS SLIDE STAYS VISIBLE OR PINNED IN CHAT FOR THE ENTIRE 30-MINUTE DEMO. The link never leaves the screen.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if you want to see your own ten lines.&quot;
+DEMO ASK — hold in reserve. Bring this up after demo beat 3 (the Blueprint live), then return to S63 so the offer and link are back on screen. Thirty minutes is a long time to watch someone else&#x27;s screen; these keep the room from drifting.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if you thought that number would be higher.&quot;
+DEMO ASK — hold in reserve. Bring this up after demo beat 6 (the paydown calculator), then return to S63 so the offer and link are back on screen.
+
+ASK — say out loud, stay on this slide:
+&quot;Type YES if that was helpful tonight.&quot;
+DEMO ASK — hold in reserve. Bring this up after demo beat 14 (the green file), then return to S63. This one warms the room for the second ask.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">ACT 5 — THE OFFER</p>
+    <p class="pagenum">71</p>
     <div class="safe">
       <p class="t-closeline">You were never bad with credit.</p>
       <p class="t-closeline">You were playing a game</p>
@@ -1355,45 +1310,14 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q18 — Demo ask 1 (after demo beat 3)"
-           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 3 (the Blueprint live), then return to S63 so the offer and link are back on screen. Thirty minutes is a long time to watch someone else&#x27;s screen; these keep the room from drifting.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you want to see your</p>
-      <p class="q-text">own ten lines.</p>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q19 — Demo ask 2 (after demo beat 6)"
-           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 6 (the paydown calculator), then return to S63 so the offer and link are back on screen.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if you thought that</p>
-      <p class="q-text">number would be higher.</p>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="Q20 — Demo ask 3 (after demo beat 14)"
-           data-speaker-notes="DEMO ASK — hold in reserve. Bring this up after demo beat 14 (the green file), then return to S63. This one warms the room for the second ask.">
-    <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
-    <div class="scrim"></div>
-    <div class="safe">
-      <p class="q-kicker">TYPE IN THE CHAT</p>
-      <p class="q-text">Type YES if that was helpful</p>
-      <p class="q-text">tonight.</p>
-    </div>
-  </section>
-  <section class="page dark" data-document-role="page"
-           data-label="S64 — After the demo"
+           data-label="72 · THE SECOND ASK · After the demo"
            data-speaker-notes="Say: This is the ask that actually converts the room, so don&#x27;t rush past it into questions. Everyone who was undecided forty-five minutes ago just watched it work. Say the price, say the rebill date, say the link, and give them fifteen seconds of silence to click before you take the first question.
 
 PACING: Never cut this slide.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">THE SECOND ASK</p>
+    <p class="pagenum">72</p>
     <div class="safe">
       <p class="t-closeline">That&#x27;s the whole thing.</p>
       <p class="t-big close">$1 TO GET STARTED</p>
@@ -1401,20 +1325,24 @@ PACING: Never cut this slide.">
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="Q21 — Ask 21 (after S64)"
+           data-label="73 · THE SECOND ASK · Audience ask"
            data-speaker-notes="Why: The second ask. Fifteen seconds of silence after the link.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">THE SECOND ASK</p>
+    <p class="pagenum">73</p>
     <div class="safe">
       <p class="q-kicker">TYPE IN THE CHAT</p>
       <p class="q-text">Type YES if you&#x27;re in.</p>
     </div>
   </section>
   <section class="page dark" data-document-role="page"
-           data-label="S65 — Q&amp;A holding slide"
+           data-label="74 · Q&amp;A · Q&amp;A holding slide"
            data-speaker-notes="Say: Leave this up the entire time. Late arrivals can still read the Blueprint and still find the link.">
     <img class="bg" src="https://raw.githubusercontent.com/idamediagroup-lab/socialmedia/0877621/assets/bg_dark.jpg" alt="">
     <div class="scrim"></div>
+    <p class="eyebrow">Q&amp;A</p>
+    <p class="pagenum">74</p>
     <div class="safe">
       <h1 class="t-state qa">Questions.</h1>
       <ol class="qa-bp"><li>700 credit score?</li><li>Under 30% utilization?</li><li>Five open primary cards, two years of good history?</li><li>Three primary cards, three years old, $5,000 limit?</li><li>More than four unsecured accounts in the last 12 months?</li><li>Under four inquiries?</li><li>Collections?</li><li>Charge-offs?</li><li>Late payments?</li><li>Bankruptcy?</li></ol>
