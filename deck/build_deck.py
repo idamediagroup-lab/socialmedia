@@ -33,6 +33,8 @@ def act_for(label, previous):
                 return name
     if label.startswith("Social proof"):
         return "SOCIAL PROOF"
+    if label.startswith("Demo"):
+        return "DEMO — LIVE SOFTWARE"
     return previous
 
 
@@ -702,6 +704,36 @@ mutate("S34 ", layout="statgrid", kicker="A real approved file:",
 mutate("S61 ", layout="flow",
        steps=["Click the link", "Create your account — $1", "Upload your report tonight"])
 
+# -- the read-along file: a working slide the host marks live, not an empty placeholder --
+mutate("S32 ", layout="blueprintlive",
+       kicker="Call each line: red, yellow or green.",
+       items=["700 credit score?",
+              "Under 30% utilization?",
+              "Five open primary cards, two years of good history?",
+              "Three primary cards, three years old, $5,000 limit?",
+              "More than four unsecured accounts in the last 12 months?",
+              "Under four inquiries?",
+              "Collections?",
+              "Charge-offs?",
+              "Late payments?",
+              "Bankruptcy?"])
+
+# -- the link slide, designed rather than a bare token on an empty page --
+mutate("S62 ", layout="link",
+       kicker="GET STARTED HERE",
+       url="[URL]",
+       foot="$1 today · 7 days · then $97/month")
+
+# -- the two files, built from the counts the script already states --
+mutate("S47 ", layout="compare",
+       footer="Same ten questions.",
+       panes=[dict(tone="bad", verdict="NOT ELIGIBLE",
+                   chips=["r", "r", "r", "r", "n", "n", "n", "n", "n", "n"],
+                   note="Four specific lines."),
+              dict(tone="good", verdict="APPROVED",
+                   chips=["g"] * 10,
+                   note="Every line green.")])
+
 # -- host bio --
 insert_after("S10 ", dict(
     label="S10a — Bio", bg=LIGHT, layout="bio",
@@ -812,6 +844,27 @@ GROUPS = [
      ["Takirra Haley", "Nicholas Minter", "Client travel redemption"]),
 ]
 BY_WHO = {t[1]: t for t in TESTIMONIALS}
+
+# -- the demo marker, so the switch to live software is unmistakable on screen --
+insert_after("S63 ", dict(
+    label="Demo — DEMO", bg=DARK, layout="demo",
+    word="DEMO", sub="30 MINUTES · LIVE SOFTWARE",
+    offer="$1 to get started · 7 days, then $97/month · [URL]",
+    notes="Hold this slide while you switch to the software, then keep the offer line "
+          "visible or pinned in chat for the whole demo — the link never leaves the screen.\n\n"
+          "BEAT ORDER: 1 upload a report · 2 full AI analysis · 3 the Blueprint on a real file · "
+          "4 personals that don't match · 5 utilization at 101% · 6 the paydown calculator · "
+          "7 negative items · 8 AI letters · 9 print and certified mail · 10 progress report · "
+          "11 bank and bureau matching · 12 the client view · 13 the referral link · "
+          "14 a green file. Call the use-case number out loud on each beat.\n\n"
+          "THREE ASKS, SPACED OUT:\n"
+          "After beat 3 — \"Type YES if you want to see your own ten lines.\"\n"
+          "After beat 6 — \"Type YES if you thought that number would be higher.\"\n"
+          "After beat 14 — \"Type YES if that was helpful tonight.\"\n\n"
+          "RULES: no live pulls, files pre-pulled hours ahead. Full-resolution screenshots of "
+          "every beat as backup. Everything anonymised. Never demo a module you know is broken. "
+          "If the platform stalls, move to screenshots without announcing it. Cut beats from the "
+          "end, never the Blueprint."))
 
 for _title, _whos in reversed(GROUPS):
     _cards, _detail = [], []
@@ -1076,18 +1129,49 @@ def render(s):
             b.append(f'<p class="biopara">{esc(para)}</p>')
         b.append('</div></div>')
     elif L == "testimonial":
-        # Screenshots are framed slots, not committed files: they hold other people's
-        # financial data and the repo feeding the importer is public. Drag each one
-        # into its frame inside Canva instead.
+        # Finished quote cards, not empty photo frames. The screenshots hold other
+        # people's financial data and the repo feeding the importer is public, so they
+        # are never committed; a card stands on its own and a screenshot can be dropped
+        # behind it later in Canva without leaving a hole on the slide meanwhile.
         b.append('<div class="tgrid">')
         for c in s["cards"]:
             b.append('<div class="tcard">')
-            b.append(f'<div class="tshot" data-slot="{esc(c["img"])}">'
-                     f'<span>DROP<br>{esc(c["img"])}<br>HERE</span></div>')
+            b.append('<span class="tmark">&ldquo;</span>')
             b.append(f'<p class="tquote">{esc(c["quote"])}</p>')
+            b.append('<span class="trule"></span>')
             b.append(f'<p class="twho">{esc(c["who"])}</p>')
             b.append('</div>')
         b.append('</div>')
+    elif L == "link":
+        b.append(f'<p class="linkkick">{esc(s["kicker"])}</p>')
+        b.append(f'<div class="linkbox">{esc(s["url"])}</div>')
+        b.append(f'<p class="linkfoot">{esc(s["foot"])}</p>')
+    elif L == "demo":
+        b.append(f'<p class="demoword">{esc(s["word"])}</p>')
+        b.append(f'<p class="demosub">{esc(s["sub"])}</p>')
+        b.append(f'<p class="demooffer">{esc(s["offer"])}</p>')
+    elif L == "blueprintlive":
+        b.append(f'<p class="t-kicker">{esc(s["kicker"])}</p>')
+        b.append('<div class="bpcols">')
+        for start, col in ((1, s["items"][:5]), (6, s["items"][5:])):
+            b.append(f'<ol class="bpcol" start="{start}">')
+            for it in col:
+                b.append(f'<li><span class="bpchip"></span>{esc(it)}</li>')
+            b.append('</ol>')
+        b.append('</div>')
+    elif L == "compare":
+        b.append('<div class="cmp">')
+        for pane in s["panes"]:
+            b.append(f'<div class="cpane {pane["tone"]}">')
+            b.append(f'<p class="cverdict">{esc(pane["verdict"])}</p>')
+            b.append('<div class="cchips">')
+            for tone in pane["chips"]:
+                b.append(f'<span class="cchip {tone}"></span>')
+            b.append('</div>')
+            b.append(f'<p class="cnote">{esc(pane["note"])}</p>')
+            b.append('</div>')
+        b.append('</div>')
+        b.append(f'<p class="t-footer">{esc(s["footer"])}</p>')
     elif L == "question":
         b.append(f'<p class="q-kicker">{esc(s["kicker"])}</p>')
         for ln in wrap_text(s["text"], 34):
@@ -1117,6 +1201,38 @@ CSS = """
 .page.light .pagenum{color:#8A8F96}
 .page.dark .eyebrow{color:#FFB81C}
 .page.dark .pagenum{color:#9AA0A8}
+
+.linkkick{font-family:'Archivo Black',Arial,sans-serif;font-size:34px;letter-spacing:6px;
+  color:#B07A00;margin-bottom:40px}
+.linkbox{width:1240px;padding:52px 40px;border-radius:20px;border:6px solid #16181C;
+  font-family:'Archivo Black',Arial,sans-serif;font-size:76px;word-break:break-all}
+.linkfoot{font-size:34px;font-weight:700;margin-top:38px;color:#3A3A3A}
+
+.demoword{font-family:'Archivo Black',Arial,sans-serif;font-size:268px;line-height:.94;
+  letter-spacing:14px;color:#FFFFFF}
+.demosub{font-size:44px;font-weight:700;color:#FFB81C;letter-spacing:5px;margin-top:16px}
+.demooffer{font-size:30px;font-weight:600;color:#C9CDD3;margin-top:56px}
+
+.bpcols{display:flex;gap:80px;width:1440px;text-align:left}
+.bpcol{width:680px;list-style:decimal;padding-left:44px}
+.bpcol li{font-size:30px;line-height:1.35;margin:22px 0;font-weight:600}
+.bpchip{display:inline-block;width:26px;height:26px;border-radius:50%;margin-right:16px;
+  vertical-align:-3px;border:4px solid rgba(0,0,0,.34)}
+.page.dark .bpchip{border-color:rgba(255,255,255,.45)}
+
+.cmp{display:flex;gap:70px;width:1440px;justify-content:center}
+.cpane{width:640px;padding:44px 36px;border-radius:22px;border:4px solid}
+.cpane.bad{border-color:#D7191C;background:rgba(215,25,28,.07)}
+.cpane.good{border-color:#1A7A3C;background:rgba(26,122,60,.07)}
+.cverdict{font-family:'Archivo Black',Arial,sans-serif;font-size:46px}
+.cpane.bad .cverdict{color:#C0161A}
+.cpane.good .cverdict{color:#177036}
+.cchips{display:flex;flex-wrap:nowrap;gap:12px;justify-content:center;margin:30px 0 24px}
+.cchip{width:42px;height:42px;flex:none;border-radius:50%;border:3px solid rgba(0,0,0,.30)}
+.cchip.r{background:#D7191C}
+.cchip.g{background:#1A7A3C}
+.cchip.n{background:#C6CBD1}
+.cnote{font-size:30px;font-weight:600}
 
 .ic{width:96px;height:100px;flex:none}
 .page.light .ic{fill:#16181C;stroke:#16181C}
@@ -1153,15 +1269,18 @@ CSS = """
 .biotext{flex:1}
 .bioname{font-size:56px;margin-bottom:22px}
 .biopara{font-size:31px;line-height:1.45;font-weight:600;margin-bottom:18px}
-.tgrid{display:flex;gap:60px;width:1440px;justify-content:center;align-items:flex-start}
-.tcard{width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.tshot{width:250px;height:400px;flex:none;border-radius:12px;
-  border:4px dashed rgba(255,255,255,.42);background:rgba(255,255,255,.07);
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:18px;font-weight:700;line-height:1.7;color:#C9C9C9}
-.page.light .tshot{border-color:rgba(0,0,0,.30);background:rgba(0,0,0,.05);color:#8A8A8A}
-.tquote{font-size:25px;line-height:1.38;font-weight:600;margin-top:24px;width:440px}
-.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:24px;color:#FFB81C;margin-top:16px}
+.tgrid{display:flex;gap:52px;width:1440px;justify-content:center;align-items:stretch}
+.tcard{width:445px;padding:44px 38px 40px;border-radius:20px;text-align:left;
+  background:rgba(255,255,255,.07);border:3px solid rgba(255,255,255,.20);
+  display:flex;flex-direction:column}
+.page.light .tcard{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.14)}
+.tmark{font-family:'Archivo Black',Arial,sans-serif;font-size:86px;line-height:.6;
+  color:#FFB81C;display:block;margin-bottom:22px}
+.page.light .tmark{color:#B07A00}
+.tquote{font-size:27px;line-height:1.42;font-weight:600;flex:1}
+.trule{display:block;width:70px;height:4px;background:#FFB81C;margin:26px 0 18px}
+.page.light .trule{background:#B07A00}
+.twho{font-family:'Archivo Black',Arial,sans-serif;font-size:24px;color:#FFB81C}
 .page.light .twho{color:#B07A00}
 
 :root{
