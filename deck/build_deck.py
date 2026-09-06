@@ -1155,8 +1155,10 @@ def render(s):
         b.append('<div class="bpcols">')
         for start, col in ((1, s["items"][:5]), (6, s["items"][5:])):
             b.append(f'<ol class="bpcol" start="{start}">')
+            # Plain list items: Canva's importer scatters inline spans inside <li>,
+            # so the chips are spoken rather than drawn.
             for it in col:
-                b.append(f'<li><span class="bpchip"></span>{esc(it)}</li>')
+                b.append(f'<li>{esc(it)}</li>')
             b.append('</ol>')
         b.append('</div>')
     elif L == "compare":
